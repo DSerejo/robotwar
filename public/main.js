@@ -20,21 +20,23 @@ cc.game.onStart = function(){
             scene = new EditorScene()
         }else{
             scene = new BattleScene();
-            var socket = io.connect(xhost + ':' + xport);
+            var socket = io.connect(xhost + xport);
 
 
             socket.on('connect',function() {
                 console.log('Client has connected to the server!');
                 connected = true;
             });
-
+            setInterval(function(){
+                socket.emit('message',{m:'ping',d:new Date().getTime()});
+            },1000)
             socket.on('message', function(packet) {
                 packet = JSON.parse(packet);
 
                 if (packet && packet.m) {
                     switch(packet.m) {
                         case 'world-update':
-                            console.log(new Date().getTime() - packet.t);
+                            //console.log(new Date().getTime() - packet.t);
                             scene.updateWorld(packet.d,packet.t);
                             break;
                         case 'world-start':

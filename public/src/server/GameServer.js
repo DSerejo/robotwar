@@ -36,8 +36,6 @@ GameServer.pong = function(client, data) {
 };
 
 GameServer.onMessage = function(client,packet){
-    packet = JSON.parse(packet);
-
     if(packet && packet.m){
         switch(packet.m){
             case 'jump':
