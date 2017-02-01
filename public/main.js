@@ -34,6 +34,7 @@ cc.game.onStart = function(){
                 if (packet && packet.m) {
                     switch(packet.m) {
                         case 'world-update':
+                            console.log(new Date().getTime() - packet.t);
                             scene.updateWorld(packet.d,packet.t);
                             break;
                         case 'world-start':
