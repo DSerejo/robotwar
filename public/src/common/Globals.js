@@ -117,6 +117,12 @@ _p.WORLD_SCALE = 1;
 _p.PMR = PMR_START*WORLD_SCALE;
 _p.gravity = new b2Vec2(0,-10);
 _p.RESOLUTION = {width:800,height:400};
-_p.xport = window.location.hostname!='localhost1'?'':':5001';
-_p.xhost = window.location.hostname!='localhost1'?'https://robotwarserver.herokuapp.com':'localhost';
+if(typeof window != 'undefined'){
+    _p.xport = window && window.location.hostname!='localhost1'?'':':5001';
+    _p.xhost = window && window.location.hostname!='localhost1'?'https://robotwarserver.herokuapp.com':'localhost';
+}else{
+    _p.xport = ':5001';
+    _p.xhost = 'https://robotwarserver.herokuapp.com';
+}
+
 _p.MODE = 'server';
