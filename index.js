@@ -11,7 +11,7 @@ app.set('view engine', 'ejs');
 
 app.get('/', function(request, response) {
   var wsHOST = process.env.TESTANDO==1?'https://robotwarserver.herokuapp.com':'http://localhost:5001';
-  response.render('pages/index',{wsHOST:wsHOST});
+  response.render('pages/index',{wsHOST:wsHOST,ppp:JSON.stringify(process.env)});
 });
 
 app.listen(app.get('port'), function() {
