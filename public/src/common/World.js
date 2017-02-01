@@ -2,6 +2,7 @@
 if (typeof require !== 'undefined' && typeof module !== 'undefined') {
     var BoxBody =  require('./Physics/BoxBody');
     var EntityManager =  require('./Physics/EntityManager');
+    var _ =  require('lodash');
 }
 var World = function(entityFactory){
     this.entityFactory = entityFactory;

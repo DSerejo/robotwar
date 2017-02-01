@@ -117,9 +117,9 @@ _p.WORLD_SCALE = 1;
 _p.PMR = PMR_START*WORLD_SCALE;
 _p.gravity = new b2Vec2(0,-10);
 _p.RESOLUTION = {width:800,height:400};
-_p.xport = 82;
-_p.xhost = '10.0.0.34';
-_p.MODE = 'server1';
+_p.xport = 5001;
+_p.xhost = 'localhost';
+_p.MODE = 'server';
 
 
 

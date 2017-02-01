@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Cocos2d-html5 Hello World test</title>
-    <link rel="icon" type="image/GIF" href="../../res/favicon.ico"/>
+    <link rel="icon" type="image/GIF" href="/res/favicon.ico"/>
     <meta name="viewport" content="width=321,user-scalable=no" />
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="full-screen" content="yes"/>
@@ -19,12 +19,14 @@
             -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
         }
     </style>
-    <script src="../engine/CCBoot.js"></script>
-    <script src="http://10.0.0.34:82/socket.io/socket.io.js"></script>
-    <script src="../main.js"></script>
+    <script src="/engine/CCBoot.js"></script>
+    <script src="<%= wsHOST %>/socket.io/socket.io.js"></script>
+
 </head>
 <body style="padding:0; margin: 0; background: #000;">
-<script src="../res/loading.js"></script>
+
+<script src="/main.js"></script>
+<script src="/res/loading.js"></script>
 <canvas id="gameCanvas" width="321" height="480"></canvas>
 <div>
     <canvas id="box2d" width="321" height="480"></canvas>

@@ -10,7 +10,8 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 app.get('/', function(request, response) {
-  response.render('pages/index');
+  var wsHOST = process.env.PORT?'https://robotwarserver.herokuapp.com':'http://localhost:5001';
+  response.render('pages/index',{wsHOST:wsHOST});
 });
 
 app.listen(app.get('port'), function() {
