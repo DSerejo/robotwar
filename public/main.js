@@ -20,7 +20,7 @@ cc.game.onStart = function(){
             scene = new EditorScene()
         }else{
             scene = new BattleScene();
-            var socket = io.connect(xhost + ':' + xport);
+            var socket = io.connect(xhost + xport);
 
 
             socket.on('connect',function() {
