@@ -1,9 +1,368 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d481df51-02ba-4c69-a737-55c911d78d18" name="Default" comment="" />
+    <list default="true" id="d481df51-02ba-4c69-a737-55c911d78d18" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/timeline/ActionTimeline.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/Base64Images.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/base-nodes/BaseNodesPropertyDefine.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/utils/BinaryLoader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/actions/CCAction.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/actions/CCActionCamera.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/actions/CCActionCatmullRom.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/actions/CCActionEase.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/action/CCActionFrame.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/actions3d/CCActionGrid.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/actions3d/CCActionGrid3D.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/actions/CCActionInstant.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/actions/CCActionInterval.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/CCActionManager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/action/CCActionManager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/action/CCActionNode.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/action/CCActionObject.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/actions3d/CCActionPageTurn3D.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/progress-timer/CCActionProgressTimer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/actions3d/CCActionTiledGrid.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/actions/CCActionTween.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/cocoa/CCAffineTransform.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/sprites/CCAnimation.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/sprites/CCAnimationCache.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/armature/CCArmature.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/armature/animation/CCArmatureAnimation.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/armature/CCArmatureCanvasRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/armature/utils/CCArmatureDataManager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/armature/utils/CCArmatureDefine.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/armature/CCArmatureWebGLRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/base-nodes/CCAtlasNode.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/base-nodes/CCAtlasNodeCanvasRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/base-nodes/CCAtlasNodeWebGLRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/audio/CCAudio.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccb-reader/CCBAnimationManager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccb-reader/CCBKeyframe.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccb-reader/CCBReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccb-reader/CCBReaderUtil.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccb-reader/CCBRelativePositioning.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccb-reader/CCBSequence.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccb-reader/CCBValue.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/sprites/CCBakeSprite.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/armature/display/CCBatchNode.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/armature/CCBone.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/CCBoot.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/CCCamera.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/platform/CCClass.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/clipping-nodes/CCClippingNode.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/clipping-nodes/CCClippingNodeCanvasRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/clipping-nodes/CCClippingNodeWebGLRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/armature/physics/CCColliderDetector.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/components/CCComAttribute.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/components/CCComAudio.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/components/CCComController.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/components/CCComRender.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/platform/CCCommon.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/components/CCComponent.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/components/CCComponentContainer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/platform/CCConfig.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/CCConfiguration.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/gui/control-extension/CCControl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/gui/control-extension/CCControlButton.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/gui/control-extension/CCControlColourPicker.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/gui/control-extension/CCControlHuePicker.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccb-reader/CCControlLoader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/gui/control-extension/CCControlPotentiometer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/gui/control-extension/CCControlSaturationBrightnessPicker.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/gui/control-extension/CCControlSlider.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/gui/control-extension/CCControlStepper.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/gui/control-extension/CCControlSwitch.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/gui/control-extension/CCControlUtils.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/armature/utils/CCDataReaderHelper.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/armature/datas/CCDatas.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/CCDebugger.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/armature/display/CCDecorativeDisplay.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/CCDirector.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/CCDirectorWebGL.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/armature/display/CCDisplayFactory.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/armature/display/CCDisplayManager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/shape-nodes/CCDrawNode.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/shape-nodes/CCDrawNodeCanvasRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/shape-nodes/CCDrawNodeWebGLRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/CCDrawingPrimitivesCanvas.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/CCDrawingPrimitivesWebGL.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/platform/CCEGLView.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/editbox/CCEditBox.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/event-manager/CCEvent.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/event-manager/CCEventExtension.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/event-manager/CCEventListener.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/event-manager/CCEventManager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/shaders/CCGLProgram.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/shaders/CCGLStateCache.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/cocoa/CCGeometry.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/effects/CCGrabber.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/effects/CCGrid.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/text-input/CCIMEDispatcher.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/platform/CCInputExtension.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/platform/CCInputManager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/gui/control-extension/CCInvocation.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/labels/CCLabelAtlas.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/labels/CCLabelAtlasCanvasRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/labels/CCLabelAtlasWebGLRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/labels/CCLabelBMFont.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/labels/CCLabelBMFontCanvasRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/labels/CCLabelBMFontWebGLRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/labelttf/CCLabelTTF.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/labelttf/CCLabelTTFCanvasRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/labelttf/CCLabelTTFWebGLRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/layers/CCLayer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/layers/CCLayerCanvasRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/layers/CCLayerWebGLRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/scenes/CCLoaderScene.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/platform/CCLoaders.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/platform/CCMacro.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/menus/CCMenu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/menus/CCMenuItem.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/gui/control-extension/CCMenuPassive.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/motion-streak/CCMotionStreak.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/motion-streak/CCMotionStreakWebGLRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/base-nodes/CCNode.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/base-nodes/CCNodeCanvasRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/node-grid/CCNodeGrid.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/node-grid/CCNodeGridWebGLRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccb-reader/CCNodeLoader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccb-reader/CCNodeLoaderLibrary.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/base-nodes/CCNodeWebGLRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/particle/CCPNGReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/parallax/CCParallaxNode.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/parallax/CCParallaxNodeRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/particle/CCParticleBatchNode.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/particle/CCParticleBatchNodeCanvasRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/particle/CCParticleBatchNodeWebGLRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/particle/CCParticleExamples.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/particle/CCParticleSystem.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/particle/CCParticleSystemCanvasRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/particle/CCParticleSystemWebGLRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/physics/CCPhysicsDebugNode.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/physics/CCPhysicsDebugNodeCanvasRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/physics/CCPhysicsDebugNodeWebGLRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/physics/CCPhysicsSprite.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/physics/CCPhysicsSpriteCanvasRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/physics/CCPhysicsSpriteWebGLRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/support/CCPointExtension.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccpool/CCPool.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/armature/animation/CCProcessBase.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/progress-timer/CCProgressTimer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/progress-timer/CCProgressTimerCanvasRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/progress-timer/CCProgressTimerWebGLRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccui/base-classes/CCProtectedNode.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccui/base-classes/CCProtectedNodeCanvasRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccui/base-classes/CCProtectedNodeWebGLRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/render-texture/CCRenderTexture.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/render-texture/CCRenderTextureCanvasRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/render-texture/CCRenderTextureWebGLRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/platform/CCSAXParser.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/gui/control-extension/CCScale9Sprite.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/gui/control-extension/CCScale9SpriteCanvasRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/gui/control-extension/CCScale9SpriteWebGLRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/scenes/CCScene.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/CCScheduler.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/platform/CCScreen.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/gui/scrollview/CCScrollView.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/gui/scrollview/CCScrollViewCanvasRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/gui/scrollview/CCScrollViewWebGLRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/shaders/CCShaderCache.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/shaders/CCShaders.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/spine/CCSkeleton.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/spine/CCSkeletonAnimation.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/spine/CCSkeletonCanvasRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/spine/CCSkeletonWebGLRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/armature/display/CCSkin.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/armature/display/CCSkinCanvasRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/armature/display/CCSkinWebGLRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/gui/scrollview/CCSorting.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/sprites/CCSprite.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/sprites/CCSpriteBatchNode.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/sprites/CCSpriteBatchNodeCanvasRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/sprites/CCSpriteBatchNodeWebGLRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/sprites/CCSpriteCanvasRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/sprites/CCSpriteFrame.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/sprites/CCSpriteFrameCache.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/armature/utils/CCSpriteFrameCacheHelper.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccb-reader/CCSpriteLoader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/sprites/CCSpriteWebGLRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/tilemap/CCTGAlib.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/particle/CCTIFFReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/tilemap/CCTMXLayer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/tilemap/CCTMXLayerCanvasRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/tilemap/CCTMXLayerWebGLRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/tilemap/CCTMXObjectGroup.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/tilemap/CCTMXTiledMap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/tilemap/CCTMXXMLParser.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/gui/scrollview/CCTableView.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/text-input/CCTextFieldTTF.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/textures/CCTexture2D.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/textures/CCTextureAtlas.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/textures/CCTextureCache.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/event-manager/CCTouch.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/armature/utils/CCTransformHelp.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/transitions/CCTransition.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/transitions/CCTransitionPageTurn.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/transitions/CCTransitionProgress.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/armature/animation/CCTween.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/armature/utils/CCTweenFunction.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/platform/CCTypes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/platform/CCTypesPropertyDefine.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/platform/CCTypesWebGL.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/armature/utils/CCUtilMath.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/support/CCVertex.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/platform/CCVisibleRect.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/editbox/CCdomNode.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/CocoStudio.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccui/system/CocosGUI.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/timeline/Frame.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/external/gaf/Library/GAFAsset.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/external/gaf/Library/GAFAssetPreload.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/external/gaf/Library/GAFAtlasLoader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/external/gaf/GAFBoot.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/external/gaf/Library/GAFDataReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/external/gaf/Library/GAFLoader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/external/gaf/GAFMacros.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/external/gaf/Library/GAFMask.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/external/gaf/Library/GAFMaskProto.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/external/gaf/Library/GAFObject.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/external/gaf/Library/GAFShaderManager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/external/gaf/Library/GAFShaders.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/external/gaf/Library/GAFSprite.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/external/gaf/Library/GAFSpriteCanvasRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/external/gaf/Library/GAFSpriteProto.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/external/gaf/Library/GAFSpriteWebGLRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/external/gaf/Library/GAFTags.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/external/gaf/Library/GAFTextField.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/external/gaf/Library/GAFTimeLine.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/external/gaf/Library/GAFTimeLineProto.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/labelttf/LabelTTFPropertyDefine.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/trigger/ObjectFactory.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/external/pluginx/Plugin.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/renderer/RendererCanvas.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/renderer/RendererWebGL.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/kazmath/SIMDPolyfill.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/spine/Spine.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/sprites/SpritesPropertyDefine.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/textures/TexturesPropertyDefine.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/textures/TexturesWebGL.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/timeline/Timeline.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/support/TransformUtils.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/trigger/TriggerBase.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/trigger/TriggerMng.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/trigger/TriggerObj.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccui/uiwidgets/UIButton.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccui/uiwidgets/UICheckBox.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccui/layouts/UIHBox.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccui/system/UIHelper.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccui/uiwidgets/UIImageView.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccui/layouts/UILayout.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccui/layouts/UILayoutCanvasRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccui/layouts/UILayoutComponent.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccui/layouts/UILayoutManager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccui/layouts/UILayoutParameter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccui/layouts/UILayoutWebGLRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccui/uiwidgets/scroll-widget/UIListView.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccui/uiwidgets/UILoadingBar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccui/uiwidgets/scroll-widget/UIPageView.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccui/layouts/UIRelativeBox.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccui/uiwidgets/UIRichText.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccui/base-classes/UIScale9Sprite.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccui/base-classes/UIScale9SpriteCanvasRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccui/base-classes/UIScale9SpriteWebGLRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccui/uiwidgets/scroll-widget/UIScrollView.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccui/uiwidgets/UISlider.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccui/uiwidgets/UIText.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccui/uiwidgets/UITextAtlas.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccui/uiwidgets/UITextBMFont.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccui/uiwidgets/UITextField.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccui/layouts/UIVBox.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccui/uiwidgets/UIVideoPlayer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccui/uiwidgets/UIWebView.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccui/base-classes/UIWidget.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/ccui/base-classes/UIWidgetRenderCmd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/compression/ZipUtils.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/kazmath/aabb.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/loader/parsers/action-1.x.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/loader/parsers/action-2.x.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/kazmath/simd_benchmark/base.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/compression/base64.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/external/box2d/box2d.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/external/chipmunk/chipmunk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/lib/cocos2d-js-v3.6-core-min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/lib/cocos2d-js-v3.6-min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/cocos2d_externs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/loader/parsers/compatible.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/external/pluginx/platform/facebook.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/external/pluginx/platform/facebook_sdk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/external/gaf/gaf_viewer.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/external/gaf/gaf_viewer.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/external/gaf/gaf_viewer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/compression/gzip.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/kazmath/simd_benchmark/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/jsb_apis.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/kazmath/simd_benchmark/kernel-template.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/kazmath/simd_benchmark/kmMat4AreEqual.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/kazmath/simd_benchmark/kmMat4Assign.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/kazmath/simd_benchmark/kmMat4Inverse.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/kazmath/simd_benchmark/kmMat4IsIdentity.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/kazmath/simd_benchmark/kmMat4LookAt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/kazmath/simd_benchmark/kmMat4Multiply.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/kazmath/simd_benchmark/kmMat4Transpose.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/kazmath/simd_benchmark/kmVec3TransformCoord.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/loader/load.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/kazmath/mat3.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/kazmath/mat4.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/kazmath/mat4SIMD.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/kazmath/gl/mat4stack.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/kazmath/gl/matrix.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/core/platform/miniFramework.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/moduleConfig.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/kazmath/plane.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/kazmath/quaternion.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/kazmath/ray2.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/kazmath/simd_benchmark/run.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/kazmath/simd_benchmark/run_browser.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/loader/parsers/scene-1.x.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/external/socketio/socket.io.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/external/socketio/socket.io.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/loader/parsers/timelineParser-1.x.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/loader/parsers/timelineParser-2.x.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/extensions/cocostudio/loader/parsers/uiParser-1.x.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/kazmath/utility.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/kazmath/vec2.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/kazmath/vec3.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/kazmath/vec3SIMD.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/kazmath/vec4.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/engine/cocos2d/compression/zlib.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/lang-logo.png" afterPath="$PROJECT_DIR$/public/lang-logo.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.env" afterPath="$PROJECT_DIR$/.env" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/.idea/.name" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Procfile" afterPath="$PROJECT_DIR$/Procfile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.json" afterPath="$PROJECT_DIR$/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/pages/db.ejs" afterPath="$PROJECT_DIR$/views/pages/db.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/partials/header.ejs" afterPath="$PROJECT_DIR$/views/partials/header.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/pages/index.ejs" afterPath="$PROJECT_DIR$/views/pages/index.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/main.css" afterPath="$PROJECT_DIR$/public/stylesheets/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/partials/nav.ejs" afterPath="$PROJECT_DIR$/views/partials/nav.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/node.svg" afterPath="$PROJECT_DIR$/public/node.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/robotwar.iml" afterPath="$PROJECT_DIR$/.idea/robotwar.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="robotwar.iws" />
     <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,12 +378,92 @@
   <component name="FavoritesManager">
     <favorites_list name="robotwar" />
   </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="index.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/pages/index.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.3076923">
+              <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lang-logo.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/lang-logo.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Globals.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/src/common/Globals.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6221663">
+              <caret line="121" column="18" selection-start-line="121" selection-start-column="18" selection-end-line="121" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="project.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/project.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.875">
+              <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Base64Images.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/engine/Base64Images.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CCGeometry.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/engine/cocos2d/core/cocoa/CCGeometry.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
       <projects_view />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/project.json" />
+        <option value="$PROJECT_DIR$/views/pages/index.ejs" />
+        <option value="$PROJECT_DIR$/public/src/common/Globals.js" />
+      </list>
     </option>
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" />
@@ -97,11 +536,60 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/engine" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
       <option name="PROGRAM_PARAMETERS" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
@@ -126,6 +614,111 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="BashConfigurationType" factoryName="Bash">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="INTERPRETER_PATH" value="/bin/bash" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="myFilePath" />
+      <option name="GLUE" />
+      <option name="myNameFilter" />
+      <option name="myGeneratedName" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
+      <option name="BCName" value="" />
+      <option name="IOSSimulatorSdkPath" value="" />
+      <option name="adlOptions" value="" />
+      <option name="airProgramParameters" value="" />
+      <option name="appDescriptorForEmulator" value="Android" />
+      <option name="debugTransport" value="USB" />
+      <option name="debuggerSdkRaw" value="BC SDK" />
+      <option name="emulator" value="NexusOne" />
+      <option name="emulatorAdlOptions" value="" />
+      <option name="fastPackaging" value="true" />
+      <option name="fullScreenHeight" value="0" />
+      <option name="fullScreenWidth" value="0" />
+      <option name="launchUrl" value="false" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="/usr/bin/flashplayerdebugger" />
+        </LauncherParameters>
+      </option>
+      <option name="mobileRunTarget" value="Emulator" />
+      <option name="moduleName" value="" />
+      <option name="overriddenMainClass" value="" />
+      <option name="overriddenOutputFileName" value="" />
+      <option name="overrideMainClass" value="false" />
+      <option name="runTrusted" value="true" />
+      <option name="screenDpi" value="0" />
+      <option name="screenHeight" value="0" />
+      <option name="screenWidth" value="0" />
+      <option name="url" value="http://" />
+      <option name="usbDebugPort" value="7936" />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
+      <option name="BCName" value="" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="/usr/bin/flashplayerdebugger" />
+        </LauncherParameters>
+      </option>
+      <option name="moduleName" value="" />
+      <option name="trusted" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
+      <module name="" />
+      <setting name="vmparams" value="" />
+      <setting name="cmdLine" value="run-app" />
+      <setting name="depsClasspath" value="false" />
+      <setting name="passParentEnv" value="true" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <setting name="launchBrowser" value="false" />
+      <method />
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -147,12 +740,39 @@
       <patterns />
       <method />
     </configuration>
+    <configuration default="true" type="JarApplication" factoryName="JAR Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+      <method />
+    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -183,6 +803,15 @@
       <listeners />
       <method />
     </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <method />
+    </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Run Launcher">
+      <method />
+    </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
+      <method />
+    </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration">
@@ -194,16 +823,16 @@
       <created>1485950357861</created>
       <option name="number" value="Default" />
       <updated>1485950357861</updated>
-      <workItem from="1485950360653" duration="202000" />
+      <workItem from="1485950360653" duration="1218000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="202000" />
+    <option name="totallyTimeSpent" value="1218000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1301" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32535884" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -214,7 +843,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32695374" sideWeight="0.49483716" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.07863384" sideWeight="0.8013817" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5614035" sideWeight="0.700556" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27432218" sideWeight="0.70611596" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32376397" sideWeight="0.70611596" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2621128" sideWeight="0.8446043" order="0" side_tool="false" content_ui="combo" />
@@ -244,5 +873,60 @@
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/public/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/engine/cocos2d/core/cocoa/CCGeometry.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/project.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.875">
+          <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/engine/Base64Images.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/pages/index.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.3076923">
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/lang-logo.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/src/common/Globals.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6221663">
+          <caret line="121" column="18" selection-start-line="121" selection-start-column="18" selection-end-line="121" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>
