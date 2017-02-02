@@ -6,12 +6,13 @@ npm-debug.log
 # Local development
 *.env
 *.dev
-.idea
-/config.js
-/public/config.js
+.idea/*
 .DS_Store
 Procfile
 
 # Docker
 Dockerfile
 docker-compose.yml
+
+/config.js
+/public/config.js
