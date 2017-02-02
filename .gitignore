@@ -7,8 +7,7 @@ npm-debug.log
 *.env
 *.dev
 .idea
-config.js
-public/config.js
+*config.js
 .DS_Store
 Procfile
 
