@@ -2,9 +2,12 @@ if (typeof require !== 'undefined' && typeof module !== 'undefined') {
     Entity = require('../Physics/Entity')
     BoxBody = require('../Physics/BoxBody')
 }
-var BoxPhysics = function(){};
-Box2D.inherit(BoxPhysics,Entity);
-BoxPhysics.prototype.addBody = function(){
+var BoxPhysicsDef = function(){}
+BoxPhysicsDef.prototype.ctor = function(id,width,height,pos,angle,material,type){
+    this.init(id,width,height,0,pos,angle,material,type||Entity.types.box);
+    this._super()
+}
+BoxPhysicsDef.prototype.addBody = function(){
     var boxBody = new BoxBody(
         this.w,
         this.h,
@@ -18,6 +21,8 @@ BoxPhysics.prototype.addBody = function(){
     );
     this.body = boxBody.body;
 };
+var BoxPhysics = Entity.extend(allMethodsAndProps(BoxPhysicsDef));
+
 if (typeof require !== 'undefined' && typeof module !== 'undefined') {
     module.exports = BoxPhysics;
 }

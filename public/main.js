@@ -21,6 +21,7 @@ cc.game.onStart = function(){
         }else{
             scene = new BattleScene();
             var socket = io.connect(xhost + xport);
+            scene.socket = socket;
 
 
             socket.on('connect',function() {
@@ -30,6 +31,7 @@ cc.game.onStart = function(){
             setInterval(function(){
                 socket.emit('message',{m:'ping',d:new Date().getTime()});
             },1000)
+            socket.emit('message',{m:'ping',d:new Date().getTime()});
             socket.on('message', function(packet) {
                 packet = JSON.parse(packet);
 
@@ -43,7 +45,8 @@ cc.game.onStart = function(){
                             scene.startObjects(packet.d);
                             break;
                         case 'pong':
-                            console.log('pong', new Date().getTime() - packet.d);
+                            var dt = new Date().getTime() - packet.d;
+                            window.diffTimestamp = packet.t - packet.d - dt/2;
                             break;
                         default:
                             break;

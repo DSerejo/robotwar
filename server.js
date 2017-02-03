@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
 
-require('./public/src/server/index');
+var start = require('./public/src/server/index');
 
 var ClientManager = require('./public/src/server/ClientManager');
 var GameServer = require('./public/src/server/GameServer');
@@ -34,4 +34,4 @@ io.sockets.on('connection', function(client) {
     });
 });
 
-
+setTimeout(start,0);

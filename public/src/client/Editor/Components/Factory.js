@@ -12,6 +12,10 @@ Factory.pin = function(options){
     pin.init(id,options.position,[bodyA,bodyB]);
     return pin;
 };
+Factory.propulsor = function(options){
+    var id = options.id || EntityManager.newID()
+    return new Propulsor(id,options.position,options.angle,options.force,options.actionKeys);
+}
 
 //Factory.wheel = function(world,options){
 //    return new Wheel(world,options)
@@ -25,7 +29,4 @@ Factory.pin = function(options){
 //}
 //Factory.motor = function(world,options){
 //    return new Motor(world,options)
-//}
-//Factory.propulsor = function(world,options){
-//    return new Propulsor(world,options)
 //}

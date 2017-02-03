@@ -118,3 +118,23 @@ _p.PMR = PMR_START*WORLD_SCALE;
 _p.gravity = new b2Vec2(0,-10);
 _p.RESOLUTION = {width:800,height:400};
 _p.MODE = 'server';
+function allFuncs(obj){
+    var allPropNames = [];
+
+    do {
+        allPropNames = allPropNames.concat(Object.getOwnPropertyNames(obj));
+    } while (obj = Object.getPrototypeOf(obj));
+    return allPropNames;
+}
+_p.allMethodsAndProps = function(cls,except){
+    var props = {},
+        allPropNames = allFuncs(cls.prototype);
+    except = except || []
+    for (var i=0;i<allPropNames.length;i++ ){
+        var name = allPropNames[i];
+        if(except.indexOf(name)<0){
+            props[name]=cls.prototype[name];
+        }
+    }
+    return props;
+};

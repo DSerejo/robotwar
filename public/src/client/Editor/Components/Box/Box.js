@@ -1,13 +1,7 @@
-
-var Box = PhysicsObject.extend({
-    ctor:function(id,width,height,pos,angle,material){
-        this._super();
-        this.init = BoxPhysics.prototype.init;
-        this.addBody = BoxPhysics.prototype.addBody;
-        this.remove = BoxPhysics.prototype.remove;
-        this.toObject = BoxPhysics.prototype.toObject;
-        this.removeFromWorld = BoxPhysics.prototype.removeFromWorld;
-        this.init(id,width,height,0,pos,angle,material,Entity.types.box);
+var BoxDef = PhysicsObject.extend(_p.allMethodsAndProps(BoxPhysics));
+var Box = BoxDef.extend({
+    ctor:function(id,width,height,pos,angle,material,type){
+        this._super.apply(this,arguments);
         this.addBody();
         this.recreateSprite();
     },
@@ -43,6 +37,3 @@ var Box = PhysicsObject.extend({
         return Math.max(0.1,this.w+dX)
     }
 });
-
-
-

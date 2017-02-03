@@ -9,18 +9,24 @@ var WorldLayer = cc.Layer.extend({
         this.objectsLayer = new cc.Layer();
         this.addChild(this.objectsLayer);
         this.setAnchorPoint(0,0);
-        this.initWorld(initialObjects)
-        this.scheduleUpdate();
+        this.initWorld(initialObjects);
+        setInterval(this.update.bind(this),1000/60);
     },
-    update:function(dt){
+    lastUpdate:null,
+    update:function(){
         World.world.DrawDebugData();
         if(this.stopped) return;
-        World.world.Step(dt,10,10);
+        World.world.Step(1/60,10,10);
         World.world.ClearForces();
         EntityManager.removeDeadBodies();
         EntityManager.updateAll()
     },
-
+    getDeltaTime: function(){
+        var now = new Date().getTime(),
+            dt = this.lastUpdate?(now - this.lastUpdate)/1000:1/60;
+        this.lastUpdate = now;
+        return dt;
+    },
     initObjects:function(listOfObjects){
         var self = this
         listOfObjects.forEach(function(object){

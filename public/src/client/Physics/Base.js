@@ -1,9 +1,9 @@
-var BaseObject = cc.Node.extend({
+var BaseObject = cc.Class.extend({
     options:{
         action_keys:null
     },
     ctor:function(options){
-        this.setOptions(options);
+        var a = this.isTouched;
     },
     isTouched:function(p){
         var rect = new cc.Rect(0,0,this.sprite._contentSize.width, this.sprite._contentSize.height),
@@ -28,7 +28,7 @@ var BaseObject = cc.Node.extend({
         }
         this.selectedNode = null
     },
-    setOptions:function(options){
+    lalala:function(options){
         this.options = _.extend({},this.options,options);
     }
 })

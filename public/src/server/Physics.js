@@ -6,16 +6,35 @@ var _ = require('lodash');
 var Physics = {};
 var worldManager;
 var world;
-Physics.startWorld = function(){
+Physics.startWorld = function(callback){
     worldManager = new World(EntityFactory);
     worldManager.setupWorld(TestScenes.running);
-    world = World.world
-}
-Physics.update = function(){
-    world.Step(1 / 60, 10, 10);
-    world.ClearForces();
+    world = World.world;
+    callback && callback()
 };
-Physics.updateWorld = function(client,callback){
+Physics.lastUpdate = null;
+var stepCount = 0;
+Physics.update = function(){
+    var lastUpdate = new Date().getTime();
+    world.Step(1/60, 10, 10);
+    world.ClearForces();
+    EntityManager.performAllActions(function(isUpdateNeeded){
+        if(isUpdateNeeded)
+            Physics.updateWorld();
+    });
+};
+Physics.getDeltaTime = function(){
+    var now = new Date().getTime(),
+        dt = Physics.lastUpdate?(now - Physics.lastUpdate)/1000:1/60;
+    Physics.lastUpdate = now;
+    return dt;
+};
+Physics.updateWorldCallback = null;
+Physics.setUpdateWorldCallback = function(callback){
+    Physics.updateWorldCallback = callback
+};
+
+Physics.updateWorld = function(){
     var body = world.GetBodyList();
     var update = {};
     var isUpdateNeeded = false;
@@ -36,11 +55,12 @@ Physics.updateWorld = function(client,callback){
 
 
     if(isUpdateNeeded) {
-        callback && callback('world-update', update, null);
+        Physics.updateWorldCallback && Physics.updateWorldCallback('world-update', update, null);
     }
 };
 
 Physics.getBodies = function(){
+    if(!world) return [];
     var body = world.GetBodyList(),
         bodies = [];
 
@@ -55,7 +75,7 @@ Physics.getBodies = function(){
 }
 
 Physics.getJoints = function(){
-
+    if(!world) return [];
     var joints = [];
 
     _.each(EntityManager.joints,function(joint,id){

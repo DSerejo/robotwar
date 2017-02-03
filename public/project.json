@@ -11,6 +11,7 @@
 
     "jsList" : [
         "lib/lodash.js",
+        "config.js",
         "src/resource.js",
         "src/common/Globals.js",
         "src/client/DebugCanvas.js",
@@ -36,6 +37,8 @@
         "src/client/Editor/Components/Box/BoxSprite.js",
         "src/common/Components/Pin.js",
         "src/client/Editor/Components/Pin/Pin.js",
+        "src/common/Components/Propulsor.js",
+        "src/client/Editor/Components/Propulsor/Propulsor.js",
         "src/client/Editor/Controls/ControlButton.js",
         "src/client/Editor/Controls/Scale.js",
         "src/client/Editor/Controls/Move.js",

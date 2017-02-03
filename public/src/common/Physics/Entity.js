@@ -1,5 +1,21 @@
-var Entity = function(){};
-Entity.prototype.init = function(id,width,height,radius,pos,angle,material,type){
+var EntityDef = function(){};
+EntityDef.prototype.id = null;
+EntityDef.prototype.body = null;
+EntityDef.prototype.sprite = null;
+EntityDef.prototype.lastKineticEnergy = 0;
+EntityDef.prototype.material = null;
+EntityDef.prototype.w = 0;
+EntityDef.prototype.h = 0;
+EntityDef.prototype.radius = 0;
+EntityDef.prototype.pos = b2Vec2();
+EntityDef.prototype.angle = 0;
+EntityDef.prototype.type = null;
+EntityDef.prototype.initialized = false;
+
+EntityDef.prototype.ctor = function(){
+
+}
+EntityDef.prototype.init = function(id,width,height,radius,pos,angle,material,type){
     if(!id){
         throw 'Need id';
     }
@@ -15,17 +31,17 @@ Entity.prototype.init = function(id,width,height,radius,pos,angle,material,type)
     this.angle = angle || 0;
     this.type = type;
 };
-Entity.prototype.remove = function(){
+EntityDef.prototype.remove = function(){
     this.sprite && this.removeFromParent();
     this.body && this.removeFromWorld();
 };
-Entity.prototype.removeFromParent = function(){
+EntityDef.prototype.removeFromParent = function(){
     this.sprite.removeFromParent();
 };
-Entity.prototype.removeFromWorld = function(){
+EntityDef.prototype.removeFromWorld = function(){
     this.body.GetWorld().DestroyBody(this.body);
 };
-Entity.prototype.calculateDamage = function(energy){
+EntityDef.prototype.calculateDamage = function(energy){
     var area = this.calculateArea(),
         absorbedEnergy = this.material.calculateAbsorbedEnergy(energy/area),
         damage = this.material.calculateDeformationRatio(absorbedEnergy);
@@ -34,7 +50,7 @@ Entity.prototype.calculateDamage = function(energy){
         //this.isAlive = false;
     }
 };
-Entity.prototype.toObject = function(){
+EntityDef.prototype.toObject = function(){
     var obj = {};
     if(!this.body) return obj;
     obj = {
@@ -55,20 +71,31 @@ Entity.prototype.toObject = function(){
         obj.width = boxExtents.x*2;
         obj.height = boxExtents.y*2;
     }
-    return obj
+    return obj;
 };
-Entity.prototype.calculateArea = function(){
+EntityDef.prototype.calculateArea = function(){
     return this.body.GetMass()/this.body.GetFixtureList().GetDensity()
 };
-Entity.prototype.updateKineticEnergy = function(){
+EntityDef.prototype.updateKineticEnergy = function(){
     this.lastKineticEnergy  = EnergyCalc.kineticEnergy(this.body);
 };
-Entity.prototype.getDiffEnergy = function(){
+EntityDef.prototype.getDiffEnergy = function(){
     return this.lastKineticEnergy - EnergyCalc.kineticEnergy(this.body)
 };
+EntityDef.prototype.setActionKeys = function(actionKeys){
+    this.actionKeys = actionKeys;
+};
+
+EntityDef.prototype.getActionKey = function(action){
+    if(this.actionKeys && this.actionKeys[action])
+        return this.actionKeys[action];
+};
+
+var Entity = cc.Class.extend(EntityDef.prototype);
 Entity.types = {
     box:'box',
-    circle:'circle'
+    circle:'circle',
+    propulsor:'propulsor'
 };
 
 var EnergyCalc = {}
