@@ -9,8 +9,6 @@ npm-debug.log
 .idea/*
 .DS_Store
 
-Procfile
-
 # Docker
 Dockerfile
 docker-compose.yml
