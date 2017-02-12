@@ -19,17 +19,20 @@ World.prototype.clearAllDynamic = function(){
         o.remove();
     });
     _.each(EntityManager.joints,function(o){
-        o.removeJoint();
+        o.remove();
     });
     EntityManager.entities = {};
     EntityManager.joints = {}
 
 };
+World.prototype.createEntityFromOptions = function(o){
+    return this.entityFactory[o.class](o);
+};
 World.prototype.setInitialObjects = function(initialObjects,callback){
     var self = this;
     _.each(initialObjects.bodies,function(o){
         if(o.id && EntityManager.hasEntityId(o.id)) return;
-        var entity = self.entityFactory[o.class](o);
+        var entity = self.createEntityFromOptions(o);
         if(o.lv){
             entity.body.SetLinearVelocity(o.lv)
             entity.body.SetAngularVelocity(o.av)
@@ -61,7 +64,42 @@ World.prototype.debugDraw = function(){
     debugDraw.SetLineThickness(1.0);
     debugDraw.SetFlags(b2DebugDraw.e_shapeBit | b2DebugDraw.e_jointBit);
     World.world.SetDebugDraw(debugDraw);
-}
+};
+World.getBodies = function(){
+    var world = World.world;
+    var body = world.GetBodyList(),
+        bodies = [];
+
+    do {
+        var userData = body.GetUserData();
+
+        if(userData && userData.id && body.IsAwake()){
+            bodies.push(userData.toObject());
+        }
+    } while (body = body.GetNext());
+    return bodies;
+};
+
+World.getJoints = function(){
+    var world = World.world;
+    var joints = [];
+
+    _.each(EntityManager.joints,function(joint,id){
+        if(joint.joint){
+            joints.push(joint.toObject());
+        }
+    });
+    return joints;
+
+};
+World.pushState = function(){
+    if(typeof EditorState !== "undefined"){
+        EditorState.pushState(World.getCurrentState());
+    }
+};
+World.getCurrentState = function(){
+    return {bodies:World.getBodies(),joints:World.getJoints()}
+};
 if (typeof require !== 'undefined' && typeof module !== 'undefined') {
     global.World = World;
     module.exports = World;

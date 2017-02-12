@@ -15,7 +15,7 @@ var BaseObject = cc.Class.extend({
     },
     select:function(){
         this.unSelect();
-        var sprite  = new BoxSprite(_.extend({},this.sprite.getContentSize(),{fillColor:'#4286f4'}))
+        var sprite  = new BoxSprite(this.sprite.getContentSize().width,this.sprite.getContentSize().height,'#1c59bc',50);
         this.sprite.addChild(sprite,1,'selected')
         this.selectedNode = sprite;
     },
@@ -27,9 +27,43 @@ var BaseObject = cc.Class.extend({
             this.selectedNode.removeFromParent()
         }
         this.selectedNode = null
+    },recreateSprite:function(){
+        var oldSpriteConfig = this.removeSprite();
+        this.createSpriteObject();
+        if(this.body)
+            this.sprite.setPosition(cc.convertMetersToPoint(this.body.GetPosition()));
+        else{
+            this.sprite.setPosition(cc.convertMetersToPoint(this.pos));
+        }
+        if(!this.options.delayedPosition){
+            this.sprite.init(this);
+        }
+        if(oldSpriteConfig && oldSpriteConfig.parent){
+            oldSpriteConfig.parent.addChild(this.sprite,oldSpriteConfig.zOrder);
+            oldSpriteConfig.isSelected && this.select()
+        }
+    },removeSprite :function(){
+        if(this.sprite){
+            var parent = this.sprite.parent,
+                zOrder = this.sprite.getLocalZOrder(),
+                isSelected = this.isSelected();
+            this.sprite.removeAllChildren();
+            this.sprite.removeFromParent();
+            this.sprite = null;
+            return {parent:parent,zOrder:zOrder,isSelected:isSelected}
+        }
     },
-    lalala:function(options){
-        this.options = _.extend({},this.options,options);
+    addX:function(dX){
+        this.sprite.setPosition(cc.convertMetersToPoint(cc.p(this.pos.x+dX,this.pos.y)));
+        this.updateBodyFromSprite();
+    },
+    addY:function(dY){
+        this.sprite.setPosition(cc.convertMetersToPoint(cc.p(this.pos.x,this.pos.y+dY)));
+        this.updateBodyFromSprite();
+    },
+    addAngle:function(dA){
+        this.sprite.setRotation(-this.angle + dA);
+        this.updateBodyFromSprite();
     }
 })
 var a = 0;

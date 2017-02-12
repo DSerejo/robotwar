@@ -59,31 +59,5 @@ Physics.updateWorld = function(){
     }
 };
 
-Physics.getBodies = function(){
-    if(!world) return [];
-    var body = world.GetBodyList(),
-        bodies = [];
 
-    do {
-        var userData = body.GetUserData();
-
-        if(userData && userData.id && body.IsAwake()){
-            bodies.push(userData.toObject());
-        }
-    } while (body = body.GetNext());
-    return bodies;
-}
-
-Physics.getJoints = function(){
-    if(!world) return [];
-    var joints = [];
-
-    _.each(EntityManager.joints,function(joint,id){
-        if(joint.joint){
-            joints.push(joint.toObject());
-        }
-    });
-    return joints;
-
-};
 module.exports = Physics;

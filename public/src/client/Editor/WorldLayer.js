@@ -1,15 +1,19 @@
+
 var WorldLayer = cc.Layer.extend({
     objects:[],
     staticObjects:[],
     objectsLayer:null,
     graveyard:{},
-    stopped:false,
+    stopped:true,
+    currentState:{},
+    jointObjects :['pin'],
     ctor:function(initialObjects){
         this._super()
         this.objectsLayer = new cc.Layer();
         this.addChild(this.objectsLayer);
         this.setAnchorPoint(0,0);
         this.initWorld(initialObjects);
+
         setInterval(this.update.bind(this),1000/60);
     },
     lastUpdate:null,
@@ -41,13 +45,27 @@ var WorldLayer = cc.Layer.extend({
         this.worldManager = new World(Factory);
         this.worldManager.debugDraw()
         this.worldManager.setupWorld()
+        this.addObjects(initialObjects);
+        //this.startListenningContacts()
+    },
+    addObjects:function(objects){
         var self = this;
-        this.worldManager.setInitialObjects(initialObjects,function(object){
+        this.worldManager.setInitialObjects(objects,function(object){
             self.objects.push(object)
             if(object.sprite)
                 self.objectsLayer.addChild(object.sprite,object.type==Entity.types.pin?2:0);
-        })
-        //this.startListenningContacts()
+        });
+    },
+    addObject:function(object){
+        var entity =this.worldManager.createEntityFromOptions(object);
+        if(this.jointObjects.indexOf(object.class)>=0){
+            EntityManager.addNewJoint(entity);
+        }else{
+            EntityManager.addNewEntity(entity);
+        }
+        this.objects.push(entity);
+        if(entity.sprite)
+            this.objectsLayer.addChild(entity.sprite,entity.type==Entity.types.pin?2:0);
     },
     createGround:function(){
         var pos = cc.p((cc.view.getDesignResolutionSize().width/2)/WORLD_SCALE,0),
@@ -97,8 +115,37 @@ var WorldLayer = cc.Layer.extend({
         }
         if(curBody.GetUserData()==id)
             return curBody
+    },
+    run:function(){
+        this.saveCurrentState();
+        this.stopped = false;
+    },
+    saveCurrentState(){
+        this.currentState = JSON.parse(JSON.stringify(World.getCurrentState()));
+    },
+    save(){
+        window.localStorage.currentState = JSON.stringify(this.currentState);
+    },
+    restart:function(){
+        this.stopped = true;
+        this.currentSelectedId = this.parent.selectedObject?this.parent.selectedObject.id:null;
+        this.worldManager.clearAllDynamic();
+        this.objects = [];
+        this.parent.setAllObjectsToInactive();
+        this.addObjects(this.currentState);
+        if(this.currentSelectedId){
+            this.parent.setSelectedObject(this.currentSelectedId)
+        }
+    },
+    undo:function(){
+        this.currentState = EditorState.prevState();
+        this.restart();
+    },
+    redo:function(){
+        this.currentState = EditorState.nextState();
+        this.restart();
     }
-})
+});
 
 var ContactListener = cc.Class.extend({
     _this:null,
@@ -154,6 +201,7 @@ var ContactListener = cc.Class.extend({
             }
         }
     }
+
 
 })
 

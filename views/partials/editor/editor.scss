@@ -1,0 +1,26 @@
+.editor-box{
+  position: absolute;
+  top:0;
+  pointer-events: none;
+}
+.editor-box input,.editor-box button{
+  pointer-events: initial;
+}
+.editor-box input.invisible{
+  visibility: hidden;
+  width: 0;
+}
+.hide{
+  display: none;
+}
+.helper{
+  background: white;
+  display: inline-block;
+  max-height: 90%;
+  overflow: auto;
+  transform: translate(-50%,-50%);
+  left: 50%;
+  top: 50%;
+  position: relative;
+  width: 50%;
+}

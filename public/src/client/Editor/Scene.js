@@ -1,17 +1,18 @@
 
 var EditorScene = cc.Scene.extend({
     objects:[],
-    stopped:false,
     selectedObject:null,
     mousePressed: false,
     selectedNode:null,
     newObjectLayer:null,
+    editorHtmlLayer:null,
     onEnter:function () {
         this._super();
         var background = new cc.LayerColor(cc.color(255,255,255));
         this.listenEvents();
         this.addChild(background,-1,EditorScene.Tags.background);
-        this.worldLayer = new WorldLayer(TestScenes.running);
+        EditorState.loadFromDB();
+        this.worldLayer = new WorldLayer(EditorState.currentState());
         this.addChild(this.worldLayer);
         window.editor = this
     },
@@ -31,11 +32,17 @@ var EditorScene = cc.Scene.extend({
         cc.eventManager.addListener({
             event:cc.EventListener.KEYBOARD,
             onKeyPressed:function(key,event){
+                self.editorHtmlLayer && self.editorHtmlLayer.keyPressed(key,event);
+                if(key==17)
+                    self.ctrlPressed = true;
                 _.each(self.worldLayer.objects,function(o){
                     o.onKeyPressed && o.onKeyPressed(key,event)
                 })
             },
             onKeyReleased:function(key,event){
+                self.editorHtmlLayer && self.editorHtmlLayer.keyReleased(key,event);
+                if(key==17)
+                    self.ctrlPressed = false;
                 _.each(self.worldLayer.objects,function(o){
                     o.onKeyReleased && o.onKeyReleased(key,event)
                 })
@@ -48,8 +55,8 @@ var EditorScene = cc.Scene.extend({
         var objects = this.getElementAtMouse(event);
         if(objects.length){
             if(this.controlLayer && this.controlLayer.selectedButton && this.controlLayer.selectedButton.getName()!='Move' && this.selectedObject && this.selectedObject.isTouched(cc.pointFromEvent(event))) return;
-            this.showControlLayer()
-            this.updateSelectedObject(objects)
+            this.showControlLayer();
+            this.updateSelectedObject(objects);
             if(this.shouldTransform()){
                 this.controlLayer.selectedButton.startTransformation&&this.controlLayer.selectedButton.startTransformation(event,this.selectedObject);
             }
@@ -57,6 +64,7 @@ var EditorScene = cc.Scene.extend({
             if(!this.isControlLayerClicked(event) && !this.isRotateAction()){
                 this.hideControlLayer()
                 this.setAllObjectsToInactive()
+
             }
         }
     },
@@ -75,12 +83,18 @@ var EditorScene = cc.Scene.extend({
     onMouseUp:function(event){
         if(this.isNewObjectLayerClicked()) return;
         this.mousePressed = false;
+        if(this.transforming){
+            World.pushState();
+        }
+        this.transforming = false;
 
     },
     onMouseMove:function(event){
         if(this.isNewObjectLayerClicked()) return;
         if(this.shouldTransform()){
             this.controlLayer.selectedButton.transform(event,this.selectedObject);
+            this.editorHtmlLayer.setSelectedObject(this.selectedObject);
+            this.transforming = true;
         }
     },
     getElementAtMouse:function(event){
@@ -109,34 +123,60 @@ var EditorScene = cc.Scene.extend({
             this.controlLayer = null
         }
     },
+    setSelectedObject:function(id){
+        var object = EntityManager.getWithId(id);
+        if(!object) return;
+        this.selectedObject && this.selectedObject.unSelect()
+        this.selectedObject = object;
+        this.selectedObject.select()
+        this.editorHtmlLayer && this.editorHtmlLayer.setSelectedObject(this.selectedObject);
+    },
     updateSelectedObject:function(objects){
         this.selectedObject && this.selectedObject.unSelect()
         this.selectedObject = this.findSelectedObject(objects);
         this.selectedObject.select()
+        this.editorHtmlLayer && this.editorHtmlLayer.setSelectedObject(this.selectedObject);
 
     },
+
     findSelectedObject:function(objects){
         if(!this.selectedObject){
-            return objects[0];
+            return objects[objects.length-1];
         }
         var self = this
         var index = _.findIndex(objects,function(o){return o==self.selectedObject})
-        if(index == -1 || index == objects.length-1) return objects[0];
-        return objects[index+1];
+        if(index == -1 ) return objects[0];
+        if( index == objects.length-1)
+            return this.ctrlPressed?objects[0]:objects[index];
+        return this.ctrlPressed?objects[index+1]:objects[index];
     },
     setAllObjectsToInactive:function(){
         this.selectedObject && this.selectedObject.unSelect()
         this.selectedObject = null
+        this.editorHtmlLayer && this.editorHtmlLayer.setSelectedObject(this.selectedObject);
 
+    },
+    removeSelectedObject:function(){
+        if(this.selectedObject){
+            if(this.selectedObject.type=='pin'){
+                EntityManager.removeJoint(this.selectedObject);
+            }else{
+                EntityManager.removeEntity(this.selectedObject);
+            }
+        }
     },
     addNewObject:function(type,options){
         this.newObjectLayer = new NewObjectLayer(this.world,options);
-        this.addChild(this.newObjectLayer)
+        this.addChild(this.newObjectLayer);
         var self = this;
         this.newObjectLayer.startCreating(type,function(){
-            self.worldLayer.initObjects([self.newObjectLayer.objectToJson()]);
-            self.newObjectLayer.objectToBeAdded.removeFromParent()
-            self.newObjectLayer.removeFromParent()
+            if(!self.newObjectLayer) return;
+            self.worldLayer.addObject(self.newObjectLayer.objectToJson());
+            if(type=='pin'){
+                EntityManager.joints[EntityManager.lastID].updateBodyFromSprite();
+            }
+            self.newObjectLayer.objectToBeAdded.remove();
+            self.newObjectLayer.removeFromParent();
             self.newObjectLayer = null
         })
 
@@ -146,8 +186,6 @@ var EditorScene = cc.Scene.extend({
             o.body && console.log(o.options.id, o.life)
         })
     }
-
-
 
 });
 

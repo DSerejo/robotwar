@@ -10,6 +10,8 @@
     <meta name="screen-orientation" content="portrait"/>
     <meta name="x5-fullscreen" content="true"/>
     <meta name="360-fullscreen" content="true"/>
+    <link  rel="stylesheet" type="text/css" href="/css/editor.css" />
+
     <style>
         body, canvas, div {
             -moz-user-select: none;
@@ -19,18 +21,15 @@
             -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
         }
     </style>
-    <script src="/engine/CCBoot.js"></script>
-    <script src="<%= wsHOST %>/socket.io/socket.io.js"></script>
 
 </head>
 <body style="padding:0; margin: 0; background: #000;">
 
-<script src="/main.js"></script>
-<script src="/res/loading.js"></script>
-<canvas id="gameCanvas" width="321" height="480"></canvas>
-<div>
-    <canvas id="box2d" width="321" height="480"></canvas>
-</div>
+
+
+
+<div id="root"></div>
+
 <div style="position: fixed;right: 0;top:0">
     <button   onclick="toggleDebug()">Debug</button>
     <button  onclick="togglePhysics()">Physics</button>
@@ -44,5 +43,10 @@
         window.editor.togglePhysics()
     }
 </script>
+<script src="/engine/CCBoot.js"></script>
+<script src="/pages/editor.min.js"></script>
+<script src="<%= wsHOST %>/socket.io/socket.io.js"></script>
+<!--<script src="/main.js"></script>-->
+<script src="/res/loading.js"></script>
 </body>
 </html>

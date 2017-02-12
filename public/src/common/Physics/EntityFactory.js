@@ -16,12 +16,10 @@ EntityFactory.box = function(options){
     return box;
 };
 EntityFactory.pin = function(options){
-    var pin = new PinPhysics(),
-        bodyA = EntityManager.getEntityWithId(options.bodyAId).body.GetFixtureList(),
+    var bodyA = EntityManager.getEntityWithId(options.bodyAId).body.GetFixtureList(),
         bodyB = EntityManager.getEntityWithId(options.bodyBId).body.GetFixtureList(),
-        id = options.id || EntityManager.newID();
-    pin.init(id,options.position,[bodyA,bodyB]);
-    return pin;
+        id = options.id || EntityManager.newID()
+    return new PinPhysics(id,options.position,[bodyA,bodyB]);
 };
 EntityFactory.propulsor = function(options){
     var id = options.id || EntityManager.newID(),

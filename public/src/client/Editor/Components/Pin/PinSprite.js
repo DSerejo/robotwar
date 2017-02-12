@@ -1,10 +1,9 @@
 var PinSprite = cc.Node.extend({
     circleColor:'#ff878b',
-    ctor: function (options) {
+    ctor: function (radius,circleColor) {
         this._super();
-        this.options = options;
-        this.radius = options.radius
-        this.circleColor = this.circleColor || options.circleColor;
+        this.radius = radius;
+        this.circleColor = circleColor || this.circleColor;
         this.draw()
 
     },

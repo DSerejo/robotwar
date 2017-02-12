@@ -14,7 +14,6 @@
         "config.js",
         "src/resource.js",
         "src/common/Globals.js",
-        "src/client/Editor/EditorState.js",
         "src/client/DebugCanvas.js",
         "src/client/Physics/Base.js",
         "src/client/Physics/Object.js",
@@ -51,16 +50,13 @@
         "src/client/Editor/NewObjectLayer.js",
         "src/client/Editor/TestScenes.js",
         "src/client/Editor/Scene.js",
-        "src/client/BattleScene.js",
-        "src/client/Editor/tests/Tests.js",
-        "src/client/Editor/tests/AddNewObject.js"
+        "src/client/BattleScene.js"
 
     ],
     "jsListOld" : [
         "lib/lodash.js",
         "src/resource.js",
         "src/common/Globals.js",
-        "src/client/Editor/EditorState.js",
         "src/client/DebugCanvas.js",
         "src/client/Physics/Base.js",
         "src/client/Physics/Object.js",

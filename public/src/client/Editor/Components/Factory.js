@@ -1,16 +1,21 @@
 Factory = cc.Class.extend({})
+
 Factory.box = function(options){
     var id = options.id || EntityManager.newID(),
-        material = Materials[options.material]();
+        material = Materials[options.material||Materials.default]();
     return new Box(id,options.width,options.height,options.position,options.angle,material);
 }
 Factory.pin = function(options){
-    var pin = new PinPhysics(),
-        bodyA = EntityManager.getEntityWithId(options.bodyAId).body.GetFixtureList(),
-        bodyB = EntityManager.getEntityWithId(options.bodyBId).body.GetFixtureList(),
+    var bodyA,
+        bodyB,
+        fixtures;
+    if(options.bodyAId){
+        bodyA = EntityManager.getEntityWithId(options.bodyAId).body.GetFixtureList();
+        bodyB = EntityManager.getEntityWithId(options.bodyBId).body.GetFixtureList();
+        fixtures = [bodyA,bodyB];
+    }
         id = options.id || EntityManager.newID();
-    pin.init(id,options.position,[bodyA,bodyB]);
-    return pin;
+    return new Pin(id,options.position,fixtures);
 };
 Factory.propulsor = function(options){
     var id = options.id || EntityManager.newID()

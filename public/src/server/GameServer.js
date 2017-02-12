@@ -1,5 +1,6 @@
 var ClientManager = require('./ClientManager');
 var Physics = require('./Physics');
+var World = require('../common/World');
 var EntityManager = require('../common/Physics/EntityManager');
 var config = require('../../../config');
 var _ = require('lodash');
@@ -8,7 +9,7 @@ var GameServer = {};
 GameServer.sendInitialObjects = function(client){
     var packet = {
         m:'world-start',
-        d:{bodies:Physics.getBodies(),joints:Physics.getJoints()}
+        d:World.getCurrentState()
     };
     console.log(JSON.stringify(packet));
     client.send(JSON.stringify(packet));

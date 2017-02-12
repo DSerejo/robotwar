@@ -1,4 +1,7 @@
 var TestScenes = {
+    'empty': {
+        bodies:[]
+    },
     'simple_rubber_block': {
         bodies:[
             {
@@ -8,7 +11,7 @@ var TestScenes = {
                 type: b2_dynamicBody,
                 angle: 10,
                 'class': 'box',
-                id:'1',
+                id:'a',
                 'material': 'rubber'
             }
         ],
@@ -34,16 +37,33 @@ var TestScenes = {
                 angle: 0,
                 'class': 'box',
                 id:'2',
-                'material': 'rubber'
+                'material': 'wood'
+            },
+            {
+                position: new b2Vec2(11, 5),
+                width: 1,
+                height: 1,
+                type: b2_dynamicBody,
+                angle: 0,
+                'class': 'box',
+                id:'4',
+                'material': 'wood'
             }
         ],
         joints:[
             {
-                position: new b2Vec2(10.375,5),
+                position: new b2Vec2(10.375,5.5),
                 bodyAId: '1',
                 bodyBId: '2',
                 class:'pin',
                 'id':'3'
+            },
+            {
+                position: new b2Vec2(10.875,5.5),
+                bodyAId: '2',
+                bodyBId: '4',
+                class:'pin',
+                'id':'5'
             }
         ]
     },
@@ -75,8 +95,96 @@ var TestScenes = {
     //],
     'propulsor_test':{
         bodies:[
-        {position:cc.p(5,2.5),width:1,height:1,type:b2_dynamicBody,angle:0,'class':'propulsor','actionKeys':{start:87},force:30,id:'1','material':'metal'},
-    ]},
+            {
+                position: cc.p(5, 2.5),
+                width: 1,
+                height: 1,
+                type: b2_dynamicBody,
+                angle: 0,
+                'class': 'propulsor',
+                'actionKeys': {start: 87},
+                force: 30,
+                id: '1',
+                'material': 'metal'
+            },{
+                position: cc.p(5, 2.5),
+                width: 1,
+                height: 1,
+                type: b2_dynamicBody,
+                angle: 0,
+                'class': 'propulsor',
+                'actionKeys': {start: 87},
+                force: 30,
+                id: '2',
+                'material': 'metal'
+            },{
+                position: cc.p(5, 2.5),
+                width: 1,
+                height: 1,
+                type: b2_dynamicBody,
+                angle: 0,
+                'class': 'propulsor',
+                'actionKeys': {start: 87},
+                force: 30,
+                id: '3',
+                'material': 'metal'
+            },{
+                position: cc.p(5, 2.5),
+                width: 1,
+                height: 1,
+                type: b2_dynamicBody,
+                angle: 0,
+                'class': 'box',
+                id: '4',
+                'material': 'wood'
+            }
+
+    ],
+        joints:[
+            {
+                position: new b2Vec2(10.375,5.5),
+                bodyAId: '1',
+                bodyBId: '2',
+                class:'pin',
+                'id':'5'
+            },
+            {
+                position: new b2Vec2(10.875,5.5),
+                bodyAId: '1',
+                bodyBId: '2',
+                class:'pin',
+                'id':'6'
+            },
+            {
+                position: new b2Vec2(10.875,5.5),
+                bodyAId: '1',
+                bodyBId: '2',
+                class:'pin',
+                'id':'7'
+            },
+            {
+                position: new b2Vec2(10.875,5.5),
+                bodyAId: '1',
+                bodyBId: '2',
+                class:'pin',
+                'id':'8'
+            },
+            {
+                position: new b2Vec2(10.875,5.5),
+                bodyAId: '1',
+                bodyBId: '2',
+                class:'pin',
+                'id':'9'
+            },
+            {
+                position: new b2Vec2(10.875,5.5),
+                bodyAId: '1',
+                bodyBId: '2',
+                class:'pin',
+                'id':'10'
+            }
+        ]
+    },
     //'landing_ship':[
     //    {position:cc.p(5,2.5),width:5,height:3.75,type:b2_dynamicBody,angle:0,'class':'box',id:'1','material':'metal'},
     //    {position:cc.p(125,150),type:b2_dynamicBody,angle:-30,'class':'propulsor','actionKeys':{start:68},force:25},
@@ -93,7 +201,7 @@ var TestScenes = {
     //    {position:cc.p(285,33),type:b2_dynamicBody,radius:5,'class':'pin'},
     //]
 };
-TestScenes.running = TestScenes.propulsor_test;
+TestScenes.running = TestScenes.simple_rubber_block;
 if (typeof require !== 'undefined' && typeof module !== 'undefined') {
     module.exports = TestScenes;
 }

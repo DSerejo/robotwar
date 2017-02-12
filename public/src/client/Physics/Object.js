@@ -23,7 +23,6 @@ PhysicsObjectDef.prototype.getPosition = function () {
         var pos = this.body.GetPosition();
         return cc.pMult(pos,PMR/WORLD_SCALE);
     }
-
 },
 PhysicsObjectDef.prototype.getRotation = function () {
     if(this.body)
@@ -39,61 +38,38 @@ PhysicsObjectDef.prototype.removeFromParent = function () {
     this.sprite = null;
 },
 PhysicsObjectDef.prototype.removeBody = function(){
-    if(this.body)
+    if(this.body){
+        var joints = this.jointsToBeUpdated();
         World.world.DestroyBody(this.body);
+        this.removeJoints(joints);
+    }
     this.shape = null;
-},
-PhysicsObjectDef.prototype.isSelected = function(){
-    return this.sprite&&this.sprite.getChildByName('selected') !== null
-},
-PhysicsObjectDef.prototype.select = function(){
-    this.unSelect();
-    var sprite  = new BoxSprite(this.sprite.getContentSize().width,this.sprite.getContentSize().height,'#4286f4');
-    this.sprite.addChild(sprite,1,'selected');
-    this.selectedNode = sprite;
-},
-PhysicsObjectDef.prototype.unSelect = function(){
-    if(this.selectedNode){
-        this.selectedNode.removeFromParent()
-    }
-    this.selectedNode = null
-},
-PhysicsObjectDef.prototype.isTouched = function(p){
-    var rect = new cc.Rect(0,0,this.sprite._contentSize.width, this.sprite._contentSize.height),
-        localPoint = this.sprite.convertToNodeSpace(p);
-    return cc.rectContainsPoint(rect,localPoint);
-},
-PhysicsObjectDef.prototype.recreateSprite = function(){
-    var oldSpriteConfig = this.removeSprite();
-    this.createSpriteObject();
-    if(this.pos)
-        this.sprite.setPosition(cc.convertMetersToPoint(this.body.GetPosition()));
-    if(!this.options.delayedPosition){
-        this.sprite.init(this);
-    }
-    if(oldSpriteConfig && oldSpriteConfig.parent){
-        oldSpriteConfig.parent.addChild(this.sprite,oldSpriteConfig.zOrder);
-        oldSpriteConfig.isSelected && this.select()
-    }
-},
-PhysicsObjectDef.prototype.removeSprite = function(){
-    if(this.sprite){
-        var parent = this.sprite.parent,
-            zOrder = this.sprite.getLocalZOrder(),
-            isSelected = this.isSelected();
-        this.sprite.removeAllChildren();
-        this.sprite.removeFromParent();
-        this.sprite = null;
-        return {parent:parent,zOrder:zOrder,isSelected:isSelected}
-    }
-},
-//PhysicsObjectDef.prototype.init = function(){
-//    this.sprite.init();
-//    this.addBody(this.options);
-//},
-PhysicsObjectDef.prototype.addX = function(){
-    cc.error('Override me');
-},
+}
+PhysicsObjectDef.prototype.jointsToBeUpdated = function(){
+    var joint = this.body.GetJointList(),
+        joints = [];
+    if(!joint) return joints;
+    do{
+        joints.push(joint.joint.m_userData);
+    } while(joint = joint.next)
+    return joints;
+
+};
+PhysicsObjectDef.prototype.removeJoints = function(joints){
+    joints.forEach(function(j){
+        j.joint =null;
+        j.recreateSprite()
+    })
+};
+PhysicsObjectDef.prototype.checkJointsToAdd = function(){
+    var self = this;
+    _.each(EntityManager.joints,function(j){
+        if(!j.joint && self.isTouched(j.sprite.getPosition())){
+            j.checkAndCreateJoint();
+            j.recreateSprite();
+        }
+    })
+};
 PhysicsObjectDef.prototype.calculateDamage = function(energy){
     var area = this.calculateArea(),
         absorbedEnergy = this.options.material.calculateAbsorbedEnergy(energy/area),

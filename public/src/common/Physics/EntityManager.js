@@ -3,7 +3,7 @@ if (typeof require !== 'undefined' && typeof module !== 'undefined') {
 }
 
 var EntityManager = function(){
-}
+};
 EntityManager.lastID = 0;
 EntityManager.entities = {};
 EntityManager.joints = {};
@@ -23,7 +23,7 @@ EntityManager.addActionKeys= function(entity){
         EntityManager.actionKeys[keyCode] = EntityManager.actionKeys[keyCode] || [];
         EntityManager.actionKeys[keyCode].push(entity);
     })
-}
+};
 
 EntityManager.addNewJoint = function(joint){
     if(EntityManager.hasJointId(joint.id)) return;
@@ -39,8 +39,26 @@ EntityManager.getEntityWithId = function(id){
     if(EntityManager.hasEntityId(id))
     return EntityManager.entities[id];
 };
+EntityManager.getWithId = function(id){
+    if(EntityManager.hasEntityId(id))
+        return EntityManager.entities[id];
+    else if(EntityManager.hasJointId(id))
+        return EntityManager.joints[id];
+    return null;
+};
 EntityManager.newID = function(){
     return ++EntityManager.lastID;
+};
+EntityManager.removeEntity = function(entity){
+    entity.remove();
+    delete EntityManager.entities[entity.id];
+};
+EntityManager.removeJoint = function(joint){
+    joint.remove();
+    delete EntityManager.joints[joint.id];
+};
+EntityManager.removeJoint = function(entity){
+
 };
 EntityManager.removeDeadBodies = function(){
     _.each(EntityManager.graveyard,function(e,id,g){
@@ -51,6 +69,9 @@ EntityManager.removeDeadBodies = function(){
 EntityManager.updateAll = function(){
     _.each(EntityManager.entities,function(e){
         e.update()
+    });
+    _.each(EntityManager.joints,function(e){
+        e.update && e.update()
     })
 };
 EntityManager.performAllActions = function(callBack){
@@ -60,7 +81,7 @@ EntityManager.performAllActions = function(callBack){
             if(update)
                 updateIsNeeded = true;
         });
-    })
+    });
     callBack && callBack(updateIsNeeded);
 };
 if (typeof require !== 'undefined' && typeof module !== 'undefined') {

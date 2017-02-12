@@ -24,8 +24,8 @@ var NewObjectLayer = cc.Layer.extend({
     },
     onMouseDown:function(event){
         this._mousePressed = true;
-        this.startedPoint = cc.pointFromEvent(event);
-        if(this.type=='pin'){
+        this.startedPoint = cc.convertPointToMeters(cc.pointFromEvent(event));
+        if(this.isFixedSize()){
             this.updateObject(event);
         }
     },
@@ -44,15 +44,18 @@ var NewObjectLayer = cc.Layer.extend({
     updateObject:function(event){
         if(!this.objectToBeAdded){
             this.createObject(event);
-            if(this.type=='pin')
+            if(this.isFixedSize())
                 return this.callBack()
         }else{
-            this.objectToBeAdded && this.objectToBeAdded.setOptions(this.prepareObjectOptionsFromEvent(event))
+            this.objectToBeAdded && this.updateSpriteOptions(event)
             this.objectToBeAdded && this.objectToBeAdded.recreateSprite()
         }
 
 
 
+    },
+    isFixedSize:function(){
+        return  this.type=='pin' || this.type=='propulsor';
     },
     removeObject:function(){
         if(this.objectToBeAdded){
@@ -62,8 +65,14 @@ var NewObjectLayer = cc.Layer.extend({
     },
     createObject:function(event){
         var options = this.prepareObjectOptionsFromEvent(event);
-        this.objectToBeAdded = new Factory[this.type](this.world,options)
+        this.objectToBeAdded = new Factory[this.type](options);
         this.addChild(this.objectToBeAdded.sprite)
+    },
+    updateSpriteOptions:function(event){
+        this.objectToBeAdded.pos = this.preparePosition(event);
+        var size = this.prepareSize(event);
+        this.objectToBeAdded.h = size.height;
+        this.objectToBeAdded.w = size.width;
     },
     prepareObjectOptionsFromEvent:function(event){
         return _.extend({},
@@ -78,25 +87,19 @@ var NewObjectLayer = cc.Layer.extend({
             })
     },
     preparePosition:function(event){
-        var currentPos = cc.pointFromEvent(event);
+        var currentPos = cc.convertPointToMeters(cc.pointFromEvent(event));
         return cc.p(
             Math.min(this.startedPoint.x,currentPos.x),
             Math.min(this.startedPoint.y,currentPos.y)
         )
     },
     prepareSize:function(event){
-        return cc.pToSize(cc.pCompOp(cc.pSub(this.startedPoint,cc.pointFromEvent(event)),Math.abs))
+        return cc.pToSize(cc.pCompOp(cc.pSub(this.startedPoint,cc.convertPointToMeters(cc.pointFromEvent(event))),Math.abs))
     },
     objectToJson:function(){
-        var pos = cc.pAdd(this.objectToBeAdded.sprite.getPosition(),
-            cc.pMult(cc.pFromSize(this.objectToBeAdded.sprite.getContentSize()),1/2)
-        )
-        return _.extend({},this.objectToBeAdded.sprite.getContentSize(),{
-            position:pos,
-            type:2,
-            'class':this.type,
-            radius:this.objectToBeAdded.sprite.getContentSize().width/2,
-            angle:0
+        return _.extend({},this.objectToBeAdded.toObject(),{
+            width: this.objectToBeAdded.w,
+            height: this.objectToBeAdded.h
         })
     }
 

@@ -23,6 +23,7 @@ var Box = BoxDef.extend({
         this.w = box.x;
         this.h = box.y;
         this.addBody();
+        this.checkJointsToAdd();
     },
 
     setPosition: function(p){
@@ -32,8 +33,6 @@ var Box = BoxDef.extend({
     setRotation: function(a){
         if(this.sprite)
             this.sprite.setRotation(a)
-    },
-    addX:function(dX){
-        return Math.max(0.1,this.w+dX)
     }
+
 });

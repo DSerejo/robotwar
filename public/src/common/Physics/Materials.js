@@ -84,7 +84,8 @@ Wood.prototype.imaginaryEnergyAbsorptionRate  = 1;
 var Materials = {
     rubber:function(){return new Rubber()},
     metal:function(){return new Steel()},
-    wood:function(){return new Wood()}
+    wood:function(){return new Wood()},
+    default:'wood'
 };
 
 if (typeof require !== 'undefined' && typeof module !== 'undefined') {

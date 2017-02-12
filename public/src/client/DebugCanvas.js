@@ -24,6 +24,7 @@ var DebugCanvas = cc.Class.extend({
         canvas.width = cc.view.getDesignResolutionSize().width
         canvas.height = cc.view.getDesignResolutionSize().height
         canvas.style['-webkit-transform'] = 'rotateX(180deg)'
+        canvas.style['pointer-events'] = 'none'
     },
     listenEvents: function(editor){
 
