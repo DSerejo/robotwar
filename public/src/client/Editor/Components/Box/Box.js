@@ -5,8 +5,12 @@ var Box = BoxDef.extend({
         this.addBody();
         this.recreateSprite();
     },
-    createSpriteObject:function(){
-        this.sprite = new BoxSprite(cc.convertMetersToPixel(this.w),cc.convertMetersToPixel(this.h),this.material.fillColor);
+    createSpriteObject:function(color,returnSprite){
+        var sprite =new BoxSprite(cc.convertMetersToPixel(this.w),cc.convertMetersToPixel(this.h),color || this.material.fillColor);
+        if(returnSprite){
+            return sprite
+        }
+        this.sprite = sprite;
     },
     getId:function(){
         return this.id
@@ -17,7 +21,7 @@ var Box = BoxDef.extend({
         this.removeBody();
         var originalSize = cc.pFromSize(this.sprite.getContentSize()),
             scale = cc.p(this.sprite.getScaleX(),this.sprite.getScaleY());
-        var box = cc.convertPointToMeters(cc.pCompMult(originalSize,cc.pMult(scale,WORLD_SCALE)));
+        var box = cc.convertPointToMeters(cc.pCompMult(originalSize,cc.pMult(scale,1)));
         this.angle = -this.sprite.getRotation();
         this.pos = cc.convertPointToMeters(this.sprite.getPosition());
         this.w = box.x;

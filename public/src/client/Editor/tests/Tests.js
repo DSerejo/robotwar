@@ -7,7 +7,7 @@ var EditorTests = cc.Class.extend({
     },
     setTests:function(){
         this.tests ={
-            'addNewObject': new AddNewObject()
+            'addNewObject': new AddNewObjectTest()
         }
     },
     runTests:function(except){
@@ -18,7 +18,7 @@ var EditorTests = cc.Class.extend({
         });
     },
     runTest:function(test,options){
-        this.tests[test] && this.tests[test](this.scene.options);
+        this.tests[test] && this.tests[test].run(this.scene,options);
     }
 });
 

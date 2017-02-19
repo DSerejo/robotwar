@@ -1,22 +1,29 @@
-var AddNewObject = cc.Class.extend({
+var AddNewObjectTest = cc.Class.extend({
     layer:null,
     run:function(scene,options){
         addBox(scene,function(){
             addPropulsor(scene,function(){
-                addPin(scene);
+                addPin(scene,function(){
+                    addBox(scene,function(){
+
+                        },
+                    [{_x:200,_y:200},{_x:201,_y:201},{_x:201,_y:201}]);
+                });
             });
         });
 
     }
 
 });
-function addBox(scene,done){
+function addBox(scene,done,events){
     scene.addNewObject('box');
+    events = events || [];
     console.assert(scene.newObjectLayer!=null,'newObjectLayer should not be null');
     var layer = scene.newObjectLayer;
-    var startEvent={_x:300,_y:300}
-        ,event1 = {_x:350,_y:350},
-        event2 = {_x:400,_y:350};
+    var startEvent=events[0] || {_x:300,_y:300}
+        ,event1 = events[1] || {_x:350,_y:350},
+        event2 = events[2] || {_x:400,_y:350};
+
     mouseDown(startEvent);
     mouseMove(event1);
     setTimeout(function(){
@@ -37,7 +44,7 @@ function addBox(scene,done){
         layer.onMouseUp();
         expect(scene.newObjectLayer).to.be.null;
         var obj = EntityManager.entities[EntityManager.lastID];
-        expect(obj.w).to.equal(cc.convertPixelToMeter(event2._x -startEvent._x));
+        expect(obj.w).to.equal(Math.max(cc.convertPixelToMeter(event2._x -startEvent._x),window.MIN_SIZE));
         done && done()
     }
 
@@ -68,7 +75,7 @@ function addPin(scene,done){
         console.assert(layer.startedPoint.x==cc.convertPixelToMeter(startEvent._x),'Started point should be the same as event');
         expect(scene.newObjectLayer).to.be.null;
         var obj = EntityManager.joints[EntityManager.lastID];
-        expect(obj.sprite.getContentSize().width).to.equal(0.25);
+        expect(obj.sprite.getContentSize().width).to.equal(8);
         done && done()
     }
 }

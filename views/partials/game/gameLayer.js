@@ -1,15 +1,19 @@
 import React from 'react';
-require('../../testhelpers');
+require('../../../testhelpers');
+import robotsVM from '../editor/Robots.js'
 class GameLayer extends React.Component{
     constructor(props){
         super(props);
+        this.started = false;
         this.init();
+
     }
     init(){
+        if(!window.robotName) return;
         const cc = window.cc,
-            self = this
-
+            self = this;
         cc.game.onStart = function(){
+            cc._canvas.focus();
             if(!cc.sys.isNative && document.getElementById("cocosLoading")) //If referenced loading.js, please remove it
                 document.body.removeChild(document.getElementById("cocosLoading"));
 
@@ -29,6 +33,8 @@ class GameLayer extends React.Component{
                 var scene;
                 if(MODE != 'server'){
                     scene = new EditorScene();
+                    self.scene = scene;
+                    scene.robot = robotsVM.getRobot(window.robotName);
                     scene.editorHtmlLayer = self.props.editorLayerCallbacks;
                     self.props.editorLayerCallbacks.ready(scene);
                     if(typeof  EditorTests !== undefined){
@@ -86,6 +92,23 @@ class GameLayer extends React.Component{
 
         };
         cc.game.run();
+        this.started = true
+    }
+    componentWillReceiveProps(nextProps){
+        const {location} = nextProps,
+            nextRobot = location.query.robot,
+            currentRobot = this.props.location.query.robot;
+        if(nextRobot && nextRobot != currentRobot){
+            const robotJson = localStorage['robot_'+nextRobot];
+            if(robotJson){
+                robotsVM.setCurrentRobotName(nextRobot);
+                const robot = JSON.parse(robotJson);
+                if(this.scene)
+                    this.scene.restartWith(robot);
+                else if(!this.started)
+                    this.init();
+            }
+        }
     }
     render(){
         return <canvas id="gameCanvas" width="321" height="480"></canvas>

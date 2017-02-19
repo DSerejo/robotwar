@@ -2,6 +2,10 @@ var EditorState = {
     currentStateIndex:null,
     states:[]
 };
+EditorState.restart = function(){
+    EditorState.currentStateIndex = null;
+    EditorState.states = []
+};
 EditorState.currentState = function(){
     return EditorState.currentStateIndex>=0?EditorState.states[EditorState.currentStateIndex]:{};
 };

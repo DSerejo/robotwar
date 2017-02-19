@@ -25,9 +25,7 @@ var NewObjectLayer = cc.Layer.extend({
     onMouseDown:function(event){
         this._mousePressed = true;
         this.startedPoint = cc.convertPointToMeters(cc.pointFromEvent(event));
-        if(this.isFixedSize()){
-            this.updateObject(event);
-        }
+        this.updateObject(event);
     },
     onMouseMove:function(event){
         if(this._mousePressed)
@@ -88,13 +86,16 @@ var NewObjectLayer = cc.Layer.extend({
     },
     preparePosition:function(event){
         var currentPos = cc.convertPointToMeters(cc.pointFromEvent(event));
-        return cc.p(
+        return cc.pMult(cc.p(
             Math.min(this.startedPoint.x,currentPos.x),
             Math.min(this.startedPoint.y,currentPos.y)
-        )
+        ),1/WORLD_SCALE);
     },
     prepareSize:function(event){
-        return cc.pToSize(cc.pCompOp(cc.pSub(this.startedPoint,cc.convertPointToMeters(cc.pointFromEvent(event))),Math.abs))
+        var size = cc.pToSize(cc.pCompOp(cc.pSub(this.startedPoint,cc.convertPointToMeters(cc.pointFromEvent(event))),Math.abs));
+        size.width = Math.max(size.width,window.MIN_SIZE);
+        size.height = Math.max(size.height,window.MIN_SIZE);
+        return size;
     },
     objectToJson:function(){
         return _.extend({},this.objectToBeAdded.toObject(),{

@@ -116,6 +116,7 @@ _p.PMR_START = 40;
 _p.WORLD_SCALE = 1;
 _p.PMR = PMR_START*WORLD_SCALE;
 _p.gravity = new b2Vec2(0,-10);
+_p.MIN_SIZE = 0.2;
 _p.RESOLUTION = {width:800,height:400};
 _p.MODE = 'server1';
 function allFuncs(obj){

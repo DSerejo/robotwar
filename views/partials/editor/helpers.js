@@ -1,4 +1,5 @@
 import jQuery from 'jquery';
+import React from 'react';
 const $ = jQuery;
 
 function calculateLayerStylesheet(){
@@ -24,9 +25,30 @@ class RegisterCallbacks{
     }
     triggerEvent(event,a){
         _.each(this.callbacks[event],function(fn){
-            fn.apply(null,a);
+            if(fn && fn.apply)
+                fn.apply(null,a);
         })
     }
 }
+var registerCallbacks = new RegisterCallbacks();
+var registerKeyCallBacks = {
+    pressed: registerCallbacks.registerCallback.bind(registerCallbacks, 'keyPressed'),
+    released: registerCallbacks.registerCallback.bind(registerCallbacks, 'keyReleased')
+};
+class KeyCallbackComponent extends React.Component{
+    registerKeyCallbacks(){
+        this.unregisterKeypressed = registerKeyCallBacks.pressed(this.keyPressed.bind(this));
+        this.unregisterKeyreleased = registerKeyCallBacks.released(this.keyReleased.bind(this));
+    }
+    componentWillMount(){
+        this.registerKeyCallbacks();
+    }
+    componentWillUnmount(){
+        this.unregisterKeypressed && this.unregisterKeypressed();
+        this.unregisterKeyreleased && this.unregisterKeyreleased();
+    }
+    keyReleased(key){}
+    keyPressed(key){}
+}
 
-export {calculateLayerStylesheet,RegisterCallbacks};
+export {calculateLayerStylesheet,registerKeyCallBacks,registerCallbacks,KeyCallbackComponent};

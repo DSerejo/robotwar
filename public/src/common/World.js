@@ -25,6 +25,13 @@ World.prototype.clearAllDynamic = function(){
     EntityManager.joints = {}
 
 };
+World.prototype.clearAllStatic = function(){
+    for(var i = 0;i<this.staticObjects.length;i++){
+        World.world.DestroyBody(this.staticObjects[i]);
+        this.staticObjects.splice(i,1);
+    }
+
+};
 World.prototype.createEntityFromOptions = function(o){
     return this.entityFactory[o.class](o);
 };
@@ -49,7 +56,7 @@ World.prototype.setInitialObjects = function(initialObjects,callback){
 };
 World.prototype.createGround=function(){
     var pos = cc.p(0,0),
-        size = cc.size(50,1);
+        size = cc.size(100,1);
     this.staticObjects.push(this.createStaticBoxBody(pos,size,'ground'));
 };
 World.prototype.createStaticBoxBody = function(pos,size,id){

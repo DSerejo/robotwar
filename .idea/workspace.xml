@@ -5,54 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0cc6a89-09e8-46f6-a174-c280c1719b04" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.babelrc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/src/client/Editor/tests/AddNewObject.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/partials/editor/ElementInfo/BoxInfo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/partials/editor/EditorMenuLayer/ComponentList.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/partials/editor/EditorMenuLayer/__tests__/ComponentList.jsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/src/client/Editor/EditorState.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/partials/editor/ElementInfo/ElementInfo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/partials/editor/ElementInfo/ElementInfoFactory.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/partials/editor/ElementInfo/ElementInfoRows.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/partials/editor/Helper/HelperMenuLayer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/partials/editor/ElementInfo/InfoLayer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/partials/editor/EditorMenuLayer/MenuLayer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/partials/editor/EditorMenuLayer/__tests__/MenuLayer.jsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/partials/editor/ElementInfo/PinInfo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/partials/editor/ElementInfo/PropulsorInfo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/src/client/Editor/tests/Tests.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/partials/editor/editor.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/partials/gameLayer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/partials/editor/helpers.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/partials/editor/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/partials/keycodes.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/preprocessor.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/project_dev.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/project_prod.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testhelpers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/src/client/Physics/Base.js" afterPath="$PROJECT_DIR$/public/src/client/Physics/Base.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/src/client/Physics/DamageSprite.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/partials/editor/EditorMenuLayer/ElementList.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/partials/editor/Robots.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/partials/editor/Sidebar/Sidebar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/partials/game/game.ejs" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/views/partials/gameLayer.js" afterPath="$PROJECT_DIR$/views/partials/game/gameLayer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/src/client/Editor/tests/AddNewObject.js" afterPath="$PROJECT_DIR$/public/src/client/Editor/tests/AddNewObject.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/src/client/Editor/Components/Box/Box.js" afterPath="$PROJECT_DIR$/public/src/client/Editor/Components/Box/Box.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/src/client/Editor/Components/Box/BoxSprite.js" afterPath="$PROJECT_DIR$/public/src/client/Editor/Components/Box/BoxSprite.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/src/client/DebugCanvas.js" afterPath="$PROJECT_DIR$/public/src/client/DebugCanvas.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/src/common/Physics/EntityFactory.js" afterPath="$PROJECT_DIR$/public/src/common/Physics/EntityFactory.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/partials/editor/EditorMenuLayer/ComponentList.js" afterPath="$PROJECT_DIR$/views/partials/editor/EditorMenuLayer/ComponentList.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/src/client/Editor/EditorState.js" afterPath="$PROJECT_DIR$/public/src/client/Editor/EditorState.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/partials/editor/ElementInfo/ElementInfo.js" afterPath="$PROJECT_DIR$/views/partials/editor/ElementInfo/ElementInfo.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/partials/editor/ElementInfo/ElementInfoRows.js" afterPath="$PROJECT_DIR$/views/partials/editor/ElementInfo/ElementInfoRows.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/src/common/Physics/Entity.js" afterPath="$PROJECT_DIR$/public/src/common/Physics/Entity.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/src/common/Physics/EntityManager.js" afterPath="$PROJECT_DIR$/public/src/common/Physics/EntityManager.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/src/client/Editor/Components/Factory.js" afterPath="$PROJECT_DIR$/public/src/client/Editor/Components/Factory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/src/server/GameServer.js" afterPath="$PROJECT_DIR$/public/src/server/GameServer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/src/common/Globals.js" afterPath="$PROJECT_DIR$/public/src/common/Globals.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/partials/editor/Helper/HelperMenuLayer.js" afterPath="$PROJECT_DIR$/views/partials/editor/Helper/HelperMenuLayer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/src/common/Physics/Materials.js" afterPath="$PROJECT_DIR$/public/src/common/Physics/Materials.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/src/common/Math.js" afterPath="$PROJECT_DIR$/public/src/common/Math.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/partials/editor/EditorMenuLayer/MenuLayer.js" afterPath="$PROJECT_DIR$/views/partials/editor/EditorMenuLayer/MenuLayer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/src/client/Editor/NewObjectLayer.js" afterPath="$PROJECT_DIR$/public/src/client/Editor/NewObjectLayer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/src/client/Physics/Object.js" afterPath="$PROJECT_DIR$/public/src/client/Physics/Object.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/src/server/Physics.js" afterPath="$PROJECT_DIR$/public/src/server/Physics.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/src/client/Editor/Components/Pin/Pin.js" afterPath="$PROJECT_DIR$/public/src/client/Editor/Components/Pin/Pin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/src/common/Components/Pin.js" afterPath="$PROJECT_DIR$/public/src/common/Components/Pin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/src/client/Editor/Components/Pin/PinSprite.js" afterPath="$PROJECT_DIR$/public/src/client/Editor/Components/Pin/PinSprite.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/src/client/Editor/Components/Propulsor/Propulsor.js" afterPath="$PROJECT_DIR$/public/src/client/Editor/Components/Propulsor/Propulsor.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/src/client/Editor/Scene.js" afterPath="$PROJECT_DIR$/public/src/client/Editor/Scene.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/src/client/Editor/TestScenes.js" afterPath="$PROJECT_DIR$/public/src/client/Editor/TestScenes.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/src/client/Editor/tests/Tests.js" afterPath="$PROJECT_DIR$/public/src/client/Editor/tests/Tests.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/src/common/World.js" afterPath="$PROJECT_DIR$/public/src/common/World.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/src/client/Editor/WorldLayer.js" afterPath="$PROJECT_DIR$/public/src/client/Editor/WorldLayer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/partials/editor/editor.scss" afterPath="$PROJECT_DIR$/views/partials/editor/editor.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/partials/editor/helpers.js" afterPath="$PROJECT_DIR$/views/partials/editor/helpers.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/pages/index.ejs" afterPath="$PROJECT_DIR$/views/pages/index.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/partials/editor/index.js" afterPath="$PROJECT_DIR$/views/partials/editor/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/partials/nav.ejs" afterPath="$PROJECT_DIR$/views/partials/nav.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/node.svg" afterPath="$PROJECT_DIR$/public/node.svg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project.json" afterPath="$PROJECT_DIR$/public/project.json" />
@@ -78,64 +61,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/partials/editor/index.js">
+      <file leaf-file-name="Object.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/src/client/Physics/Object.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="61" column="131" selection-start-line="61" selection-start-column="131" selection-end-line="61" selection-end-column="131" />
+              <caret line="74" column="17" selection-start-line="74" selection-start-column="17" selection-end-line="74" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Scene.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/src/client/Editor/Scene.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.642857">
-              <caret line="155" column="92" selection-start-line="155" selection-start-column="92" selection-end-line="155" selection-end-column="92" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ElementInfoRows.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/partials/editor/ElementInfo/ElementInfoRows.js">
+      <file leaf-file-name="Materials.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/src/common/Physics/Materials.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+              <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ElementInfo.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/views/partials/editor/ElementInfo/ElementInfo.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8235294">
-              <caret line="64" column="22" selection-start-line="64" selection-start-column="22" selection-end-line="64" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EntityManager.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/src/common/Physics/EntityManager.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.321428">
-              <caret line="45" column="34" selection-start-line="45" selection-start-column="34" selection-end-line="45" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WorldLayer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/src/client/Editor/WorldLayer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.5">
-              <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
-              <folding>
-                <element signature="e#5020#7500#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -143,39 +84,83 @@
       <file leaf-file-name="project.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/project.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.5">
-              <caret line="16" column="43" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="18" column="45" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EditorState.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/src/client/Editor/EditorState.js">
+      <file leaf-file-name="DamageSprite.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/src/client/Physics/DamageSprite.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="26" column="24" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
+              <caret line="18" column="3" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MenuLayer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/partials/editor/EditorMenuLayer/MenuLayer.js">
+      <file leaf-file-name="Box.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/src/client/Editor/Components/Box/Box.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="63" column="22" selection-start-line="63" selection-start-column="22" selection-end-line="63" selection-end-column="22" />
+              <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="World.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/src/common/World.js">
+      <file leaf-file-name="Math.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/src/common/Math.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="47.857143">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="91" column="0" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WorldLayer.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/src/client/Editor/WorldLayer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.64784056">
+              <caret line="188" column="9" selection-start-line="188" selection-start-column="9" selection-end-line="188" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Entity.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/src/common/Physics/Entity.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="47" column="29" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="box2d.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/engine/external/box2d/box2d.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="3692" column="22" selection-start-line="3692" selection-start-column="17" selection-end-line="3692" selection-end-column="22" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CCPointExtension.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/engine/cocos2d/core/support/CCPointExtension.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="133" column="31" selection-start-line="133" selection-start-column="29" selection-end-line="133" selection-end-column="31" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -201,18 +186,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/views/partials/editor/ElementInfo/ElementInfoFactory.js" />
-        <option value="$PROJECT_DIR$/public/src/client/DebugCanvas.js" />
-        <option value="$PROJECT_DIR$/views/partials/editor/ElementInfo/BoxInfo.js" />
-        <option value="$PROJECT_DIR$/public/src/client/Editor/Components/Pin/PinSprite.js" />
-        <option value="$PROJECT_DIR$/public/src/client/Editor/Components/Box/BoxSprite.js" />
-        <option value="$PROJECT_DIR$/views/partials/keycodes.js" />
-        <option value="$PROJECT_DIR$/public/src/client/Editor/Components/Pin/Pin.js" />
-        <option value="$PROJECT_DIR$/views/partials/editor/ElementInfo/PropulsorInfo.js" />
-        <option value="$PROJECT_DIR$/views/partials/editor/InfoLayer.js" />
-        <option value="$PROJECT_DIR$/__tests__/views/partials/editor/index.jsx.js" />
-        <option value="$PROJECT_DIR$/views/partials/editor/__tests__/index.jsx.js" />
-        <option value="$PROJECT_DIR$/processor.js" />
         <option value="$PROJECT_DIR$/preprocessor.js" />
         <option value="$PROJECT_DIR$/.babelrc" />
         <option value="$PROJECT_DIR$/package.json" />
@@ -221,37 +194,49 @@
         <option value="$PROJECT_DIR$/views/partials/__tests__/gameTests/AddNewObject.js" />
         <option value="$PROJECT_DIR$/public/src/client/Editor/Tests.js" />
         <option value="$PROJECT_DIR$/public/project_dev.json" />
-        <option value="$PROJECT_DIR$/public/src/client/Editor/tests/Tests.js" />
-        <option value="$PROJECT_DIR$/public/src/common/Physics/Materials.js" />
         <option value="$PROJECT_DIR$/testhelpers.js" />
-        <option value="$PROJECT_DIR$/public/src/client/Editor/NewObjectLayer.js" />
-        <option value="$PROJECT_DIR$/public/src/client/Editor/tests/AddNewObject.js" />
         <option value="$PROJECT_DIR$/public/src/client/Editor/Components/Factory.js" />
         <option value="$PROJECT_DIR$/public/src/common/Components/Pin.js" />
-        <option value="$PROJECT_DIR$/public/src/client/Editor/Components/Propulsor/Propulsor.js" />
-        <option value="$PROJECT_DIR$/views/partials/editor/EditorMenuLayer/ComponentList.js" />
-        <option value="$PROJECT_DIR$/views/partials/gameLayer.js" />
-        <option value="$PROJECT_DIR$/views/partials/editor/helpers.js" />
-        <option value="$PROJECT_DIR$/public/src/client/Editor/Components/Box/Box.js" />
         <option value="$PROJECT_DIR$/public/src/client/Physics/Base.js" />
-        <option value="$PROJECT_DIR$/public/src/client/Physics/Object.js" />
-        <option value="$PROJECT_DIR$/views/partials/editor/editor.scss" />
-        <option value="$PROJECT_DIR$/public/src/client/Editor/TestScenes.js" />
         <option value="$PROJECT_DIR$/views/partials/editor/EditorMenuLayer/__tests__/MenuLayer.jsx" />
         <option value="$PROJECT_DIR$/public/src/server/Physics.js" />
         <option value="$PROJECT_DIR$/public/src/server/GameServer.js" />
         <option value="$PROJECT_DIR$/views/partials/editor/ElementInfo/InfoLayer.js" />
-        <option value="$PROJECT_DIR$/views/partials/editor/Helper/HelperMenuLayer.js" />
-        <option value="$PROJECT_DIR$/public/src/common/World.js" />
-        <option value="$PROJECT_DIR$/views/partials/editor/ElementInfo/ElementInfoRows.js" />
-        <option value="$PROJECT_DIR$/public/project.json" />
-        <option value="$PROJECT_DIR$/public/src/common/Physics/EntityManager.js" />
-        <option value="$PROJECT_DIR$/public/src/client/Editor/Scene.js" />
-        <option value="$PROJECT_DIR$/public/src/client/Editor/EditorState.js" />
-        <option value="$PROJECT_DIR$/public/src/client/Editor/WorldLayer.js" />
-        <option value="$PROJECT_DIR$/views/partials/editor/index.js" />
-        <option value="$PROJECT_DIR$/views/partials/editor/EditorMenuLayer/MenuLayer.js" />
         <option value="$PROJECT_DIR$/views/partials/editor/ElementInfo/ElementInfo.js" />
+        <option value="$PROJECT_DIR$/views/partials/editor/EditorMenuLayer/ComponentList.js" />
+        <option value="$PROJECT_DIR$/public/src/common/Physics/EntityManager.js" />
+        <option value="$PROJECT_DIR$/public/src/client/Editor/tests/Tests.js" />
+        <option value="$PROJECT_DIR$/public/src/client/Editor/tests/AddNewObject.js" />
+        <option value="$PROJECT_DIR$/views/partials/editor/ElementInfo/ElementInfoRows.js" />
+        <option value="$PROJECT_DIR$/gulpfile.js" />
+        <option value="$PROJECT_DIR$/public/src/client/Editor/Components/Propulsor/Propulsor.js" />
+        <option value="$PROJECT_DIR$/views/partials/editor/helpers.js" />
+        <option value="$PROJECT_DIR$/views/partials/gameLayer.js" />
+        <option value="$PROJECT_DIR$/views/partials/editor/Helper/HelperMenuLayer.js" />
+        <option value="$PROJECT_DIR$/views/partials/editor/EditorMenuLayer/ElementList.js" />
+        <option value="$PROJECT_DIR$/public/src/client/Editor/NewObjectLayer.js" />
+        <option value="$PROJECT_DIR$/public/src/common/World.js" />
+        <option value="$PROJECT_DIR$/public/src/client/Editor/TestScenes.js" />
+        <option value="$PROJECT_DIR$/views/partials/game/game.ejs" />
+        <option value="$PROJECT_DIR$/public/src/common/Globals.js" />
+        <option value="$PROJECT_DIR$/views/pages/index.ejs" />
+        <option value="$PROJECT_DIR$/views/partials/nav.ejs" />
+        <option value="$PROJECT_DIR$/public/src/client/Editor/EditorState.js" />
+        <option value="$PROJECT_DIR$/public/src/client/Editor/Scene.js" />
+        <option value="$PROJECT_DIR$/views/partials/editor/index.js" />
+        <option value="$PROJECT_DIR$/views/partials/editor/editor.scss" />
+        <option value="$PROJECT_DIR$/views/partials/editor/Robots.js" />
+        <option value="$PROJECT_DIR$/views/partials/game/gameLayer.js" />
+        <option value="$PROJECT_DIR$/views/partials/editor/Sidebar/Sidebar.js" />
+        <option value="$PROJECT_DIR$/views/partials/editor/EditorMenuLayer/MenuLayer.js" />
+        <option value="$PROJECT_DIR$/public/src/client/Editor/Components/Box/Box.js" />
+        <option value="$PROJECT_DIR$/public/project.json" />
+        <option value="$PROJECT_DIR$/public/src/client/Physics/DamageSprite.js" />
+        <option value="$PROJECT_DIR$/public/src/common/Math.js" />
+        <option value="$PROJECT_DIR$/public/src/common/Physics/Materials.js" />
+        <option value="$PROJECT_DIR$/public/src/client/Physics/Object.js" />
+        <option value="$PROJECT_DIR$/public/src/common/Physics/Entity.js" />
+        <option value="$PROJECT_DIR$/public/src/client/Editor/WorldLayer.js" />
       </list>
     </option>
   </component>
@@ -302,6 +287,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
@@ -332,60 +318,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="partials" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="robotwar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="robotwar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="partials" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="editor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="robotwar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="robotwar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="robotwar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="robotwar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -404,7 +336,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="pages" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -418,13 +350,16 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="jest" />
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -460,18 +395,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/views/partials" />
+      <recent name="$PROJECT_DIR$/views/partials/editor/EditorMenuLayer" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/views/partials/editor/EditorMenuLayer/__tests__" />
-      <recent name="$PROJECT_DIR$/views/partials/editor/EditorMenuLayer" />
       <recent name="$PROJECT_DIR$/views/partials/editor/ElementInfo" />
-      <recent name="$PROJECT_DIR$/views/partials/editor" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/views/partials/game" />
       <recent name="$PROJECT_DIR$/public/src/client/Editor/tests" />
       <recent name="$PROJECT_DIR$/views/partials/editor/EditorMenuLayer" />
       <recent name="$PROJECT_DIR$/views/partials/editor/ElementInfo" />
       <recent name="$PROJECT_DIR$/views/partials/editor" />
-      <recent name="$PROJECT_DIR$/public" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.client">
@@ -783,7 +718,17 @@
       <workItem from="1486579908146" duration="100000" />
       <workItem from="1486655320888" duration="32000" />
       <workItem from="1486806219035" duration="29195000" />
-      <workItem from="1486895908489" duration="5311000" />
+      <workItem from="1486895908489" duration="20866000" />
+      <workItem from="1486984490130" duration="9624000" />
+      <workItem from="1487000520483" duration="2821000" />
+      <workItem from="1487004238193" duration="363000" />
+      <workItem from="1487068595244" duration="9066000" />
+      <workItem from="1487253624716" duration="1878000" />
+      <workItem from="1487255783605" duration="318000" />
+      <workItem from="1487256620053" duration="5874000" />
+      <workItem from="1487266017769" duration="3575000" />
+      <workItem from="1487276054802" duration="2984000" />
+      <workItem from="1487499943493" duration="34000" />
     </task>
     <task id="LOCAL-00001" summary="Changing gitignore">
       <created>1485952170573</created>
@@ -863,11 +808,17 @@
       <option name="project" value="LOCAL" />
       <updated>1485960975637</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Adding editor layers">
+      <created>1486901483984</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1486901483984</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105462000" />
+    <option name="totallyTimeSpent" value="157554000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1301" height="744" extended-state="6" />
@@ -882,29 +833,62 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32695374" sideWeight="0.49483716" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.07863384" sideWeight="0.8013817" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3863275" sideWeight="0.700556" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854864" sideWeight="0.31453535" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37001595" sideWeight="0.70611596" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16216215" sideWeight="0.70611596" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27561557" sideWeight="0.8446043" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15806195" sideWeight="0.8446043" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.112787925" sideWeight="0.19861831" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26449564" sideWeight="0.7635983" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.061953932" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.061953932" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20889595" sideWeight="0.55210644" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4880763" sideWeight="0.48610008" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2494043" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Module Dependencies" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962668" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4880763" sideWeight="0.48610008" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854864" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39872408" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854864" sideWeight="0.31453535" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854864" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33894584" sideWeight="0.15539569" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854864" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36044657" sideWeight="0.401112" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5183413" sideWeight="0.5138999" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32695374" sideWeight="0.49483716" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.07863384" sideWeight="0.8013817" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2494043" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Module Dependencies" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962668" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.112787925" sideWeight="0.19861831" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26449564" sideWeight="0.7635983" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.061953932" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4880763" sideWeight="0.48610008" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32535884" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854864" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39872408" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3863275" sideWeight="0.700556" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854864" sideWeight="0.31453535" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854864" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37001595" sideWeight="0.70611596" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33894584" sideWeight="0.15539569" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854864" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27561557" sideWeight="0.8446043" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36044657" sideWeight="0.401112" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20889595" sideWeight="0.55210644" order="4" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -923,7 +907,8 @@
     <MESSAGE value="Changing gitignore" />
     <MESSAGE value="Server config" />
     <MESSAGE value="Start client-server" />
-    <option name="LAST_COMMIT_MESSAGE" value="Start client-server" />
+    <MESSAGE value="Adding editor layers" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding editor layers" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -936,24 +921,136 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/src/client/Editor/Components/Pin/PinSprite.js">
+    <entry file="file://$PROJECT_DIR$/public/src/server/GameServer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="24" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="24" />
+        <state vertical-scroll-proportion="-5.892857">
+          <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/engine/external/box2d/box2d.js">
+    <entry file="file://$PROJECT_DIR$/views/partials/editor/ElementInfo/InfoLayer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.285714">
-          <caret line="6107" column="29" selection-start-line="6107" selection-start-column="29" selection-end-line="6107" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="53" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/src/client/Editor/Components/Box/BoxSprite.js">
+    <entry file="file://$PROJECT_DIR$/public/src/common/Physics/EntityManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.178571">
+          <caret line="53" column="16" selection-start-line="53" selection-start-column="16" selection-end-line="53" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/src/client/Editor/tests/Tests.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/src/client/Editor/tests/AddNewObject.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="63" selection-start-line="45" selection-start-column="63" selection-end-line="45" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/editor/ElementInfo/ElementInfo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gulpfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="52" column="5" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/src/common/Components/Propulsor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.857142">
+          <caret line="53" column="24" selection-start-line="53" selection-start-column="24" selection-end-line="53" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/editor/ElementInfo/ElementInfoRows.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.464286">
+          <caret line="74" column="23" selection-start-line="74" selection-start-column="23" selection-end-line="74" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/src/client/Editor/Components/Propulsor/Propulsor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/editor/helpers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="67" selection-start-line="35" selection-start-column="67" selection-end-line="35" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/editor/Helper/HelperMenuLayer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="32" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/editor/EditorMenuLayer/ComponentList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="14" selection-start-line="27" selection-start-column="8" selection-end-line="31" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/editor/EditorMenuLayer/ElementList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/keycodes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/engine/cocos2d/core/base-nodes/CCNode.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="586" column="4" selection-start-line="586" selection-start-column="4" selection-end-line="586" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/src/client/Editor/NewObjectLayer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="91" column="25" selection-start-line="91" selection-start-column="25" selection-end-line="91" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/src/common/World.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="70" column="36" selection-start-line="70" selection-start-column="36" selection-end-line="70" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/pages/server.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -964,359 +1061,233 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/main.js">
+    <entry file="file://$PROJECT_DIR$/public/src/common/Globals.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="38" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
+          <caret line="120" column="0" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/preprocessor.js">
+    <entry file="file://$PROJECT_DIR$/views/pages/db.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
+        <state vertical-scroll-proportion="-5.0">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.js">
+    <entry file="file://$PROJECT_DIR$/views/partials/nav2.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gulpfile.js">
+    <entry file="file://$PROJECT_DIR$/views/partials/nav.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.375">
+          <caret line="7" column="88" selection-start-line="7" selection-start-column="88" selection-end-line="7" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/pages/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.babelrc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/partials/editor/EditorMenuLayer/__tests__/ComponentList.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/project_dev.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.0">
-          <caret line="53" column="35" selection-start-line="53" selection-start-column="35" selection-end-line="53" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.125">
-          <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/src/client/Editor/tests/Tests.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/src/common/Physics/Materials.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="87" column="18" selection-start-line="87" selection-start-column="18" selection-end-line="87" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/src/common/Math.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/src/common/Physics/Entity.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.0">
-          <caret line="35" column="35" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testhelpers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="32" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/src/client/Editor/NewObjectLayer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.035714">
-          <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/src/client/Editor/Components/Factory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="49" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/src/common/Components/Pin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.892857">
-          <caret line="53" column="21" selection-start-line="53" selection-start-column="21" selection-end-line="53" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/src/client/Editor/tests/AddNewObject.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="68" column="31" selection-start-line="68" selection-start-column="31" selection-end-line="68" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/src/client/Editor/Components/Pin/Pin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="24" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/src/client/Editor/Components/Propulsor/Propulsor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="44" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/partials/editor/EditorMenuLayer/ComponentList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/partials/gameLayer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/partials/editor/ElementInfo/PinInfo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/partials/editor/ElementInfo/PropulsorInfo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/src/client/Editor/Controls/Move.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="44" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/src/client/Editor/Components/Box/Box.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/src/client/Physics/Base.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="60" column="13" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/src/client/Physics/Object.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-32.67857">
-          <caret line="61" column="6" selection-start-line="61" selection-start-column="6" selection-end-line="61" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/partials/editor/ElementInfo/ElementInfoFactory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/partials/editor/editor.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.958333">
-          <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/partials/editor/helpers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/partials/editor/EditorMenuLayer/__tests__/MenuLayer.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="4" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/src/server/Physics.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/src/server/GameServer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.892857">
-          <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+          <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/src/client/Editor/TestScenes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="203" column="0" selection-start-line="203" selection-start-column="0" selection-end-line="203" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/partials/editor/ElementInfo/InfoLayer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="53" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
-          <folding>
-            <marker date="1486894911311" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/partials/editor/Helper/HelperMenuLayer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="37" column="67" selection-start-line="37" selection-start-column="67" selection-end-line="37" selection-end-column="67" />
-          <folding>
-            <marker date="1486895094043" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
-            <marker date="1486895094043" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
-            <marker date="1486895094043" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/partials/keycodes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="68" column="11" selection-start-line="68" selection-start-column="9" selection-end-line="68" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/src/common/World.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="47.857143">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/project.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.5">
-          <caret line="16" column="43" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/partials/editor/ElementInfo/ElementInfoRows.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/src/common/Physics/EntityManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.321428">
-          <caret line="45" column="34" selection-start-line="45" selection-start-column="34" selection-end-line="45" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/src/client/Editor/Scene.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.642857">
-          <caret line="155" column="92" selection-start-line="155" selection-start-column="92" selection-end-line="155" selection-end-column="92" />
-          <folding />
+          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/src/client/Editor/EditorState.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="24" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
-          <folding />
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/src/client/Editor/WorldLayer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.5">
-          <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
-          <folding>
-            <element signature="e#5020#7500#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/partials/editor/EditorMenuLayer/MenuLayer.js">
+    <entry file="file://$PROJECT_DIR$/public/src/client/Editor/Scene.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="63" column="22" selection-start-line="63" selection-start-column="22" selection-end-line="63" selection-end-column="22" />
-          <folding />
+          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/partials/editor/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="61" column="131" selection-start-line="61" selection-start-column="131" selection-end-line="61" selection-end-column="131" />
+          <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/editor/editor.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="1" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-bootstrap/lib/Modal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="330" column="0" selection-start-line="330" selection-start-column="0" selection-end-line="330" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-bootstrap/lib/Form.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="91" column="6" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/debug/browser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="163" column="9" selection-start-line="163" selection-start-column="9" selection-end-line="163" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/editor/Robots.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="39" column="19" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/game/gameLayer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="108" column="32" selection-start-line="108" selection-start-column="32" selection-end-line="108" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/idea.jar!/resources/html5-schema/html5/rdfa.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="177" column="12" selection-start-line="177" selection-start-column="12" selection-end-line="177" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/editor/Sidebar/Sidebar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.178572">
+          <caret line="91" column="58" selection-start-line="91" selection-start-column="58" selection-end-line="91" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/game/game.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.875">
+          <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/editor/EditorMenuLayer/MenuLayer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="111" column="26" selection-start-line="111" selection-start-column="26" selection-end-line="111" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/engine/cocos2d/core/platform/CCTypesWebGL.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="67" column="80" selection-start-line="67" selection-start-column="78" selection-end-line="67" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/engine/cocos2d/core/platform/CCMacro.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="103" column="0" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/src/client/Editor/Components/Box/Box.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/partials/editor/ElementInfo/ElementInfo.js">
+    <entry file="file://$PROJECT_DIR$/public/project.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8235294">
-          <caret line="64" column="22" selection-start-line="64" selection-start-column="22" selection-end-line="64" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="45" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/src/client/Physics/DamageSprite.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="3" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/src/common/Math.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="91" column="0" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/engine/external/box2d/box2d.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3692" column="22" selection-start-line="3692" selection-start-column="17" selection-end-line="3692" selection-end-column="22" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/src/common/Physics/Materials.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/engine/cocos2d/core/support/CCPointExtension.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="133" column="31" selection-start-line="133" selection-start-column="29" selection-end-line="133" selection-end-column="31" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/src/common/Physics/Entity.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="47" column="29" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/src/client/Physics/Object.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="74" column="17" selection-start-line="74" selection-start-column="17" selection-end-line="74" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/src/client/Editor/WorldLayer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.64784056">
+          <caret line="188" column="9" selection-start-line="188" selection-start-column="9" selection-end-line="188" selection-end-column="9" />
           <folding />
         </state>
       </provider>

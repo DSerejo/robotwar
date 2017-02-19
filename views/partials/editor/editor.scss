@@ -11,16 +11,27 @@
   width: 0;
 }
 .hide{
-  display: none;
+  display: none !important;
 }
+$helper_width: '30%';
+$helper_left: '100% - #{$helper_width}';
+$helper_border_width: 1;
+$helper_padding: 5;
 .helper{
-  background: white;
+  background: rgba(226, 226, 226, 0.2);
   display: inline-block;
   max-height: 90%;
   overflow: auto;
-  transform: translate(-50%,-50%);
-  left: 50%;
-  top: 50%;
+  left: calc( #{$helper_left} - #{$helper_border_width * 2}px);
   position: relative;
-  width: 50%;
+  width: calc( #{$helper_width} - #{$helper_padding * 2}px);
+  padding: #{$helper_padding}px;
+  border: #{$helper_border_width}px solid #ccc;
+  font-size: 12px;
+}
+.helper-text{
+  text-align: center;
+}
+.sidebar{
+  background: white;
 }

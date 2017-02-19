@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import keydown from 'react-keydown';
-import {calculateLayerStylesheet} from '../helpers.js';
+import {calculateLayerStylesheet,KeyCallbackComponent} from '../helpers.js';
 class HelperRow extends React.Component{
     render(){
         return <div>
@@ -10,11 +10,10 @@ class HelperRow extends React.Component{
         </div>
     }
 }
-class HelperLayer extends React.Component{
+class HelperLayer extends KeyCallbackComponent{
     constructor(props){
         super(props)
         this.state = {show:false}
-        this.props.registerKeyCallBacks.pressed(this.keyPressed.bind(this))
     }
     keyPressed(key){
         if(key==72){
@@ -22,16 +21,22 @@ class HelperLayer extends React.Component{
         }
     }
     render(){
-        var className = classNames({
-            hide:!this.state.show,
-            'editor-box':true
-
+        var helperBoxClassName = classNames({
+                hide:!this.state.show,
+                helper:true
         });
-        return <div className={className} style={calculateLayerStylesheet()}>
-            <div className="helper">
+        var helperTextClassName = classNames({
+                hide:this.state.show,
+                'helper-text':true
+            });
+        return <div className="editor-box" style={calculateLayerStylesheet()}>
+            <div className={helperTextClassName}>
+                Press H for help
+            </div>
+            <div className={helperBoxClassName}>
                 <HelperRow command="Ctrl + click" description="Select next nested object" />
                 <HelperRow command="< >" description="Select next/prev object" />
-                <HelperRow command="A S D W" description="Move selected elemen't" />
+                <HelperRow command="A S D W" description="Move selected element" />
                 <HelperRow command="Q E" description="Rotate selected element" />
                 <HelperRow command="Shift + Movement key" description="Higher precision" />
                 <HelperRow command="Delete" description="Remove selected object" />

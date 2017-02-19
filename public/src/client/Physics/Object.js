@@ -1,4 +1,4 @@
-PhysicsObjectDef = function(){};
+class PhysicsObjectDef{}
 PhysicsObjectDef.prototype.ctor  = function(world,options){
     this.world = world;
     this._super(options);
@@ -70,10 +70,20 @@ PhysicsObjectDef.prototype.checkJointsToAdd = function(){
         }
     })
 };
+PhysicsObjectDef.prototype.calculateAndApplyDamage = function(){
+    var damage = this.calculateDamage(energy);
+    console.log()
+    this.applyDamage(damage);
+},
 PhysicsObjectDef.prototype.calculateDamage = function(energy){
     var area = this.calculateArea(),
-        absorbedEnergy = this.options.material.calculateAbsorbedEnergy(energy/area),
-        damage = this.options.material.calculateDeformationRatio(absorbedEnergy);
+        absorbedEnergy = this.material.calculateAbsorbedEnergy(energy/area);
+    return this.material.calculateDeformationRatio(absorbedEnergy);
+},
+PhysicsObjectDef.prototype.applyDamage = function(damage){
+    if(damage>0){
+        new DamageSprite(damage,this);
+    }
     this.life -= damage;
     if(this.life<0){
         //this.isAlive = false;

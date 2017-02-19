@@ -21,32 +21,10 @@
             -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
         }
     </style>
-
+    <% include ../partials/header.ejs %>
 </head>
 <body style="padding:0; margin: 0; background: #000;">
-
-
-
-
-<div id="root"></div>
-
-<div style="position: fixed;right: 0;top:0">
-    <button   onclick="toggleDebug()">Debug</button>
-    <button  onclick="togglePhysics()">Physics</button>
-</div>
-
-<script>
-    function toggleDebug(){
-        cc.debugger_.toggle()
-    }
-    function togglePhysics(){
-        window.editor.togglePhysics()
-    }
-</script>
-<script src="/engine/CCBoot.js"></script>
-<script src="/pages/editor.min.js"></script>
-<script src="<%= wsHOST %>/socket.io/socket.io.js"></script>
-<!--<script src="/main.js"></script>-->
-<script src="/res/loading.js"></script>
+    <% include ../partials/nav.ejs %>
+    <% include ../partials/game/game.ejs %>
 </body>
 </html>

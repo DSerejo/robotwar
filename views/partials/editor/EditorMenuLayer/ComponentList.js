@@ -1,11 +1,24 @@
 import React from 'react';
 import classNames from 'classnames';
-
-class ComponentList extends React.Component{
+import {KeyCallbackComponent} from '../helpers.js';
+class ComponentList extends KeyCallbackComponent{
     handleClick(type){
         if(!this.props.editorScene) return;
         this.props.editorScene.addNewObject(type)
         this.props.onChange();
+    }
+    keyPressed(key){
+        switch (key){
+            case 66: //b
+                this.handleClick('box');
+                break;
+            case 73: //i
+                this.handleClick('pin');
+                break;
+            case 80: //p
+                this.handleClick('propulsor');
+                break;
+        }
     }
     render() {
         var className = classNames({

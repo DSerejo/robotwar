@@ -1,6 +1,7 @@
 import React from 'react';
 import keydown from 'react-keydown';
 import keycodes from '../../keycodes.js'
+import {KeyCallbackComponent} from '../helpers.js';
 class ElementProp extends React.Component{
     constructor(props){
         super(props);
@@ -39,14 +40,14 @@ class PositionY extends ElementProp{
 }
 class Width extends ElementProp{
     transform(element,info,value){
-        value = Math.max(0.1,value);
+        value = Math.max(window.MIN_SIZE,value);
         element.w = value;
         element.recreateSprite();
     }
 }
 class Height extends ElementProp{
     transform(element,info,value){
-        value = Math.max(0.1,value);
+        value = Math.max(window.MIN_SIZE,value);
         element.h = value;
         element.recreateSprite();
     }
@@ -57,7 +58,7 @@ class Angle extends ElementProp{
     }
 }
 
-class ActionKeyProp_ extends React.Component{
+class ActionKeyProp_ extends KeyCallbackComponent{
     constructor(props){
         super(props);
         this.state = {actionKey : props.actionKey,editing:false}
@@ -73,10 +74,17 @@ class ActionKeyProp_ extends React.Component{
                 this.setState( {editing:false} );
                 this.props.element.actionKeys[this.props.action] = event.which;
                 this.props.update();
+                cc._canvas.focus();
             }
         }else{
             const {actionKey} = nextProps;
             this.setState( { actionKey: actionKey} );
+        }
+    }
+    keyPressed(key){
+        if(key == 84) { //t
+            this.button.focus()
+            this.handleClick()
         }
     }
     convertCodeToString(){

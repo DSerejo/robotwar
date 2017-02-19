@@ -12,9 +12,15 @@ var EditorScene = cc.Scene.extend({
         this.listenEvents();
         this.addChild(background,-1,EditorScene.Tags.background);
         EditorState.loadFromDB();
-        this.worldLayer = new WorldLayer(EditorState.currentState());
+        this.worldLayer = new WorldLayer(this.robot);
         this.addChild(this.worldLayer);
         window.editor = this
+    },
+    restartWith:function(robot){
+        EditorState.restart();
+        this.setAllObjectsToInactive();
+        this.worldLayer.currentState = robot;
+        this.worldLayer.restart();
     },
     togglePhysics:function(){
         this.worldLayer.stopped = !this.worldLayer.stopped;
@@ -25,7 +31,8 @@ var EditorScene = cc.Scene.extend({
             event: cc.EventListener.MOUSE,
             onMouseMove: this.onMouseMove.bind(this),
             onMouseDown: this.onMouseDown.bind(this),
-            onMouseUp: this.onMouseUp.bind(this)
+            onMouseUp: this.onMouseUp.bind(this),
+            onMouseScroll: this.onMouseScroll.bind(this)
         })
         cc.eventManager.addListener(listener, this);
         cc.eventManager.setPriority(listener,1);
@@ -68,6 +75,10 @@ var EditorScene = cc.Scene.extend({
             }
         }
     },
+    onMouseScroll:function(event){
+        var dScale = event._scrollY/1200;
+        this.worldLayer.scaleWorld(WORLD_SCALE + dScale);
+    },
     shouldTransform:function(){
         return this.mousePressed && this.controlLayer && this.controlLayer.selectedButton && !this.isControlLayerClicked(event)
     },
@@ -109,7 +120,7 @@ var EditorScene = cc.Scene.extend({
     showControlLayer:function(){
         if(!this.controlLayer){
             this.controlLayer = new ControlLayer();
-            this.addChild(this.controlLayer);
+            //this.addChild(this.controlLayer);
         }
         if(!this.controlLayer.selectedButton){
             this.controlLayer.selectedButton = this.controlLayer.moveButton
@@ -163,9 +174,12 @@ var EditorScene = cc.Scene.extend({
             }else{
                 EntityManager.removeEntity(this.selectedObject);
             }
+            this.worldLayer.objects.splice(this.worldLayer.objects.indexOf(this.selectedObject),1)
+            this.setAllObjectsToInactive();
         }
     },
     addNewObject:function(type,options){
+        this.removeNewObjectLayer();
         this.newObjectLayer = new NewObjectLayer(this.world,options);
         this.addChild(this.newObjectLayer);
         var self = this;
@@ -179,7 +193,12 @@ var EditorScene = cc.Scene.extend({
             self.newObjectLayer.removeFromParent();
             self.newObjectLayer = null
         })
-
+    },
+    removeNewObjectLayer:function(){
+        if(!this.newObjectLayer) return;
+        this.newObjectLayer.objectToBeAdded && this.newObjectLayer.objectToBeAdded.remove();
+        this.newObjectLayer.removeFromParent();
+        this.newObjectLayer = null
     },
     logLife:function(){
         _.each(this.worldLayer.objects,function(o){

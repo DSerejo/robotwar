@@ -16,6 +16,7 @@
         "src/common/Globals.js",
         "src/client/Editor/EditorState.js",
         "src/client/DebugCanvas.js",
+        "src/client/Physics/DamageSprite.js",
         "src/client/Physics/Base.js",
         "src/client/Physics/Object.js",
         "src/common/Physics/Entity.js",

@@ -1,17 +1,14 @@
 import React from 'react';
+import {KeyCallbackComponent} from '../helpers.js';
 var KeyPressed = {
     shiftPressed:false,
     ctrlPressed:false
 };
-class ElementInfo extends React.Component{
+class ElementInfo extends KeyCallbackComponent{
     constructor(props){
         super(props);
         this.canMove = true;
 
-    }
-    registerKeyCallbacks(){
-        this.unregisterKeypressed = this.props.registerKeyCallBacks.pressed(this.keyPressed.bind(this));
-        this.unregisterKeyreleased = this.props.registerKeyCallBacks.released(this.keyReleased.bind(this));
     }
     updateElement(){
         this.props.element.updateBodyFromSprite && this.props.element.updateBodyFromSprite();
@@ -59,6 +56,11 @@ class ElementInfo extends React.Component{
                 break;
             case 46: //delete
                 this.props.editorScene.removeSelectedObject();
+                doNotUpdate = true;
+                break;
+            case 27: //esc
+                this.props.editorScene.setAllObjectsToInactive();
+                doNotUpdate = true;
                 break;
             default:
                 doNotUpdate = true;
@@ -67,13 +69,6 @@ class ElementInfo extends React.Component{
         if(!doNotUpdate)
             this.forceUpdate();
 
-    }
-    componentWillMount(){
-        this.registerKeyCallbacks();
-    }
-    componentWillUnmount(){
-        this.unregisterKeypressed && this.unregisterKeypressed();
-        this.unregisterKeyreleased && this.unregisterKeyreleased();
     }
     rows(){}
     render(){

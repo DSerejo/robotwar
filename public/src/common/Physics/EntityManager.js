@@ -47,7 +47,11 @@ EntityManager.getWithId = function(id){
     return null;
 };
 EntityManager.newID = function(){
-    return ++EntityManager.lastID;
+    var newId = ++EntityManager.lastID;
+    while(EntityManager.hasEntityId(newId) || EntityManager.hasJointId(newId)){
+        newId = ++EntityManager.lastID;
+    }
+    return newId;
 };
 EntityManager.removeEntity = function(entity){
     entity.remove();
@@ -56,9 +60,6 @@ EntityManager.removeEntity = function(entity){
 EntityManager.removeJoint = function(joint){
     joint.remove();
     delete EntityManager.joints[joint.id];
-};
-EntityManager.removeJoint = function(entity){
-
 };
 EntityManager.removeDeadBodies = function(){
     _.each(EntityManager.graveyard,function(e,id,g){

@@ -41,14 +41,45 @@ EntityDef.prototype.removeFromParent = function(){
 EntityDef.prototype.removeFromWorld = function(){
     this.body.GetWorld().DestroyBody(this.body);
 };
-EntityDef.prototype.calculateDamage = function(energy){
-    var area = this.calculateArea(),
-        absorbedEnergy = this.material.calculateAbsorbedEnergy(energy/area),
-        damage = this.material.calculateDeformationRatio(absorbedEnergy);
-    this.life -= damage
+
+EntityDef.prototype.calculateAndApplyDamage = function(stress){
+    var damage = this.calculateDamage(stress);
+    console.log(this.id,stress/this.calculateArea(),damage);
+    this.applyDamage(damage);
+},
+EntityDef.prototype.calculateDamage = function(stress){
+    var bodyArea = this.calculateArea(),
+        stressPerArea =stress/bodyArea;
+    return this.material.calculateDeformationRatio(stressPerArea);
+};
+EntityDef.prototype.applyDamage = function(damage){
+    if(damage>0){
+        new DamageSprite(damage,this);
+    }
+    this.life -= damage;
     if(this.life<0){
         //this.isAlive = false;
     }
+};
+
+EntityDef.prototype.calculateArea = function(){
+    return this.body.GetMass()/this.body.GetFixtureList().GetDensity()
+};
+EntityDef.prototype.updateKineticEnergy = function(){
+    this.lastKineticEnergy  = EnergyCalc.kineticEnergy(this.body);
+    this.lastLinVel = _.extend({},this.body.m_linearVelocity);
+    this.lastAngVel = this.body.m_angularVelocity;
+};
+EntityDef.prototype.getDiffEnergy = function(){
+    return this.lastKineticEnergy - EnergyCalc.kineticEnergy(this.body)
+};
+EntityDef.prototype.setActionKeys = function(actionKeys){
+    this.actionKeys = actionKeys;
+};
+
+EntityDef.prototype.getActionKey = function(action){
+    if(this.actionKeys && this.actionKeys[action])
+        return this.actionKeys[action];
 };
 EntityDef.prototype.toObject = function(){
     var obj = {};
@@ -73,24 +104,6 @@ EntityDef.prototype.toObject = function(){
     }
     return obj;
 };
-EntityDef.prototype.calculateArea = function(){
-    return this.body.GetMass()/this.body.GetFixtureList().GetDensity()
-};
-EntityDef.prototype.updateKineticEnergy = function(){
-    this.lastKineticEnergy  = EnergyCalc.kineticEnergy(this.body);
-};
-EntityDef.prototype.getDiffEnergy = function(){
-    return this.lastKineticEnergy - EnergyCalc.kineticEnergy(this.body)
-};
-EntityDef.prototype.setActionKeys = function(actionKeys){
-    this.actionKeys = actionKeys;
-};
-
-EntityDef.prototype.getActionKey = function(action){
-    if(this.actionKeys && this.actionKeys[action])
-        return this.actionKeys[action];
-};
-
 var Entity = cc.Class.extend(EntityDef.prototype);
 Entity.types = {
     box:'box',
