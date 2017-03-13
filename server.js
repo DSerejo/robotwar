@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
-var usage = require('pidusage');
+//var usage = require('pidusage');
 
 var ConnectionManager = require('./public/src/server/ConnectionManager');
 
@@ -20,7 +20,7 @@ app.get('/', function(request, response) {
     response.render('pages/server');
 });
 
-var pid = process.pid; // you can use any valid PID instead
+//var pid = process.pid; // you can use any valid PID instead
 
 //setInterval(function(){
 //    usage.stat(pid,{keepHistory:true}, function(err, result) {
