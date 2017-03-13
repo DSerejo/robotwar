@@ -1,0 +1,32 @@
+.editor-box {
+  position: absolute;
+  top: 0;
+  pointer-events: none; }
+
+.editor-box input, .editor-box button {
+  pointer-events: initial; }
+
+.editor-box input.invisible {
+  visibility: hidden;
+  width: 0; }
+
+.hide {
+  display: none !important; }
+
+.helper {
+  background: rgba(226, 226, 226, 0.2);
+  display: inline-block;
+  max-height: 90%;
+  overflow: auto;
+  left: calc( 100% - 30% - 2px);
+  position: relative;
+  width: calc( 30% - 10px);
+  padding: 5px;
+  border: 1px solid #ccc;
+  font-size: 12px; }
+
+.helper-text {
+  text-align: center; }
+
+.sidebar {
+  background: white; }

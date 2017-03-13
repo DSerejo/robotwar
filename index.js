@@ -10,7 +10,7 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 app.get('/', function(request, response) {
-  var wsHOST = process.env.NODE_ENV=='production'?'https://robotwarserver.herokuapp.com':'http://localhost:5001';
+  var wsHOST = process.env.NODE_ENV=='production1'?'https://robotwarserver.herokuapp.com':'http://localhost:5001';
   response.render('pages/index',{wsHOST:wsHOST});
 });
 

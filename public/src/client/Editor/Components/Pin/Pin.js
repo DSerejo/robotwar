@@ -2,8 +2,8 @@ var Pin = BaseObject.extend(allMethodsAndProps(PinPhysics), {
     radius:4,
     joinedColor:'#28cc12',
     unJoinedColor: '#ff878b',
-    ctor:function(id,pos,fixtures){
-        PinPhysics.prototype.ctor.bind(this)(id,pos,fixtures);
+    ctor:function(id,pos,fixtures,world){
+        PinPhysics.prototype.ctor.bind(this)(id,pos,fixtures,world);
         this.recreateSprite();
     },
     createSpriteObject:function(){

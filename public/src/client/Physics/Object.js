@@ -11,6 +11,9 @@ PhysicsObjectDef.prototype.update = function (dt) {
         this.setPosition(this.getPosition());
         this.setRotation(-this.getRotation());
     }
+    else{
+        var a = 0;
+    }
 },
 PhysicsObjectDef.prototype.setPosition = function(p){
     this.sprite.setPosition(p)
@@ -40,7 +43,7 @@ PhysicsObjectDef.prototype.removeFromParent = function () {
 PhysicsObjectDef.prototype.removeBody = function(){
     if(this.body){
         var joints = this.jointsToBeUpdated();
-        World.world.DestroyBody(this.body);
+        this.world.DestroyBody(this.body);
         this.removeJoints(joints);
     }
     this.shape = null;
@@ -70,34 +73,7 @@ PhysicsObjectDef.prototype.checkJointsToAdd = function(){
         }
     })
 };
-PhysicsObjectDef.prototype.calculateAndApplyDamage = function(){
-    var damage = this.calculateDamage(energy);
-    console.log()
-    this.applyDamage(damage);
-},
-PhysicsObjectDef.prototype.calculateDamage = function(energy){
-    var area = this.calculateArea(),
-        absorbedEnergy = this.material.calculateAbsorbedEnergy(energy/area);
-    return this.material.calculateDeformationRatio(absorbedEnergy);
-},
-PhysicsObjectDef.prototype.applyDamage = function(damage){
-    if(damage>0){
-        new DamageSprite(damage,this);
-    }
-    this.life -= damage;
-    if(this.life<0){
-        //this.isAlive = false;
-    }
-},
-PhysicsObjectDef.prototype.calculateArea = function(){
-    return this.body.GetMass()/this.body.GetFixtureList().GetDensity()
-},
-PhysicsObjectDef.prototype.updateKineticEnergy = function(){
-    this.lastKineticEnergy  = EnergyCalc.kineticEnergy(this.body);
-},
-PhysicsObjectDef.prototype.getDiffEnergy = function(){
-    return this.lastKineticEnergy - EnergyCalc.kineticEnergy(this.body)
-},
+
 PhysicsObjectDef.prototype.correctImpulseRateAfterDestruction = function(){
     if(this.life>0) return 1;
     var deathFactor = -1*this.life;

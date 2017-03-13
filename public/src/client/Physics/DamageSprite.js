@@ -5,7 +5,6 @@ var DamageSprite = cc.Class.extend({
     ctor:function(damage,object){
         var color = this.calculateDamageColor(damage),
             sprite = object.createSpriteObject(color,true);
-        console.log(object.id,damage);
         object.sprite.addChild(sprite,2);
         setTimeout(function(){
             sprite.removeFromParent()

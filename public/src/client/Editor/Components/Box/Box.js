@@ -1,6 +1,6 @@
 var BoxDef = PhysicsObject.extend(_p.allMethodsAndProps(BoxPhysics));
 var Box = BoxDef.extend({
-    ctor:function(id,width,height,pos,angle,material,type){
+    ctor:function(id,width,height,pos,angle,material,type,world){
         this._super.apply(this,arguments);
         this.addBody();
         this.recreateSprite();

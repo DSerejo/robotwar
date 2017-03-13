@@ -4,80 +4,86 @@ if (typeof require !== 'undefined' && typeof module !== 'undefined') {
 
 var EntityManager = function(){
 };
-EntityManager.lastID = 0;
-EntityManager.entities = {};
-EntityManager.joints = {};
-EntityManager.graveyard = [];
-EntityManager.actionKeys = {};
+EntityManager.prototype.lastID = 0;
+EntityManager.prototype.entities = {};
+EntityManager.prototype.joints = {};
+EntityManager.prototype.graveyard = {};
+EntityManager.prototype.actionKeys = {};
 
-EntityManager.addNewEntity = function(entity){
+EntityManager.prototype.addNewEntity  = function(entity){
     if(!entity instanceof  Entity)
         throw 'entity must be instance of Entity';
-    if(EntityManager.hasEntityId(entity.id)) return;
-    EntityManager.entities[entity.id] = entity;
-    EntityManager.addActionKeys(entity);
+    if(this.hasEntityId(entity.id)) return;
+    this.entities[entity.id] = entity;
+    this.addActionKeys(entity);
 };
 
-EntityManager.addActionKeys= function(entity){
+EntityManager.prototype.addActionKeys = function(entity){
+    var self = this;
     _.each(entity.actionKeys,function(keyCode){
-        EntityManager.actionKeys[keyCode] = EntityManager.actionKeys[keyCode] || [];
-        EntityManager.actionKeys[keyCode].push(entity);
+        self.actionKeys[keyCode] = self.actionKeys[keyCode] || [];
+        self.actionKeys[keyCode].push(entity);
     })
 };
-
-EntityManager.addNewJoint = function(joint){
-    if(EntityManager.hasJointId(joint.id)) return;
-    EntityManager.joints[joint.id] = joint;
+EntityManager.prototype.getEntitiesToBeTriggered = function(keyCode,clientId){
+    return _.filter(this.actionKeys[keyCode],function(e){
+        return e.id.indexOf(clientId)>=0;
+    })
+}
+EntityManager.prototype.addNewJoint  = function(joint){
+    if(this.hasJointId(joint.id)) return;
+    this.joints[joint.id] = joint;
 };
-EntityManager.hasEntityId = function(id){
-    return EntityManager.entities.hasOwnProperty(id);
+EntityManager.prototype.hasEntityId  = function(id){
+    return this.entities.hasOwnProperty(id);
 };
-EntityManager.hasJointId = function(id){
-    return EntityManager.joints.hasOwnProperty(id);
+EntityManager.prototype.hasJointId  = function(id){
+    return this.joints.hasOwnProperty(id);
 };
-EntityManager.getEntityWithId = function(id){
-    if(EntityManager.hasEntityId(id))
-    return EntityManager.entities[id];
+EntityManager.prototype.getEntityWithId  = function(id){
+    if(this.hasEntityId(id))
+    return this.entities[id];
 };
-EntityManager.getWithId = function(id){
-    if(EntityManager.hasEntityId(id))
-        return EntityManager.entities[id];
-    else if(EntityManager.hasJointId(id))
-        return EntityManager.joints[id];
+EntityManager.prototype.getWithId  = function(id){
+    if(this.hasEntityId(id))
+        return this.entities[id];
+    else if(this.hasJointId(id))
+        return this.joints[id];
     return null;
 };
-EntityManager.newID = function(){
-    var newId = ++EntityManager.lastID;
-    while(EntityManager.hasEntityId(newId) || EntityManager.hasJointId(newId)){
-        newId = ++EntityManager.lastID;
+EntityManager.prototype.newID  = function(){
+    var newId = ++this.lastID;
+    while(this.hasEntityId(newId) || this.hasJointId(newId)){
+        newId = ++this.lastID;
     }
     return newId;
 };
-EntityManager.removeEntity = function(entity){
+EntityManager.prototype.removeEntity  = function(entity){
     entity.remove();
-    delete EntityManager.entities[entity.id];
+    delete this.entities[entity.id];
 };
-EntityManager.removeJoint = function(joint){
+EntityManager.prototype.removeJoint  = function(joint){
     joint.remove();
-    delete EntityManager.joints[joint.id];
+    delete this.joints[joint.id];
 };
-EntityManager.removeDeadBodies = function(){
-    _.each(EntityManager.graveyard,function(e,id,g){
-        e.remove();
+EntityManager.prototype.removeDeadBodies  = function(){
+    var self = this;
+    _.each(this.graveyard,function(e,id,g){
+        self.removeEntity(e);
         delete g[id];
     })
 };
-EntityManager.updateAll = function(){
-    _.each(EntityManager.entities,function(e){
+EntityManager.prototype.updateAll  = function(){
+    _.each(this.entities,function(e){
         e.update()
     });
-    _.each(EntityManager.joints,function(e){
+    _.each(this.joints,function(e){
         e.update && e.update()
     })
 };
-EntityManager.performAllActions = function(callBack){
+EntityManager.prototype.performAllActions  = function(callBack){
     var updateIsNeeded = false;
-    _.each(EntityManager.entities,function(e){
+    _.each(this.entities,function(e){
         e.performAction && e.performAction(function(update){
             if(update)
                 updateIsNeeded = true;

@@ -9,7 +9,7 @@ var TestScenes = {
                 width: 1,
                 height: 1,
                 type: b2_dynamicBody,
-                angle: 10,
+                angle: 0,
                 'class': 'box',
                 id:'a',
                 'material': 'rubber'

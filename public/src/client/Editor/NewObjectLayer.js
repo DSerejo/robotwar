@@ -5,11 +5,13 @@ var NewObjectLayer = cc.Layer.extend({
     objectToBeAdded:null,
     startedPoint:null,
     world:null,
+    factory:null,
     options:{},
-    ctor:function(world,options){
+    ctor:function(world,options,factory){
         this._super()
         this.world = world
         this.options = options
+        this.factory = factory;
         this.listenEvents()
     },
     listenEvents: function(){
@@ -63,7 +65,7 @@ var NewObjectLayer = cc.Layer.extend({
     },
     createObject:function(event){
         var options = this.prepareObjectOptionsFromEvent(event);
-        this.objectToBeAdded = new Factory[this.type](options);
+        this.objectToBeAdded = this.factory[this.type](options);
         this.addChild(this.objectToBeAdded.sprite)
     },
     updateSpriteOptions:function(event){

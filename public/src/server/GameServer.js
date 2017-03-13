@@ -1,59 +1,66 @@
 var ClientManager = require('./ClientManager');
-var Physics = require('./Physics');
 var World = require('../common/World');
 var EntityManager = require('../common/Physics/EntityManager');
 var config = require('../../../config');
 var _ = require('lodash');
-var GameServer = {};
+var GameServer = function(entityManager,physics,playerSockets){
+    this.entityManger = entityManager;
+    this.physics = physics;
+    this.playerSockets = playerSockets;
+    this.physics.updateWorldCallback = this.sendToClients.bind(this);
+};
 
-GameServer.sendInitialObjects = function(client){
+GameServer.prototype.sendInitialObjects = function(client){
     var packet = {
         m:'world-start',
-        d:World.getCurrentState()
+        d:this.physics.worldManager.getCurrentState()
     };
-    console.log(JSON.stringify(packet));
     client.send(JSON.stringify(packet));
 };
-GameServer.sendAllInitialObjects = function(except){
-    for (var i = 0; i < ClientManager.clients.length; i++) {
-        if(ClientManager.clients[i] != except) {
+GameServer.prototype.sendAllInitialObjects = function(except){
+    var self = this;
+    _.each(this.playerSockets,function(p,i){
+        if(i != except) {
             if(config.dt)
                 setTimeout(handle.bind(null,i),config.dt);
             else
-                handle(i);
+                handle(p);
         }
-    }
-    function handle(i){
-        ClientManager.clients[i] && GameServer.sendInitialObjects(ClientManager.clients[i]);
+    });
+
+    function handle(p){
+        p && self.sendInitialObjects(p);
     }
 }
 
-GameServer.updateWorld = function(client){
-    Physics.updateWorld(client)
+GameServer.prototype.updateWorld = function(client){
+    this.physics.updateWorld(client)
 };
 
-GameServer.sendToClients = function(message, data, except){
+GameServer.prototype.sendToClients = function(message, data, except){
     var packet = {
         m: message,
         d: data
     };
-    for (var i = 0; i < ClientManager.clients.length; i++) {
-        if(ClientManager.clients[i] != except) {
+    var self = this;
+    _.each(this.playerSockets,function(p,i){
+        if(i != except) {
             packet.t = (new Date()).getTime() + 2000;
             if(config.dt)
                 setTimeout(handle.bind(null,i,packet),config.dt);
             else
-                handle(i,packet);
+                handle(p,packet);
         }
-    }
-    function handle(i,packet){
-        ClientManager.clients[i] && ClientManager.clients[i].send(JSON.stringify(packet));
+    });
+
+    function handle(p,packet){
+        p && p.send(JSON.stringify(packet));
     }
 
 
 };
 
-GameServer.pong = function(client, data) {
+GameServer.prototype.pong = function(client, data) {
     var packet = {
         m: 'pong',
         d: data,
@@ -64,14 +71,12 @@ GameServer.pong = function(client, data) {
     else
         handle();
     function handle(){
-
-
         client.send(JSON.stringify(packet));
     }
-
 };
 
-GameServer.onMessage = function(client,packet){
+GameServer.prototype.onMessage = function(client,packet){
+    var self = this;
     if(config.dt)
         setTimeout(handle,config.dt);
     else
@@ -80,20 +85,20 @@ GameServer.onMessage = function(client,packet){
         if(packet && packet.m){
             switch(packet.m){
                 case 'keyPressed':
+                    var entities = self.entityManger.getEntitiesToBeTriggered(packet.d,client.id);
 
-                    var entities = EntityManager.actionKeys[packet.d];
                     _.each(entities,function(entity){
                         entity && entity.onKeyPressed && entity.onKeyPressed(packet.d)
                     });
                     break;
                 case 'keyReleased':
-                    var entities = EntityManager.actionKeys[packet.d];
+                    var entities = self.entityManger.getEntitiesToBeTriggered(packet.d,client.id);
                     _.each(entities,function(entity){
                         entity && entity.onKeyReleased && entity.onKeyReleased(packet.d)
                     });
                     break;
                 case 'ping':
-                    GameServer.pong(client, packet.d);
+                    //self.pong(client, packet.d);
                     break;
                 default:
                     break;
@@ -102,5 +107,8 @@ GameServer.onMessage = function(client,packet){
     }
 
 };
-Physics.updateWorldCallback = GameServer.sendToClients;
+GameServer.destroy = function(){
+    delete this.physics;
+    delete  this.entityManger
+};
 module.exports = GameServer;

@@ -3,39 +3,41 @@ var EntityFactory = require('../common/Physics/EntityFactory'),
     EntityManager = require('../common/Physics/EntityManager'),
     World = require('../common/World');
 var _ = require('lodash');
-var Physics = {};
-var worldManager;
-var world;
-Physics.startWorld = function(callback){
-    worldManager = new World(EntityFactory);
-    worldManager.setupWorld(TestScenes.running);
-    world = World.world;
+
+var Physics = function(EntityManager){
+    this.entityManager = EntityManager
+};
+Physics.prototype.startWorld = function(entities,callback){
+    this.entityFactory = new EntityFactory(this.entityManager);
+    this.worldManager = new World(this.entityFactory);
+    this.worldManager.setupWorld(entities);
+    this.world = this.worldManager.world;
     callback && callback()
 };
 Physics.lastUpdate = null;
 var stepCount = 0;
-Physics.update = function(){
-    var lastUpdate = new Date().getTime();
-    world.Step(1/60, 10, 10);
-    world.ClearForces();
-    EntityManager.performAllActions(function(isUpdateNeeded){
+Physics.prototype.update = function(){
+    this.world.Step(1/60, 10, 10);
+    this.world.ClearForces();
+    var self = this;
+    this.entityManager.performAllActions(function(isUpdateNeeded){
         if(isUpdateNeeded)
-            Physics.updateWorld();
+            self.updateWorld();
     });
 };
-Physics.getDeltaTime = function(){
+Physics.prototype.getDeltaTime = function(){
     var now = new Date().getTime(),
-        dt = Physics.lastUpdate?(now - Physics.lastUpdate)/1000:1/60;
-    Physics.lastUpdate = now;
+        dt = Physics.lastUpdate?(now - this.lastUpdate)/1000:1/60;
+    this.lastUpdate = now;
     return dt;
 };
 Physics.updateWorldCallback = null;
-Physics.setUpdateWorldCallback = function(callback){
-    Physics.updateWorldCallback = callback
+Physics.prototype.setUpdateWorldCallback = function(callback){
+    this.updateWorldCallback = callback
 };
 
-Physics.updateWorld = function(){
-    var body = world.GetBodyList();
+Physics.prototype.updateWorld = function(){
+    var body = this.world.GetBodyList();
     var update = {};
     var isUpdateNeeded = false;
 
@@ -55,7 +57,7 @@ Physics.updateWorld = function(){
 
 
     if(isUpdateNeeded) {
-        Physics.updateWorldCallback && Physics.updateWorldCallback('world-update', update, null);
+        this.updateWorldCallback && this.updateWorldCallback('world-update', update, null);
     }
 };
 

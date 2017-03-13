@@ -1,11 +1,10 @@
 var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
+var usage = require('pidusage');
 
-var start = require('./public/src/server/index');
+var ConnectionManager = require('./public/src/server/ConnectionManager');
 
-var ClientManager = require('./public/src/server/ClientManager');
-var GameServer = require('./public/src/server/GameServer');
 
 io = require('socket.io').listen(server);
 
@@ -21,17 +20,21 @@ app.get('/', function(request, response) {
     response.render('pages/server');
 });
 
+var pid = process.pid; // you can use any valid PID instead
+
+//setInterval(function(){
+//    usage.stat(pid,{keepHistory:true}, function(err, result) {
+//        console.log(pid,result.cpu,result.memory/1000000);
+//        global.gc();
+//    });
+//},3000);
+
+
 server.listen(app.get('port'), function() {
     console.log('Node app is running on port', app.get('port'));
 });
+new ConnectionManager(io);
 
-io.sockets.on('connection', function(client) {
-    ClientManager.addClient(client);
-    GameServer.sendInitialObjects(client);
-    client.on('message', GameServer.onMessage.bind(GameServer,client));
-    client.on('disconnect', function(){
-        ClientManager.removeClient(client);
-    });
-});
 
-setTimeout(start,0);
+
+

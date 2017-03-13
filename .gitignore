@@ -2,16 +2,19 @@
 node_modules
 npm-debug.log
 
-
 # Local development
 *.env
 *.dev
-.idea/*
+.idea
+.gulp-scss-cache
+.sass-cache
+jest
 .DS_Store
+./config.js
+public/config.js
+.
 
 # Docker
 Dockerfile
 docker-compose.yml
 
-/config.js
-/public/config.js

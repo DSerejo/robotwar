@@ -135,7 +135,7 @@ var EditorScene = cc.Scene.extend({
         }
     },
     setSelectedObject:function(id){
-        var object = EntityManager.getWithId(id);
+        var object = this.worldLayer.entityManager.getWithId(id);
         if(!object) return;
         this.selectedObject && this.selectedObject.unSelect()
         this.selectedObject = object;
@@ -170,9 +170,9 @@ var EditorScene = cc.Scene.extend({
     removeSelectedObject:function(){
         if(this.selectedObject){
             if(this.selectedObject.type=='pin'){
-                EntityManager.removeJoint(this.selectedObject);
+                this.worldLayer.entityManager.removeJoint(this.selectedObject);
             }else{
-                EntityManager.removeEntity(this.selectedObject);
+                this.worldLayer.entityManager.removeEntity(this.selectedObject);
             }
             this.worldLayer.objects.splice(this.worldLayer.objects.indexOf(this.selectedObject),1)
             this.setAllObjectsToInactive();
@@ -180,14 +180,14 @@ var EditorScene = cc.Scene.extend({
     },
     addNewObject:function(type,options){
         this.removeNewObjectLayer();
-        this.newObjectLayer = new NewObjectLayer(this.world,options);
+        this.newObjectLayer = new NewObjectLayer(this.world,options,this.worldLayer.factory);
         this.addChild(this.newObjectLayer);
         var self = this;
         this.newObjectLayer.startCreating(type,function(){
             if(!self.newObjectLayer) return;
             self.worldLayer.addObject(self.newObjectLayer.objectToJson());
             if(type=='pin'){
-                EntityManager.joints[EntityManager.lastID].updateBodyFromSprite();
+                self.worldLayer.entityManager.joints[self.worldLayer.entityManager.lastID].updateBodyFromSprite();
             }
             self.newObjectLayer.objectToBeAdded.remove();
             self.newObjectLayer.removeFromParent();

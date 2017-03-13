@@ -7,8 +7,8 @@ var Propulsor = PropulsorPhysics.extend(_p.allMethodsAndProps(Box),{
     countImpulse:0,
     defaultForce:30,
     isOn:false,
-    ctor:function(id,pos,angle,force,actionKeys){
-        this._super(id,pos,angle,force||this.defaultForce,actionKeys||{start:0});
+    ctor:function(id,pos,angle,force,actionKeys,world){
+        this._super(id,pos,angle,force||this.defaultForce,actionKeys||{start:0},world);
         this.toObject = PropulsorPhysics.prototype.toObject
     },
     createSpriteObject:function(){

@@ -18,12 +18,12 @@ var WorldLayer = cc.Layer.extend({
     },
     lastUpdate:null,
     update:function(){
-        World.world.DrawDebugData();
+        this.worldManager.world.DrawDebugData();
         if(this.stopped) return;
-        World.world.Step(1/60,10,10);
-        World.world.ClearForces();
-        EntityManager.removeDeadBodies();
-        EntityManager.updateAll()
+        this.worldManager.world.Step(1/60,10,10);
+        this.worldManager.world.ClearForces();
+        this.entityManager.removeDeadBodies();
+        this.entityManager.updateAll()
     },
     getDeltaTime: function(){
         var now = new Date().getTime(),
@@ -42,9 +42,13 @@ var WorldLayer = cc.Layer.extend({
         })
     },
     initWorld:function(initialObjects){
-        this.worldManager = new World(Factory);
-        this.worldManager.debugDraw();
+        this.entityManager = new EntityManager();
+        this.factory = new Factory(this.entityManager);
+        this.worldManager = new World(this.factory);
+        this.factory.setWorld(this.worldManager.world);
         this.worldManager.setupWorld();
+        this.worldManager.debugDraw();
+        this.world = this.worldManager.world;
         this.addObjects(initialObjects);
         this.startListenningContacts()
     },
@@ -64,9 +68,9 @@ var WorldLayer = cc.Layer.extend({
     addObject:function(object){
         var entity =this.worldManager.createEntityFromOptions(object);
         if(this.jointObjects.indexOf(object.class)>=0){
-            EntityManager.addNewJoint(entity);
+            this.entityManager.addNewJoint(entity);
         }else{
-            EntityManager.addNewEntity(entity);
+            this.entityManager.addNewEntity(entity);
         }
         this.objects.push(entity);
         if(entity.sprite)
@@ -102,7 +106,7 @@ var WorldLayer = cc.Layer.extend({
         this.world.SetDebugDraw(debugDraw);
     },
     startListenningContacts:function(){
-        new ContactListener(this);
+        new ContactListener(this,this.world,this.entityManager);
     },
     removeDeadBodies:function(){
         _.each(this.graveyard,function(o,i,g){
@@ -125,7 +129,7 @@ var WorldLayer = cc.Layer.extend({
         this.stopped = false;
     },
     saveCurrentState(){
-        this.currentState = JSON.parse(JSON.stringify(World.getCurrentState()));
+        this.currentState = JSON.parse(JSON.stringify(this.worldManager.getCurrentState()));
     },
     save(){
         this.saveCurrentState();
@@ -152,19 +156,27 @@ var WorldLayer = cc.Layer.extend({
     }
 });
 var DamageHandler = cc.Class.extend({
+    world:null,
+    entityManager:null,
+    ctor:function(world,entityManager){
+        this.world = world;
+        this.entityManager = entityManager
+    },
     updateKineticEnergy(obj1,obj2){
         obj1.updateKineticEnergy && obj1.updateKineticEnergy();
         obj2.updateKineticEnergy && obj2.updateKineticEnergy();
     },
     checkAndApplyDamage(obj1,obj2,contact,impulse){
+        if(!obj1.body || !obj2.body) return;
         const impactForce = this.calculateImpactForce(obj1,obj2,impulse),
             impactArea = this.calculateImpactArea(contact),
-            stress = impactForce/impactArea;
-        //
-        //const diffEnergy = this.getDiffEnergy(obj1,obj2),
-        //    absorbedEnergies = this.getAbsorbedEnergyPerObject(obj1,obj2,diffEnergy);
-        this.updateDamage(obj1,obj2,stress);
-        //this.checkDeadBodies(obj1,obj2)
+            stress = [impactForce[0]/impactArea,contact.m_manifold.m_pointCount==2?impactForce[1]/impactArea:0],
+            worldManifold = new b2WorldManifold();
+
+        contact.GetWorldManifold(worldManifold);
+
+        this.updateDamage(obj1,obj2,stress,worldManifold);
+        this.checkDeadBodies(obj1,obj2)
     },
     calculateImpactArea(contact){
         if(contact.m_manifold.m_pointCount==1){
@@ -174,32 +186,28 @@ var DamageHandler = cc.Class.extend({
         }
     },
     calculateImpactForce(obj1,obj2,impulse){
-        var restitution = Box2D.Common.b2Settings.b2MixRestitution(obj1.material.restitution,obj2.material.restitution),
-            totalImpulse = impulse.normalImpulses[0]+impulse.normalImpulses[1],
-            forceResult = totalImpulse*World.world.m_inv_dt0;
-        return forceResult * ((1-restitution)/2 + restitution);
-    },
-
-    getAbsorbedEnergyPerObject(obj1,obj2,energy){
-        var obj1Absorption = 1 - obj1.material.restitution,
-            obj2Absorption = 1 - obj2.material.restitution;
-        return {
-            obj1: energy * obj1Absorption / (obj1Absorption+obj2Absorption),
-            obj2: energy * obj2Absorption / (obj1Absorption+obj2Absorption),
-        }
+        var restitution = Box2D.Common.b2Settings.b2MixRestitution(obj1.body.GetFixtureList().m_restitution,obj2.body.GetFixtureList().m_restitution),
+            factor = (1-restitution)/(1+restitution);
+        return [impulse.normalImpulses[0]*this.world.m_inv_dt0*factor,impulse.normalImpulses[0]*this.world.m_inv_dt0*factor] ;
     },
     getDiffEnergy:function(obj1, obj2){
         var obj1DiffEnergy = obj1.getDiffEnergy?obj1.getDiffEnergy(): 0,
             obj2DiffEnergy = obj2.getDiffEnergy?obj2.getDiffEnergy(): 0;
         return obj1DiffEnergy + obj2DiffEnergy;
     },
-    updateDamage:function(obj1,obj2,stress){
-        obj1.calculateAndApplyDamage && obj1.calculateAndApplyDamage(stress);
-        obj2.calculateAndApplyDamage && obj2.calculateAndApplyDamage(stress);
+    updateDamage:function(obj1,obj2,stress,worldManifold){
+        var appliedStress1 = obj1.calculateAppliedStress(stress,worldManifold);
+        if(appliedStress1[1][0]>0){
+
+        }
+        var appliedStress2 = obj2.calculateAppliedStress(stress,worldManifold);
+
+        obj1.calculateAndApplyDamage && obj1.calculateAndApplyDamage(stress,worldManifold);
+        obj2.calculateAndApplyDamage && obj2.calculateAndApplyDamage(stress,worldManifold);
     },
     checkDeadBodies:function(obj1,obj2){
-        if(obj1.life && obj1.life<0 &&  !this.layer.graveyard[obj1.__instanceId]) this.layer.graveyard[obj1.__instanceId] = obj1;
-        if(obj2.life && obj2.life<0 &&  !this.layer.graveyard[obj2.__instanceId]) this.layer.graveyard[obj2.__instanceId] = obj2;
+        if(obj1.life && obj1.life<0 &&  !this.entityManager.graveyard[obj1.id]) this.entityManager.graveyard[obj1.id] = obj1;
+        if(obj2.life && obj2.life<0 &&  !this.entityManager.graveyard[obj2.id]) this.entityManager.graveyard[obj2.id] = obj2;
     },
 
 });
@@ -207,13 +215,12 @@ var ContactListener = cc.Class.extend({
     _this:null,
     world:null,
     damageHandler:null,
-    ctor:function(layer){
-        const world = World.world;
+    ctor:function(layer,world,entityManager){
         var listener = new b2ContactListener();
         listener.PreSolve = this.PreSolve.bind(this);
         listener.PostSolve = this.PostSolve.bind(this);
         world.SetContactListener(listener);
-        this.damageHandler = new DamageHandler();
+        this.damageHandler = new DamageHandler(world,entityManager);
         this.world = world;
         this.layer = layer;
     },

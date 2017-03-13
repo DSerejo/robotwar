@@ -6,10 +6,12 @@ PinPhysicsDef.prototype.pos  = new b2Vec2();
 PinPhysicsDef.prototype.joint  = null;
 PinPhysicsDef.prototype.id  = null;
 PinPhysicsDef.prototype.type  = 'pin';
+PinPhysicsDef.prototype.world  = 'null';
 
-PinPhysicsDef.prototype.ctor = function(id,pos,fixtures){
+PinPhysicsDef.prototype.ctor = function(id,pos,fixtures,world){
     this.id = id;
     this.pos = pos;
+    this.world = world;
     if(fixtures && fixtures.length){
         this.createJointForFixtures(fixtures);
     }
@@ -29,7 +31,7 @@ PinPhysicsDef.prototype.findFixtures = function(){
         if(fixtures.length<2)
             return true;
     }
-    World.world.QueryPoint(queryCallback,cc.convertPointToMeters(this.sprite.getPosition()));
+    this.world.QueryPoint(queryCallback,cc.convertPointToMeters(this.sprite.getPosition()));
     return fixtures;
 };
 PinPhysicsDef.prototype.checkAndCreateJoint = function(){
@@ -42,7 +44,7 @@ PinPhysicsDef.prototype.createJointForFixtures = function(fixtures){
     var bodyA = fixtures[0].GetBody(),
         bodyB = fixtures[1].GetBody(),
         jointDef = this.createJointDefForBodiesWithPivot(bodyA,bodyB,this.pos);
-    this.joint = World.world.CreateJoint(jointDef);
+    this.joint = this.world.CreateJoint(jointDef);
 };
 PinPhysicsDef.prototype.createJointDefForBodiesWithPivot = function(bodyA,bodyB,pivot){
     var joint_def = new b2RevoluteJointDef();
@@ -63,7 +65,7 @@ PinPhysicsDef.prototype.remove = function() {
 
 PinPhysicsDef.prototype.removeJoint = function(){
     if(this.joint)
-        World.world.DestroyJoint(this.joint)
+        this.world.DestroyJoint(this.joint)
     this.joint = null;
 };
 PinPhysicsDef.prototype.toObject = function(){

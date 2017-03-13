@@ -1,28 +1,34 @@
-var WorldManager = new World(Factory);
+
+
 var stepCount = 0;
-var BattleScene = cc.Scene.extend({
-    stopped:false,
-    socket: null,
-    actionKeys:{},
-    onEnter:function () {
+var BattleEntitiesLayer = cc.Layer.extend({
+    worldManager:null,
+    entityManager:null,
+    factor:null,
+    updateInterval:null,
+    ctor(){
         this._super();
-        var background = new cc.LayerColor(cc.color(255,255,255));
-        this.addChild(background,-1,BattleScene.Tags.background);
-        WorldManager.setupWorld();
-        WorldManager.debugDraw();
-        window.setInterval(this.update.bind(this), 1000 / 60);
-        this.listenEvents()
+        this.entityManager = new EntityManager();
+        this.factory = new Factory(this.entityManager);
+        this.worldManager = new World(this.factory);
+        this.factory.setWorld(this.worldManager.world);
+        this.worldManager.setupWorld();
+        //this.worldManager.debugDraw();
+        this.updateInterval = window.setInterval(this.update.bind(this), 1000 / 60);
+    },
+    destroy:function(){
+        clearInterval(this.updateInterval);
     },
     update:function(){
-        World.world.DrawDebugData();
+        this.worldManager.world.DrawDebugData();
         if(this.stopped) return;
-        World.world.Step(1/60,10,10);
-        World.world.ClearForces();
-        EntityManager.removeDeadBodies();
-        EntityManager.updateAll()
+        this.worldManager.world.Step(1/60,10,10);
+        this.worldManager.world.ClearForces();
+        this.entityManager.removeDeadBodies();
+        this.entityManager.updateAll()
     },
     updateWorld:function(data,t){
-        var world = World.world;
+        var world = this.worldManager.world;
         var body = world.GetBodyList();
         do {
             var userData = body.GetUserData();
@@ -62,40 +68,11 @@ var BattleScene = cc.Scene.extend({
     },
     startObjects:function(data){
         var self = this;
-        WorldManager.clearAllDynamic();
-        WorldManager.setInitialObjects(data,function(o){
+        this.worldManager.clearAllDynamic();
+        this.worldManager.setInitialObjects(data,function(o){
             o.sprite && self.addChild(o.sprite)
         });
         stepCount = 0;
     },
-    listenEvents:function(){
-        var self = this
-        cc.eventManager.addListener({
-            event:cc.EventListener.KEYBOARD,
-            onKeyPressed:function(key,event){
-                var objects = EntityManager.actionKeys[key]
-                if(objects&& objects.length){
-                    self.socket.emit('message',{m:'keyPressed',d:key})
-                }
-                //_.each(objects,function(o){
-                //    o && o.onKeyPressed && o.onKeyPressed(key,event)
-                //})
-            },
-            onKeyReleased:function(key,event){
-                var objects = EntityManager.actionKeys[key]
-                if(objects&& objects.length){
-                    self.socket.emit('message',{m:'keyReleased',d:key})
-                }
-                //_.each(objects,function(o){
-                //    o && o.onKeyReleased && o.onKeyReleased(key,event)
-                //})
-            }
-        },this)
-    }
-
 
 });
-
-BattleScene.Tags = {
-    background:1
-};

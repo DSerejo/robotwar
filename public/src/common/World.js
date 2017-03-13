@@ -6,28 +6,31 @@ if (typeof require !== 'undefined' && typeof module !== 'undefined') {
 }
 var World = function(entityFactory){
     this.entityFactory = entityFactory;
-    World.world = new b2World(gravity);
-    World.world.SetContinuousPhysics(true);
+    this.entityManager = this.entityFactory.entityManager;
+    this.world = new b2World(gravity);
+    this.world.SetContinuousPhysics(true);
     this.staticObjects = [];
+    this.entityFactory.setWorld(this.world);
+
 };
 World.prototype.setupWorld = function(initialObjects){
     this.createGround();
     initialObjects && this.setInitialObjects(initialObjects);
 };
 World.prototype.clearAllDynamic = function(){
-    _.each(EntityManager.entities,function(o){
+    _.each(this.entityManager.entities,function(o){
         o.remove();
     });
-    _.each(EntityManager.joints,function(o){
+    _.each(this.entityManager.joints,function(o){
         o.remove();
     });
-    EntityManager.entities = {};
-    EntityManager.joints = {}
+    this.entityManager.entities = {};
+    this.entityManager.joints = {}
 
 };
 World.prototype.clearAllStatic = function(){
     for(var i = 0;i<this.staticObjects.length;i++){
-        World.world.DestroyBody(this.staticObjects[i]);
+        this.world.DestroyBody(this.staticObjects[i]);
         this.staticObjects.splice(i,1);
     }
 
@@ -38,20 +41,20 @@ World.prototype.createEntityFromOptions = function(o){
 World.prototype.setInitialObjects = function(initialObjects,callback){
     var self = this;
     _.each(initialObjects.bodies,function(o){
-        if(o.id && EntityManager.hasEntityId(o.id)) return;
+        if(!o || (o.id && self.entityManager.hasEntityId(o.id))) return;
         var entity = self.createEntityFromOptions(o);
         if(o.lv){
             entity.body.SetLinearVelocity(o.lv)
             entity.body.SetAngularVelocity(o.av)
         }
         callback && callback(entity);
-        EntityManager.addNewEntity(entity);
+        self.entityManager.addNewEntity(entity);
     });
     _.each(initialObjects.joints,function(o){
-        if(o.id && EntityManager.hasEntityId(o.id)) return;
+        if(!o || (o.id && self.entityManager.hasEntityId(o.id))) return;
         var entity = self.entityFactory[o.class](o);
         callback && callback(entity);
-        EntityManager.addNewJoint(entity);
+        self.entityManager.addNewJoint(entity);
     });
 };
 World.prototype.createGround=function(){
@@ -60,7 +63,7 @@ World.prototype.createGround=function(){
     this.staticObjects.push(this.createStaticBoxBody(pos,size,'ground'));
 };
 World.prototype.createStaticBoxBody = function(pos,size,id){
-    var boxBody = new BoxBody(size.width,size.height,b2_staticBody,1,1,1,pos,0,id);
+    var boxBody = new BoxBody(size.width,size.height,b2_staticBody,1,1,1,pos,0,id,this.world);
     return boxBody.body;
 };
 World.prototype.debugDraw = function(){
@@ -70,10 +73,10 @@ World.prototype.debugDraw = function(){
     debugDraw.SetFillAlpha(0.3);
     debugDraw.SetLineThickness(1.0);
     debugDraw.SetFlags(b2DebugDraw.e_shapeBit | b2DebugDraw.e_jointBit);
-    World.world.SetDebugDraw(debugDraw);
+    this.world.SetDebugDraw(debugDraw);
 };
-World.getBodies = function(){
-    var world = World.world;
+World.prototype.getBodies = function(){
+    var world = this.world;
     var body = world.GetBodyList(),
         bodies = [];
 
@@ -87,11 +90,11 @@ World.getBodies = function(){
     return bodies;
 };
 
-World.getJoints = function(){
+World.prototype.getJoints = function(){
     var world = World.world;
     var joints = [];
 
-    _.each(EntityManager.joints,function(joint,id){
+    _.each(this.entityManager.joints,function(joint,id){
         if(joint.joint){
             joints.push(joint.toObject());
         }
@@ -99,13 +102,13 @@ World.getJoints = function(){
     return joints;
 
 };
-World.pushState = function(){
+World.prototype.pushState = function(){
     if(typeof EditorState !== "undefined"){
-        EditorState.pushState(World.getCurrentState());
+        EditorState.pushState(this.getCurrentState());
     }
 };
-World.getCurrentState = function(){
-    return {bodies:World.getBodies(),joints:World.getJoints()}
+World.prototype.getCurrentState = function(){
+    return {bodies:this.getBodies(),joints:this.getJoints()}
 };
 if (typeof require !== 'undefined' && typeof module !== 'undefined') {
     global.World = World;

@@ -3,9 +3,9 @@ if (typeof require !== 'undefined' && typeof module !== 'undefined') {
     BoxBody = require('../Physics/BoxBody')
 }
 var BoxPhysicsDef = function(){}
-BoxPhysicsDef.prototype.ctor = function(id,width,height,pos,angle,material,type){
+BoxPhysicsDef.prototype.ctor = function(id,width,height,pos,angle,material,type,world){
     this.init(id,width,height,0,pos,angle,material,type||Entity.types.box);
-    this._super()
+    this._super(world)
 }
 BoxPhysicsDef.prototype.addBody = function(){
     var boxBody = new BoxBody(

@@ -1,9 +1,13 @@
 var EditorTests = cc.Class.extend({
+    director:null,
     scene:null,
     tests:{},
-    ctor:function(scene){
-        this.scene=scene;
+    ctor:function(director){
+        this.director=director;
         this.setTests();
+    },
+    updateCurrentScene:function(){
+        this.scene = this.getCurrentScene();
     },
     setTests:function(){
         this.tests ={
@@ -11,6 +15,7 @@ var EditorTests = cc.Class.extend({
         }
     },
     runTests:function(except){
+        this.updateCurrentScene()
         var self = this;
         _.each(this.tests,function(test,testName){
             if(except.indexOf(testName)>=0) return;
@@ -18,6 +23,7 @@ var EditorTests = cc.Class.extend({
         });
     },
     runTest:function(test,options){
+        this.updateCurrentScene()
         this.tests[test] && this.tests[test].run(this.scene,options);
     }
 });

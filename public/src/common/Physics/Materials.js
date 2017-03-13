@@ -23,7 +23,7 @@ var Material = cc.Class.extend({
         if(stressPerArea<this.fakeYieldStrength)
             return 0;
         deformationStress = stressPerArea - this.fakeYieldStrength;
-        deformation = deformationStress * this.getFakePlasticDeformationModulus();
+        deformation = stressPerArea * this.getFakePlasticDeformationModulus();
         return deformation/this.fakeFractionStrain;
     },
     /**
@@ -45,24 +45,24 @@ var Rubber = Material.extend({})
 Rubber.prototype.name = 'rubber';
 Rubber.prototype.density = 1.2;
 Rubber.prototype.friction = 1;
-Rubber.prototype.restitution = 0.6;
+Rubber.prototype.restitution = 1;
 Rubber.prototype.fillColor = '#000000';
 Rubber.prototype.fakeYoungModulus = 0.2;
-Rubber.prototype.fakeYieldStrength = 250;
-Rubber.prototype.fakeFractionStrain = 125;
+Rubber.prototype.fakeYieldStrength = 2500;
+Rubber.prototype.fakeFractionStrain = 2500;
 Rubber.prototype.imaginaryEnergyAbsorptionRate = 1;
 
 
 var Steel =  Material.extend({})
 
-Steel.prototype.name = 'steel';
+Steel.prototype.name = 'metal';
 Steel.prototype.density = 7;
 Steel.prototype.friction = 0.3;
 Steel.prototype.restitution = 0.3;
 Steel.prototype.fillColor = '#EFEFEF';
 Steel.prototype.fakeYoungModulus = 0.7;
-Steel.prototype.fakeYieldStrength = 400;
-Steel.prototype.fakeFractionStrain = 200;
+Steel.prototype.fakeYieldStrength = 2500;
+Steel.prototype.fakeFractionStrain = 2500;
 Steel.prototype.imaginaryEnergyAbsorptionRate = 1;
 
 
@@ -73,8 +73,8 @@ Wood.prototype.friction = 0.6;
 Wood.prototype.restitution = 0.2;
 Wood.prototype.fillColor = '#967a1f';
 Wood.prototype.fakeYoungModulus = 1;
-Wood.prototype.fakeYieldStrength = 20;
-Wood.prototype.fakeFractionStrain = 20;
+Wood.prototype.fakeYieldStrength = 500;
+Wood.prototype.fakeFractionStrain = 500;
 Wood.prototype.imaginaryEnergyAbsorptionRate  = 1;
 
 

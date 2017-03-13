@@ -12,10 +12,10 @@ PropulsorPhysicsDef.prototype.fixedH = 0.25;
 PropulsorPhysicsDef.prototype.isOn = false;
 PropulsorPhysicsDef.prototype.force = 30;
 
-PropulsorPhysicsDef.prototype.ctor = function(id,pos,angle,force,actionKeys){
+PropulsorPhysicsDef.prototype.ctor = function(id,pos,angle,force,actionKeys,world){
     force && this.setForce(force);
     actionKeys && this.setActionKeys(actionKeys);
-    this._super(id,this.fixedW,this.fixedH,pos,angle,Materials.metal(),Entity.types.propulsor);
+    this._super(id,this.fixedW,this.fixedH,pos,angle,Materials.metal(),Entity.types.propulsor,world);
 };
 PropulsorPhysicsDef.prototype.setForce = function(force){
     this.force = force

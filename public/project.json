@@ -14,6 +14,10 @@
         "config.js",
         "src/resource.js",
         "src/common/Globals.js",
+        "src/client/ConnectionManager.js",
+        "src/client/Director.js",
+        "src/client/Battle/BattleDirector.js",
+        "src/client/Editor/EditorDirector.js",
         "src/client/Editor/EditorState.js",
         "src/client/DebugCanvas.js",
         "src/client/Physics/DamageSprite.js",
@@ -52,7 +56,9 @@
         "src/client/Editor/NewObjectLayer.js",
         "src/client/Editor/TestScenes.js",
         "src/client/Editor/Scene.js",
-        "src/client/BattleScene.js",
+        "src/client/Battle/ConnectScene.js",
+        "src/client/Battle/BattleEntitiesLayer.js",
+        "src/client/Battle/BattleScene.js",
         "src/client/Editor/tests/Tests.js",
         "src/client/Editor/tests/AddNewObject.js"
 
