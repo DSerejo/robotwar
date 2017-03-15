@@ -19,7 +19,7 @@ class ElementProp extends React.Component{
             var info = this.props.element.toObject();
             var cc = window.cc;
             this.transform(this.props.element,info,this.state.value);
-            World.pushState();
+            //World.pushState();
             if(this.props.update)
                 this.props.update()
         }
