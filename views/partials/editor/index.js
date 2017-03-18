@@ -7,7 +7,7 @@ import GameLayer from '../game/gameLayer.js'
 import Sidebar from './Sidebar/Sidebar.js'
 import { Router, Route,browserHistory } from 'react-router'
 import keydown from 'react-keydown';
-import robotsVM from './Robots.js';
+import robotsVM from '../../../src/client/Editor/Robots.js';
 import {registerCallbacks} from './helpers.js';
 import _ from 'lodash';
 class Game extends React.Component{

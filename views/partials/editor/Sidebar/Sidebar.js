@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link,browserHistory } from 'react-router'
-import robotsVM from '../Robots.js'
+import robotsVM from '../../../../src/client/Editor/Robots.js'
 import Modal from 'react-bootstrap/lib/Modal'
 import Button from 'react-bootstrap/lib/Button'
 import FormControl from 'react-bootstrap/lib/FormControl.js'

@@ -10,7 +10,9 @@ class ElementProp extends React.Component{
     componentWillReceiveProps(nextProps){
         this.setState({value : nextProps.value})
     }
-    transform(element,info,value){}
+    transform(element,info,value){
+        
+    }
     change(event){
         this.setState({value:event.target.value});
     }
@@ -19,7 +21,7 @@ class ElementProp extends React.Component{
             var info = this.props.element.toObject();
             var cc = window.cc;
             this.transform(this.props.element,info,this.state.value);
-            World.pushState();
+            //World.pushState();
             if(this.props.update)
                 this.props.update()
         }
@@ -31,6 +33,7 @@ class ElementProp extends React.Component{
 class PositionX extends ElementProp{
     transform(element,info,value){
         element.sprite.setPosition(cc.convertMetersToPoint(cc.p(value,info.position.y)));
+        super.transform()
     }
 }
 class PositionY extends ElementProp{

@@ -6,10 +6,12 @@
     "id" : "gameCanvas",
     "renderMode" : 0,
     "engineDir":"/engine",
-
     "modules" : ["cocos2d","box2d"],
-
-    "jsList" : [
+    "jsListOld1" : [
+        "game.js"
+    ],
+    "jsListOld1" : [
+        "game.js",
         "lib/lodash.js",
         "config.js",
         "src/resource.js",
@@ -23,6 +25,7 @@
         "src/client/Physics/DamageSprite.js",
         "src/client/Physics/Base.js",
         "src/client/Physics/Object.js",
+        "src/common/Physics/DamageCalculator.js",
         "src/common/Physics/Entity.js",
         "src/client/Editor/Components/Factory.js",
         "src/common/Physics/EntityManager.js",
@@ -60,7 +63,8 @@
         "src/client/Battle/BattleEntitiesLayer.js",
         "src/client/Battle/BattleScene.js",
         "src/client/Editor/tests/Tests.js",
-        "src/client/Editor/tests/AddNewObject.js"
+        "src/client/Editor/tests/AddNewObject.js",
+        "src/client/Camera.js"
 
     ],
     "jsListOld" : [
