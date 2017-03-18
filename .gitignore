@@ -11,7 +11,7 @@ npm-debug.log
 jest
 .DS_Store
 ./config.js
-public/config.js
+src/client/config.js
 .
 
 # Docker
