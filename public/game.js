@@ -17938,13 +17938,16 @@ EntityManager.prototype.removeJoint = function (joint) {
     joint.remove();
     delete this.joints[joint.id];
 };
-EntityManager.prototype.updateDeadBodies = function () {
+EntityManager.prototype.updateDeadBodies = function (callBack) {
     var self = this;
+    var updateIsNeeded = false;
     _.each(this.entities, function (e, id) {
         if (e.life <= 0) {
+            updateIsNeeded = true;
             self.graveyard[id] = e;
         }
     });
+    updateIsNeeded && callBack();
 };
 EntityManager.prototype.removeDeadBodies = function () {
     var self = this;
@@ -20448,8 +20451,8 @@ module.exports = Mixin(function (sup) {
 
 
 module.exports = {
-    xport: ':5001',
-    xhost: 'localhost'
+    xport: '',
+    xhost: 'https://robotwarserver.herokuapp.com'
 };
 
 //window.xport = '';
