@@ -1,8 +1,8 @@
 var Box = require('./Box/Box');
 var Pin = require('./Pin/Pin');
 var Propulsor = require('./Propulsor/Propulsor');
-var Materials = require('../../../common/Physics/Materials');
-var Entity = require('../../../common/Physics/Entity');
+var Materials = require('../../common/Physics/Materials');
+var Entity = require('../../common/Physics/Entity');
 var Factory = function(entityManager) {
     this.entityManager = entityManager;
 };
@@ -12,7 +12,9 @@ Factory.prototype.setWorld = function(world){
 Factory.prototype.box = function(options){
     var id = options.id ||this.entityManager.newID(),
         material = Materials[options.material||Materials.default]();
-    return new Box(id,options.width,options.height,options.position,options.angle,material,Entity.types.box,this.world);
+    var box = new Box(id,options.width,options.height,options.position,options.angle,material,Entity.types.box,this.world);
+    box.setEntityManager(this.entityManager);
+    return box
 };
 Factory.prototype.pin = function(options){
     var bodyA,
@@ -28,7 +30,9 @@ Factory.prototype.pin = function(options){
 };
 Factory.prototype.propulsor = function(options){
     var id = options.id ||this.entityManager.newID()
-    return new Propulsor(id,options.position,options.angle,options.force,options.actionKeys,this.world);
+    var propulsor = new Propulsor(id,options.position,options.angle,options.force,options.actionKeys,this.world);
+    propulsor.setEntityManager(this.entityManager);
+    return propulsor;
 }
 
 module.exports = Factory;

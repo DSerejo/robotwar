@@ -4,7 +4,7 @@ if (typeof require !== 'undefined' && typeof module !== 'undefined') {
     var Materials = require('./Materials');
     var BoxPhysics = require('../Components/Box');
     var PinPhysics = require('../Components/Pin');
-    var PropulsorPhysics = require('../Components/Propulsor');
+    var PropulsorPhysics = require('../Components/Propulsor').PropulsorPhysics;
 }
 var EntityFactory = function(entityManager) {
     this.entityManager = entityManager;

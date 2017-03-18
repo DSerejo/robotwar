@@ -1,7 +1,7 @@
 var ClientManager = require('./ClientManager');
 var World = require('../common/World');
 var EntityManager = require('../common/Physics/EntityManager');
-var config = require('../../../config');
+var config = require('../../config');
 var _ = require('lodash');
 var GameServer = function(entityManager,physics,playerSockets,gameOverCallback){
     this.entityManager = entityManager;

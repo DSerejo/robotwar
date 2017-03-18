@@ -1,15 +1,16 @@
 require('./common/Globals');
-var g_resource = require('./resource');
-var ConnectionManager = require('./client/ConnectionManager.js');
-var EditorTests = require('./client/Editor/tests/Tests');
-import {cc} from './cc.js';
-
+require('./common/Math');
+var g_resources = require('./resource');
+import {cc} from './constants.js';
+import robotsVM from './client/Editor/Robots.js'
 
 window.GameLoader = function(gameLayer){
     if(!window.robotName) return;
     const self = gameLayer;
     cc.game.onStart = function(){
-
+        var Director = require('./client/GameDirector');
+        var ConnectionManager = require('./client/ConnectionManager.js');
+        var EditorTests = require('./client/Editor/tests/Tests');
         cc._canvas.focus();
         if(!cc.sys.isNative && document.getElementById("cocosLoading")) //If referenced loading.js, please remove it
             document.body.removeChild(document.getElementById("cocosLoading"));
@@ -34,9 +35,9 @@ window.GameLoader = function(gameLayer){
             });
             self.scene = director.getCurrentScene();
             self.props.editorLayerCallbacks.ready(self.scene);
-            if(typeof  EditorTests !== undefined){
-                window.tests = new EditorTests(director);
-            }
+            //if(typeof  EditorTests !== undefined){
+            //    window.tests = new EditorTests(director);
+            //}
         }, gameLayer);
 
     };

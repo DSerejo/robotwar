@@ -1,9 +1,10 @@
 'use strict';
-import {Director} from './Director.js';
-import {EditorDirector} from './Battle/BattleDirector.js';
-import {BattleDirector} from './Editor/EditorDirector.js';
+import Director from './Director.js';
+import BattleDirector from './Battle/BattleDirector.js';
+import EditorDirector from './Editor/EditorDirector.js';
 class GameDirector extends Director{
     constructor(mode,connectionManager,extraOptions){
+        super();
         this.mode = mode;
         this.connectionManager = connectionManager;
         this.start(extraOptions)
@@ -20,4 +21,4 @@ class GameDirector extends Director{
         return this.director.currentScene;
     }
 }
-export default GameDirector;
+module.exports = GameDirector;

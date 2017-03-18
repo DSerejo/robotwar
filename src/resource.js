@@ -2,7 +2,7 @@ var s_HelloWorld = "HelloWorld.jpg";
 var s_CloseNormal = "CloseNormal.png";
 var s_CloseSelected = "CloseSelected.png";
 
-export default g_resources = [
+module.exports =  [
     //image
     s_HelloWorld,
     s_CloseNormal,

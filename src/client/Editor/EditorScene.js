@@ -1,13 +1,20 @@
+var cc = require('../../constants').cc;
+var EditorState = require('./EditorState');
+var WorldLayer = require('./WorldLayer');
+var NewObjectLayer = require('./NewObjectLayer');
 
-var EditorScene = cc.Scene.extend({
-    objects:[],
-    selectedObject:null,
-    mousePressed: false,
-    selectedNode:null,
-    newObjectLayer:null,
-    editorHtmlLayer:null,
-    onEnter:function () {
-        this._super();
+class EditorScene extends cc.Scene{
+    constructor(){
+        super();
+        this.objects = [];
+        this.selectedObject = null;
+        this.mousePressed =  false;
+        this.selectedNode = null;
+        this.newObjectLayer = null;
+        this.editorHtmlLayer = null;
+    }
+    onEnter () {
+        super.onEnter();
         var background = new cc.LayerColor(cc.color(255,255,255));
         this.listenEvents();
         this.addChild(background,-1,EditorScene.Tags.background);
@@ -16,17 +23,17 @@ var EditorScene = cc.Scene.extend({
         this.addChild(this.worldLayer);
         this.worldLayer.setAnchorPoint(0.5,0.5);
         window.editor = this
-    },
-    restartWith:function(robot){
+    }
+    restartWith(robot){
         EditorState.restart();
         this.setAllObjectsToInactive();
         this.worldLayer.currentState = robot;
         this.worldLayer.restart();
-    },
-    togglePhysics:function(){
+    }
+    togglePhysics(){
         this.worldLayer.stopped = !this.worldLayer.stopped;
-    },
-    listenEvents: function(){
+    }
+    listenEvents(){
         var self = this;
         var listener = cc.EventListener.create({
             event: cc.EventListener.MOUSE,
@@ -34,12 +41,12 @@ var EditorScene = cc.Scene.extend({
             onMouseDown: this.onMouseDown.bind(this),
             onMouseUp: this.onMouseUp.bind(this),
             onMouseScroll: this.onMouseScroll.bind(this)
-        })
+        });
         cc.eventManager.addListener(listener, this);
         cc.eventManager.setPriority(listener,1);
         cc.eventManager.addListener({
             event:cc.EventListener.KEYBOARD,
-            onKeyPressed:function(key,event){
+            onKeyPressed(key,event){
                 self.editorHtmlLayer && self.editorHtmlLayer.keyPressed(key,event);
                 if(key==17)
                     self.ctrlPressed = true;
@@ -47,7 +54,7 @@ var EditorScene = cc.Scene.extend({
                     o.onKeyPressed && o.onKeyPressed(key,event)
                 })
             },
-            onKeyReleased:function(key,event){
+            onKeyReleased(key,event){
                 self.editorHtmlLayer && self.editorHtmlLayer.keyReleased(key,event);
                 if(key==17)
                     self.ctrlPressed = false;
@@ -56,43 +63,32 @@ var EditorScene = cc.Scene.extend({
                 })
             }
         },this)
-    },
-    onMouseDown:function(event){
+    }
+    onMouseDown(event){
         if(this.isNewObjectLayerClicked()) return;
         this.mousePressed = true;
         var objects = this.getElementAtMouse(event);
         if(objects.length){
-            if(this.controlLayer && this.controlLayer.selectedButton && this.controlLayer.selectedButton.getName()!='Move' && this.selectedObject && this.selectedObject.isTouched(cc.pointFromEvent(event))) return;
-            this.showControlLayer();
             this.updateSelectedObject(objects);
             if(this.shouldTransform()){
-                this.controlLayer.selectedButton.startTransformation&&this.controlLayer.selectedButton.startTransformation(event,this.selectedObject);
+                //TODO: move
             }
-        }else{
-            if(!this.isControlLayerClicked(event) && !this.isRotateAction()){
-                this.hideControlLayer()
-                this.setAllObjectsToInactive()
-
-            }
-        }
-    },
-    onMouseScroll:function(event){
+        }else
+            this.setAllObjectsToInactive()
+    }
+    onMouseScroll(event){
         var dScale = event._scrollY/1200;
         this.worldLayer.scaleWorld(WORLD_SCALE + dScale);
-    },
-    shouldTransform:function(){
-        return this.mousePressed && this.controlLayer && this.controlLayer.selectedButton && !this.isControlLayerClicked(event)
-    },
-    isNewObjectLayerClicked:function(){
+    }
+    shouldTransform(){
+        
+    }
+    isNewObjectLayerClicked(){
         return this.newObjectLayer
-    },
-    isControlLayerClicked:function(event){
-        return this.controlLayer && this.rectContainsPoint(this.controlLayer,event)
-    },
-    isRotateAction:function(){
-        return this.controlLayer && this.controlLayer.selectedButton && this.controlLayer.selectedButton._name=="Rotate"
-    },
-    onMouseUp:function(event){
+    }
+    
+    
+    onMouseUp(event){
         if(this.isNewObjectLayerClicked()) return;
         this.mousePressed = false;
         if(this.transforming){
@@ -100,86 +96,66 @@ var EditorScene = cc.Scene.extend({
         }
         this.transforming = false;
 
-    },
-    onMouseMove:function(event){
+    }
+    onMouseMove(event){
         if(this.isNewObjectLayerClicked()) return;
-        if(this.shouldTransform()){
-            this.controlLayer.selectedButton.transform(event,this.selectedObject);
-            this.editorHtmlLayer.setSelectedObject(this.selectedObject);
-            this.transforming = true;
-        }
-    },
-    getElementAtMouse:function(event){
+        //TODO move
+    }
+    getElementAtMouse(event){
         var self = this;
         return _.filter(self.worldLayer.objects,function(o){
             return o.sprite && o.isTouched &&  o.isTouched(cc.pointFromEvent(event)) && o.getName!=EditorScene.Tags.background
         })
-    },
-    rectContainsPoint:function(object,event){
+    }
+    rectContainsPoint(object,event){
         return cc.rectContainsPoint(object.getBoundingBoxToWorld(),cc.p(event._x,event._y))
-    },
-    showControlLayer:function(){
-        if(!this.controlLayer){
-            this.controlLayer = new ControlLayer();
-            //this.addChild(this.controlLayer);
-        }
-        if(!this.controlLayer.selectedButton){
-            this.controlLayer.selectedButton = this.controlLayer.moveButton
-            this.controlLayer.moveButton.onActive()
-        }
-
-    },
-    hideControlLayer:function(){
-        if(this.controlLayer){
-            this.controlLayer.removeFromParent()
-            this.controlLayer = null
-        }
-    },
-    setSelectedObject:function(id){
+    }
+    
+    setSelectedObject(id){
         var object = this.worldLayer.entityManager.getWithId(id);
         if(!object) return;
-        this.selectedObject && this.selectedObject.unSelect()
+        this.selectedObject && this.selectedObject.unSelect();
         this.selectedObject = object;
-        this.selectedObject.select()
+        this.selectedObject.select();
         this.editorHtmlLayer && this.editorHtmlLayer.setSelectedObject(this.selectedObject);
-    },
-    updateSelectedObject:function(objects){
-        this.selectedObject && this.selectedObject.unSelect()
+    }
+    updateSelectedObject(objects){
+        this.selectedObject && this.selectedObject.unSelect();
         this.selectedObject = this.findSelectedObject(objects);
-        this.selectedObject.select()
+        this.selectedObject.select();
         this.editorHtmlLayer && this.editorHtmlLayer.setSelectedObject(this.selectedObject);
 
-    },
+    }
 
-    findSelectedObject:function(objects){
+    findSelectedObject(objects){
         if(!this.selectedObject){
             return objects[objects.length-1];
         }
-        var self = this
-        var index = _.findIndex(objects,function(o){return o==self.selectedObject})
+        var self = this;
+        var index = _.findIndex(objects,function(o){return o==self.selectedObject});
         if(index == -1 ) return objects[0];
         if( index == objects.length-1)
             return this.ctrlPressed?objects[0]:objects[index];
         return this.ctrlPressed?objects[index+1]:objects[index];
-    },
-    setAllObjectsToInactive:function(){
-        this.selectedObject && this.selectedObject.unSelect()
-        this.selectedObject = null
+    }
+    setAllObjectsToInactive(){
+        this.selectedObject && this.selectedObject.unSelect();
+        this.selectedObject = null;
         this.editorHtmlLayer && this.editorHtmlLayer.setSelectedObject(this.selectedObject);
 
-    },
-    removeSelectedObject:function(){
+    }
+    removeSelectedObject(){
         if(this.selectedObject){
             if(this.selectedObject.type=='pin'){
                 this.worldLayer.entityManager.removeJoint(this.selectedObject);
             }else{
                 this.worldLayer.entityManager.removeEntity(this.selectedObject);
             }
-            this.worldLayer.objects.splice(this.worldLayer.objects.indexOf(this.selectedObject),1)
+            this.worldLayer.objects.splice(this.worldLayer.objects.indexOf(this.selectedObject),1);
             this.setAllObjectsToInactive();
         }
-    },
-    addNewObject:function(type,options){
+    }
+    addNewObject(type,options){
         this.removeNewObjectLayer();
         this.newObjectLayer = new NewObjectLayer(this.world,options,this.worldLayer.factory);
         this.addChild(this.newObjectLayer);
@@ -194,21 +170,23 @@ var EditorScene = cc.Scene.extend({
             self.newObjectLayer.removeFromParent();
             self.newObjectLayer = null
         })
-    },
-    removeNewObjectLayer:function(){
+    }
+    removeNewObjectLayer(){
         if(!this.newObjectLayer) return;
         this.newObjectLayer.objectToBeAdded && this.newObjectLayer.objectToBeAdded.remove();
         this.newObjectLayer.removeFromParent();
         this.newObjectLayer = null
-    },
-    logLife:function(){
+    }
+    logLife(){
         _.each(this.worldLayer.objects,function(o){
             o.body && console.log(o.options.id, o.life)
         })
     }
 
-});
+}
 
 EditorScene.Tags = {
     background:"BACKGROUND"
-}
+};
+
+module.exports = EditorScene;

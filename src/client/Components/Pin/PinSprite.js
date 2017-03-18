@@ -1,4 +1,4 @@
-var cc = require('../../../../constants').cc;
+var cc = require('../../../constants').cc;
 const _circleColor = '#ff878b'
 class PinSprite extends cc.Node{
     constructor (radius,circleColor) {
@@ -7,6 +7,7 @@ class PinSprite extends cc.Node{
         this.circleColor = circleColor || _circleColor;
         this.draw()
     }
+    init(){}
     draw(){
         var dn = new cc.DrawNode();
         this.addChild(dn);

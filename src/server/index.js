@@ -1,7 +1,7 @@
 
-global.Box2D = require('../../engine/external/box2d/box2d');
+global.Box2D = require('../../public/engine/external/box2d/box2d');
 var fs = require('fs');
-eval(fs.readFileSync('./public/src/server/imports.js') + '');
+eval(fs.readFileSync('./src/server/imports.js') + '');
 var Physics = require('./Physics');
 var EntityManager = require('../common/Physics/EntityManager');
 var GameServer = require('./GameServer');

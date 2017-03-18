@@ -1,4 +1,5 @@
 var cc = require('../../../constants').cc;
+
 class Control{
     transform(){
         console.log('Override me')

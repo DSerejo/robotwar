@@ -32,3 +32,4 @@ EditorState.nextState = function(){
     }
     return EditorState.currentState();
 };
+module.exports = EditorState;

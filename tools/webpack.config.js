@@ -2,9 +2,11 @@
 let webpack = require ('webpack');
 let path = require('path');
 
+
 module.exports =  {
     entry: [
-        './src/main.js'
+        './src/main.js',
+
     ],
     output: {
         path: './public',

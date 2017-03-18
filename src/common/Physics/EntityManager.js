@@ -1,5 +1,6 @@
 if (typeof require !== 'undefined' && typeof module !== 'undefined') {
     var _ = require('lodash');
+    var Entity = require('./Entity');
 }
 
 var EntityManager = function(){
@@ -66,6 +67,17 @@ EntityManager.prototype.removeJoint  = function(joint){
     joint.remove();
     delete this.joints[joint.id];
 };
+EntityManager.prototype.updateDeadBodies  = function(callBack){
+    var self = this;
+    var updateIsNeeded = false;
+    _.each(this.entities,function(e,id){
+        if(e.life<=0){
+            updateIsNeeded = true;
+            self.graveyard[id]=e;
+        }
+    })
+    updateIsNeeded && callBack();
+}   
 EntityManager.prototype.removeDeadBodies  = function(){
     var self = this;
     _.each(this.graveyard,function(e,id,g){

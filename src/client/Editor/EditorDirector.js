@@ -1,9 +1,10 @@
 'use strict';
-import {EditorScene} from './EditorScene.js';
-import {Director} from '../Director.js';
+import EditorScene from './EditorScene.js';
+import Director from '../Director.js';
 class EditorDirector extends Director{
 
     constructor(extraOptions){
+        super()
         this.currentScene =  new EditorScene();
         this.addExtraSceneOptions(extraOptions);
         this.runScene();
@@ -16,4 +17,4 @@ class EditorDirector extends Director{
     }
 
 }
-export default EditorDirector;
+module.exports = EditorDirector;

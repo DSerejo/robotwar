@@ -1,11 +1,12 @@
-//var mixin = require('mixwith');
-var BoxPhysics = require('../../../../common/Components/Box');
-var PhysicsObject = require('../../../Physics/Object');
+'use strict';
+var BoxPhysics = require('../../../common/Components/Box');
+var PhysicsObject = require('../../Physics/Object');
 var BoxSprite = require('./BoxSprite');
-var MIXIN = require('../../../../../tools/mixwith/mixwith');
-var cc = require('../../../../constants').cc;
-var mixed = MIXIN.mix(BoxPhysics).with(PhysicsObject);
-class Box extends mixed{
+
+var MIXIN = require('../../../../tools/mixwith/mixwith');
+var cc = require('../../../constants').cc;
+var BoxPhysicsNode = MIXIN.mix(BoxPhysics).with(PhysicsObject);
+class Box extends BoxPhysicsNode{
     constructor(id,width,height,pos,angle,material,type,world,box2dType){
         super(id,width,height,pos,angle,material,type,world,box2dType);
         this.box2dType = box2dType!==undefined?box2dType:this.box2dType;

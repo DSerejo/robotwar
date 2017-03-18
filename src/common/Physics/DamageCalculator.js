@@ -1,11 +1,14 @@
-var DamageCalculator = function(){};
-DamageCalculator.prototype.entity = null;
-DamageCalculator.prototype.body = null;
-DamageCalculator.prototype.ctor = function(entity){
+if(MODE!='server'){
+    var DamageSprite = require('../../client/Physics/DamageSprite');
+}
+var DamageCalculator = function(entity){
     this.entity = entity;
     this.body = entity.body;
     this.material = entity.material;
-}
+};
+DamageCalculator.prototype.entity = null;
+DamageCalculator.prototype.body = null;
+
 DamageCalculator.prototype.maxForceSupported = function(){
     return this.material.fakeFractionStrain*this.entity.calculateArea();
 };
@@ -87,14 +90,14 @@ DamageCalculator.prototype._getEdgeFromNormal = function(normal){
 };
 DamageCalculator.prototype._calculateDamage = function(stress){
     var bodyArea = this.entity.calculateArea(),
-        stressPerArea =stress/bodyArea;
+        stressPerArea =(stress[0]+stress[1])/bodyArea;
     return this.material.calculateDeformationRatio(stressPerArea);
 };
 DamageCalculator.prototype._applyDamage = function(damage){
-    //if(damage>0){
-    //    if(this.type!=='propulsor')
-    //        new DamageSprite(damage,this);
-    //}
+    if(damage>0 && MODE!='server' && this.type!=='propulsor'){
+
+       new DamageSprite(damage,this.entity);
+    }
     this.entity.life -= damage;
     if(this.life<0){
         //this.isAlive = false;

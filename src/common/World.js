@@ -3,15 +3,18 @@ if (typeof require !== 'undefined' && typeof module !== 'undefined') {
     var BoxBody =  require('./Physics/BoxBody');
     var EntityManager =  require('./Physics/EntityManager');
     var Materials =  require('./Physics/Materials');
+    var ContactListener =  require('./Physics/ContactListener');
     var _ =  require('lodash');
 }
-var World = function(entityFactory){
+var World = function(entityFactory,listenContacts){
     this.entityFactory = entityFactory;
     this.entityManager = this.entityFactory.entityManager;
     this.world = new b2World(gravity);
     this.world.SetContinuousPhysics(true);
     this.staticObjects = [];
     this.entityFactory.setWorld(this.world);
+    if(listenContacts)
+        this.startListenningContacts();
 
 };
 World.prototype.setupWorld = function(initialObjects,withSprite){
@@ -69,6 +72,7 @@ World.prototype.createGround=function(withSprite){
 World.prototype.createStaticBoxBody = function(pos,size,id,withSprite){
     var boxBody;
     if(withSprite){
+        var Box =  require('../client/Components/Box/Box');
         boxBody = new Box(id,size.width,size.height,pos,0,Materials.ground(),id,this.world,b2_staticBody);
     }else{
         boxBody = new BoxBody(size.width,size.height,b2_staticBody,1,1,1,pos,0,id,this.world);
@@ -76,9 +80,14 @@ World.prototype.createStaticBoxBody = function(pos,size,id,withSprite){
     return boxBody;
 };
 World.prototype.debugDraw = function(camera){
+    var debugDraw,canvas,ctx;
     this.clearDraw();
-    var debugDraw = new b2DebugDraw(),
-        ctx = document.getElementById("box2d").getContext("2d");
+    debugDraw = new b2DebugDraw()
+    canvas = document.getElementById("box2d");
+    if(!canvas) return;
+
+    ctx = canvas.getContext("2d");
+
     if(camera){
         ctx.translate(camera.position.x,camera.position.y);
     }
@@ -130,6 +139,12 @@ World.prototype.pushState = function(){
 World.prototype.getCurrentState = function(){
     return {bodies:this.getBodies(),joints:this.getJoints()}
 };
+World.prototype.startListenningContacts = function(){
+    new ContactListener(this.world,this.entityManager);
+}   
+World.prototype.findBody = function(id){
+    return World.findWorldBody(this.world,id);
+}       
 World.findWorldBody = function(world,id){
     var body = world.GetBodyList();
     do {

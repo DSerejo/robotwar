@@ -3,7 +3,7 @@ var app = express();
 var server = require('http').createServer(app);
 //var usage = require('pidusage');
 
-var ConnectionManager = require('./public/src/server/ConnectionManager');
+var ConnectionManager = require('./src/server/ConnectionManager');
 
 
 io = require('socket.io').listen(server);
@@ -38,3 +38,5 @@ new ConnectionManager(io);
 
 
 
+//^(\s*)(.*):(.*),
+//$1this.$2 = $3;

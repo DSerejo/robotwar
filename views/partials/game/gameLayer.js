@@ -1,6 +1,6 @@
 import React from 'react';
+import robotsVM from '../../../src/client/Editor/Robots.js';
 //require('../../../testhelpers');
-import robotsVM from '../editor/Robots.js'
 
 class GameLayer extends React.Component{
     constructor(props){

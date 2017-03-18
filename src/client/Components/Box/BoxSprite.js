@@ -1,4 +1,5 @@
-var cc = require('../../../../constants').cc;
+'use strict';
+var cc = require('../../../constants').cc;
 class BoxSprite extends cc.Node{
     
     constructor(width,height,fillColor,a){

@@ -1,6 +1,6 @@
 class Camera{
     
-    ctor(layer){
+    constructor(layer){
         this.layer = layer;
         this.setDefaults();
         
@@ -9,7 +9,7 @@ class Camera{
         this.position = {
             x:0,
             y:0
-        }
+        };
         this.offset = {x:400,y:200}
     }
     moveBy(x,y){

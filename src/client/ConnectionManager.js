@@ -1,10 +1,10 @@
 'use strict';
-import {cc} from '../cc.js'
-
+import {cc} from '../constants.js'
+var Config = require('./config');
 class ConnectionManager {
     constructor(){
         this.scene = null;
-        this.socket = io.connect(xhost + xport);
+        this.socket = io.connect(Config.xhost + Config.xport);
         this.socket.on('connect',this.onConnect.bind(this));
         this.socket.on('disconnect',this.onDisconnect.bind(this));
         this.socket.on('message', this.onMessage.bind(this));
@@ -30,7 +30,10 @@ class ConnectionManager {
     }
 }
 
-export default ConnectionManager;
+if (typeof require !== 'undefined' && typeof module !== 'undefined') {
+    module.exports = ConnectionManager;
+}
+
 //setInterval(function(){
 //    socket.emit('message',{m:'ping',d:new Date().getTime()});
 //},1000)

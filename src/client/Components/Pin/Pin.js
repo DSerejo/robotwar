@@ -1,8 +1,8 @@
 var mix= require('mixwith').mix;
-var PinPhysics = require('../../../../common/Components/Pin');
-var BaseObject = require('../../../Physics/Base');
+var PinPhysics = require('../../../common/Components/Pin');
+var BaseObject = require('../../Physics/Base');
 var PinSprite = require('./PinSprite');
-var cc = require('../../../../constants').cc;
+var cc = require('../../../constants').cc;
 var mixed = mix(PinPhysics).with(BaseObject);
 class Pin extends mixed{
     constructor(id,pos,fixtures,world){

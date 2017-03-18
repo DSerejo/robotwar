@@ -1,12 +1,12 @@
 
 var mixin = require('mixin');
-var PropulsorPhysicsMixin = require('../../../../common/Components/Propulsor').Mixin;
-var Entity = require('../../../../common/Physics/Entity');
-var Materials = require('../../../../common/Physics/Materials');
+var PropulsorPhysicsMixin = require('../../../common/Components/Propulsor').Mixin;
+var Entity = require('../../../common/Physics/Entity');
+var Materials = require('../../../common/Physics/Materials');
 var Box = require('../Box/Box');
 var BoxSprite = require('../Box/BoxSprite');
-var MIXIN = require('../../../../../tools/mixwith/mixwith');
-var cc = require('../../../../constants').cc;
+var MIXIN = require('../../../../tools/mixwith/mixwith');
+var cc = require('../../../constants').cc;
 var mixed = MIXIN.mix(Box).with(PropulsorPhysicsMixin);
 
 class Propulsor extends mixed{

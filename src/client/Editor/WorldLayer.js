@@ -1,15 +1,14 @@
-var WorldLayer = cc.Layer.extend({
-    objects:[],
-    staticObjects:[],
-    objectsLayer:null,
-    graveyard:{},
-    stopped:true,
-    currentState:{},
-    redrawing:false,
-    jointObjects :['pin'],
-    camera:null,
-    ctor:function(initialObjects){
-        this._super();
+var Camera = require('../Camera');
+var EntityManager = require('../../common/Physics/EntityManager');
+var ContactListener = require('../../common/Physics/ContactListener');
+var Entity = require('../../common/Physics/Entity');
+var World = require('../../common/World');
+var Factory = require('../Components/Factory');
+var cc = require('../../constants').cc;
+class WorldLayer extends cc.Layer{
+    constructor(initialObjects){
+        super();
+        this.setDefaults();
         var sprite = new cc.Sprite('sky.png');
         sprite.setPosition(200,200);
         this.addChild(sprite);
@@ -19,37 +18,17 @@ var WorldLayer = cc.Layer.extend({
         this.camera = new Camera();
         this.camera.notify = this.cameraChanged.bind(this);
         this.initWorld(initialObjects);
-
         window.worldLayer = this;
         setInterval(this.update.bind(this),1000/60);
-    },
-    lastUpdate:null,
-    update:function(){
-        //!this.redrawing && this.worldManager.world.DrawDebugData();
-        if(this.stopped) return;
-        this.worldManager.world.Step(1/60,10,10);
-        this.worldManager.world.ClearForces();
-        this.entityManager.removeDeadBodies();
-        this.entityManager.updateAll();
-        this.camera.moveToFitSprite(this.getHeartElement().sprite)
-    },
-    getDeltaTime: function(){
-        var now = new Date().getTime(),
-            dt = this.lastUpdate?(now - this.lastUpdate)/1000:1/60;
-        this.lastUpdate = now;
-        return dt;
-    },
-    initObjects:function(listOfObjects){
-        var self = this;
-        listOfObjects.forEach(function(object){
-            var newObject = Factory[object.class](object);
-            self.objects.push(newObject);
-            newObject.class = object.class;
-            if(newObject.sprite)
-                self.objectsLayer.addChild(newObject.sprite,object.class=='pin'?2:0);
-        })
-    },
-    initWorld:function(initialObjects){
+    }
+    setDefaults(){
+        this.objects = [];
+        this.staticObjects = [];
+        this.stopped = true;
+        this.currentState = {};
+        this.jointObjects = ['pin']
+    }
+    initWorld(initialObjects){
         this.entityManager = new EntityManager();
         this.factory = new Factory(this.entityManager);
         this.worldManager = new World(this.factory);
@@ -57,9 +36,19 @@ var WorldLayer = cc.Layer.extend({
         this.updateWorld();
         this.world = this.worldManager.world;
         this.addObjects(initialObjects);
-        this.startListenningContacts()
-    },
-    updateWorld:function(){
+    }
+    update(){
+
+        if(this.stopped) return;
+        this.worldManager.world.Step(1/60,10,10);
+        this.worldManager.world.ClearForces();
+        this.entityManager.updateDeadBodies();
+        this.entityManager.removeDeadBodies();
+        this.entityManager.updateAll();
+        this.camera.moveToFitSprite(this.getHeartElement().sprite)
+    }
+
+    updateWorld(){
         this.worldManager.clearAllStatic();
         this.worldManager.debugDraw(this.camera);
         this.worldManager.setupWorld(null,true);
@@ -67,16 +56,16 @@ var WorldLayer = cc.Layer.extend({
         this.worldManager.staticObjects.forEach(function(o){
             o.sprite && self.addChild(o.sprite);
         })
-    },
-    addObjects:function(objects){
+    }
+    addObjects(objects){
         var self = this;
         this.worldManager.setInitialObjects(objects,function(object){
             self.objects.push(object);
             if(object.sprite)
                 self.objectsLayer.addChild(object.sprite,object.type==Entity.types.pin?2:0);
         });
-    },
-    addObject:function(object){
+    }
+    addObject(object){
         var entity =this.worldManager.createEntityFromOptions(object);
         if(this.jointObjects.indexOf(object.class)>=0){
             this.entityManager.addNewJoint(entity);
@@ -86,62 +75,29 @@ var WorldLayer = cc.Layer.extend({
         this.objects.push(entity);
         if(entity.sprite)
             this.objectsLayer.addChild(entity.sprite,entity.type==Entity.types.pin?2:0);
-    },
-    createGround:function(){
-        var pos = cc.p((cc.view.getDesignResolutionSize().width/2)/WORLD_SCALE,0),
-            size = cc.pToSize(cc.pMult(cc.p(cc.view.getDesignResolutionSize().width*20,10),WORLD_SCALE));
-        this.staticObjects.push(this.createStaticBoxBody(pos,size,'ground'));
-    },
-    clearWorld:function(){
-        for(var i = 0;i<this.staticObjects.length;i++){
-            this.world.DestroyBody(this.staticObjects[i]);
-            this.staticObjects.splice(i,1);
-        }
-    },
-    scaleWorld:function(scale){
+    }
+    scaleWorld(scale){
         WORLD_SCALE = scale;
         UPDATE_PMR();
-        //this.objects.forEach(function(object){
-        //    object.updateBodyFromSprite();
-        //});
         this.updateWorld([]);
         this.setScale(scale)
-    },
-    cameraChanged:function(){
+    }
+    cameraChanged(){
         this.setPosition(this.camera.position);
         this.updateWorld([]);
-    },
-    startListenningContacts:function(){
-        new ContactListener(this,this.world,this.entityManager);
-    },
-    removeDeadBodies:function(){
-        _.each(this.graveyard,function(o,i,g){
-            o.removeFromParent();
-            delete g[i];
-        })
-    },
-    getBodyWithId:function(id){
-        var world = this.world;
-        var curBody = world.GetBodyList(),
-            maxTries = world.GetBodyCount();
-        while(curBody.GetUserData()!=id && maxTries>0){
-            curBody = curBody.GetNext()
-        }
-        if(curBody.GetUserData()==id)
-            return curBody
-    },
-    run:function(){
+    }
+    run(){
         this.saveCurrentState();
         this.stopped = false;
-    },
+    }
     saveCurrentState(){
         this.currentState = JSON.parse(JSON.stringify(this.worldManager.getCurrentState()));
-    },
+    }
     save(){
         this.saveCurrentState();
         window.localStorage['robot_' + window.robotName] = JSON.stringify(this.currentState);
-    },
-    restart:function(){
+    }
+    restart(){
         this.stopped = true;
         this.currentSelectedId = this.parent.selectedObject?this.parent.selectedObject.id:null;
         this.worldManager.clearAllDynamic();
@@ -152,120 +108,20 @@ var WorldLayer = cc.Layer.extend({
         if(this.currentSelectedId){
             this.parent.setSelectedObject(this.currentSelectedId)
         }
-    },
-    undo:function(){
+    }
+    undo(){
         this.currentState = EditorState.prevState();
         this.restart();
-    },
-    redo:function(){
+    }
+    redo(){
         this.currentState = EditorState.nextState();
         this.restart();
-    },
+    }
     getHeartElement(){
         return this.entityManager.entities[Object.keys(this.entityManager.entities)[0]]
     }
-});
-var DamageHandler = cc.Class.extend({
-    world:null,
-    entityManager:null,
-    ctor:function(world,entityManager){
-        this.world = world;
-        this.entityManager = entityManager
-    },
-    updateKineticEnergy(obj1,obj2){
-        obj1.updateKineticEnergy && obj1.updateKineticEnergy();
-        obj2.updateKineticEnergy && obj2.updateKineticEnergy();
-    },
-    checkAndApplyDamage(obj1,obj2,contact,impulse){
-        if(!obj1.body || !obj2.body) return;
-        const impactForce = this.calculateImpactForce(obj1,obj2,impulse),
-            impactArea = this.calculateImpactArea(contact),
-            stress = [impactForce[0]/impactArea,contact.m_manifold.m_pointCount==2?impactForce[1]/impactArea:0],
-            worldManifold = new b2WorldManifold();
-
-        contact.GetWorldManifold(worldManifold);
-
-        this.updateDamage(obj1,obj2,stress,worldManifold);
-        this.checkDeadBodies(obj1,obj2)
-    },
-    calculateImpactArea(contact){
-        if(contact.m_manifold.m_pointCount==1){
-            return 0.1;
-        }else{
-            return cc.pDistance(contact.m_manifold.m_points[0].m_localPoint,contact.m_manifold.m_points[1].m_localPoint);
-        }
-    },
-    calculateImpactForce(obj1,obj2,impulse){
-        var restitution = Box2D.Common.b2Settings.b2MixRestitution(obj1.body.GetFixtureList().m_restitution,obj2.body.GetFixtureList().m_restitution),
-            factor = (1-restitution)/(1+restitution);
-        return [impulse.normalImpulses[0]*this.world.m_inv_dt0*factor,impulse.normalImpulses[0]*this.world.m_inv_dt0*factor] ;
-    },
-    getDiffEnergy:function(obj1, obj2){
-        var obj1DiffEnergy = obj1.getDiffEnergy?obj1.getDiffEnergy(): 0,
-            obj2DiffEnergy = obj2.getDiffEnergy?obj2.getDiffEnergy(): 0;
-        return obj1DiffEnergy + obj2DiffEnergy;
-    },
-    updateDamage:function(obj1,obj2,stress,worldManifold){
-        var appliedStress1 = obj1.calculateAppliedStress(stress,worldManifold);
-        if(appliedStress1[1][0]>0){
-
-        }
-        var appliedStress2 = obj2.calculateAppliedStress(stress,worldManifold);
-
-        obj1.calculateAndApplyDamage && obj1.calculateAndApplyDamage(stress,worldManifold);
-        obj2.calculateAndApplyDamage && obj2.calculateAndApplyDamage(stress,worldManifold);
-    },
-    checkDeadBodies:function(obj1,obj2){
-        if(obj1.life && obj1.life<0 &&  !this.entityManager.graveyard[obj1.id]) this.entityManager.graveyard[obj1.id] = obj1;
-        if(obj2.life && obj2.life<0 &&  !this.entityManager.graveyard[obj2.id]) this.entityManager.graveyard[obj2.id] = obj2;
-    },
-
-});
-class ContactListener{
-
-    constructor(layer,world,entityManager){
-        var listener = new b2ContactListener();
-        listener.PreSolve = this.PreSolve.bind(this);
-        listener.PostSolve = this.PostSolve.bind(this);
-        world.SetContactListener(listener);
-        this.damageHandler = new DamageHandler(world,entityManager);
-        this.world = world;
-        this.layer = layer;
-
-    }
-    PreSolve (contact, oldManifold) {
-        var body1 = contact.GetFixtureA().GetBody(),
-            body2 = contact.GetFixtureB().GetBody(),
-            obj1 = body1.GetUserData(),
-            obj2 = body2.GetUserData();
-        this.damageHandler.updateKineticEnergy(obj1,obj2);
-    }
-    PostSolve (contact, impulse) {
-        if(impulse.normalImpulses[0]>1){
-            var obj1 = contact.GetFixtureA().GetBody().GetUserData(),
-                obj2 = contact.GetFixtureB().GetBody().GetUserData();
-            this.damageHandler.checkAndApplyDamage(obj1,obj2,contact,impulse);
-            //console.log(impulse.normalImpulses[0]*2*60);
-            //console.log(obj1.id,obj2.id,contact.m_manifold.m_pointCount,impulse.normalImpulses);
-        }
-    }
-    deepClone(obj){
-        return JSON.parse(JSON.stringify(obj));
-    }
-    applyCorrectorImpulses(obj1,obj2,contact,impulse){
-        if(obj1 != 'ground' && obj2 != 'ground'){
-            var worldManifold = new b2WorldManifold(),
-                normal;
-            contact.GetWorldManifold(worldManifold);
-            if( obj1.life>0 && obj2.life<=0){
-                obj1.updateImpulseCorrector(worldManifold,worldManifold.m_normal,impulse,obj2.correctImpulseRateAfterDestruction())
-            }
-            if(obj2.life>0 && obj1.life<=0){
-                obj2.updateImpulseCorrector(worldManifold,worldManifold.m_normal,impulse,obj1.correctImpulseRateAfterDestruction())
-            }
-        }
-    }
-
-
 }
 
+
+
+module.exports = WorldLayer;

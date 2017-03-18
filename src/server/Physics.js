@@ -9,7 +9,7 @@ var Physics = function(EntityManager){
 };
 Physics.prototype.startWorld = function(entities,callback){
     this.entityFactory = new EntityFactory(this.entityManager);
-    this.worldManager = new World(this.entityFactory);
+    this.worldManager = new World(this.entityFactory,true);
     this.worldManager.setupWorld(entities);
     this.world = this.worldManager.world;
     callback && callback()
@@ -24,6 +24,8 @@ Physics.prototype.update = function(){
         if(isUpdateNeeded)
             self.updateWorld();
     });
+    this.entityManager.updateDeadBodies(this.updateWorld.bind(this));
+    this.entityManager.removeDeadBodies();
 };
 Physics.prototype.getDeltaTime = function(){
     var now = new Date().getTime(),
@@ -49,7 +51,8 @@ Physics.prototype.updateWorld = function(){
                 p: body.GetPosition(),
                 a: body.GetAngle(),
                 lv: body.GetLinearVelocity(),
-                av: body.GetAngularVelocity()
+                av: body.GetAngularVelocity(),
+                l: userData.life
             };
             isUpdateNeeded = true;
         }
