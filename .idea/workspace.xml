@@ -4,78 +4,9 @@
     <bookmark url="file://$PROJECT_DIR$/src/common/Physics/EntityFactory.js" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0cc6a89-09e8-46f6-a174-c280c1719b04" name="Default" comment="WorldLayer before changing class style">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spec/src/client/Components/Box/Box.spec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/Components/Pin/Pin.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/Components/Pin/PinSprite.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/Components/Propulsor/Propulsor.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/mixwith/mixwith.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/client/Components/Motor/Motor.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/client/Components/Rod/Bar.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/client/Components/Rod/Connection.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/client/Components/Rod/Rod.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/client/Components/Rod/RodSprite.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/client/Components/Wheel/CircleSprite.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/client/Components/Wheel/Wheel.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/client/Editor/Components/Pin/Pin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/client/Editor/Components/Pin/PinSprite.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/client/Editor/Components/Propulsor/Propulsor.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/client/Editor/Controls/ControlButton.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/client/Editor/Nav.js" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/config.js" afterPath="$PROJECT_DIR$/src/client/config.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/spec/public/src/common/Components/Box.spec.js" afterPath="$PROJECT_DIR$/spec/src/common/Components/Box.spec.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/spec/public/src/common/Components/Pin.spec.js" afterPath="$PROJECT_DIR$/spec/src/common/Components/Pin.spec.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/spec/public/src/common/Components/Propulsor.spec.js" afterPath="$PROJECT_DIR$/spec/src/common/Components/Propulsor.spec.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/spec/public/src/common/Physics/BoxBody.spec.js" afterPath="$PROJECT_DIR$/spec/src/common/Physics/BoxBody.spec.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/spec/public/src/common/Physics/DamageCalculator.spec.js" afterPath="$PROJECT_DIR$/spec/src/common/Physics/DamageCalculator.spec.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/spec/public/src/common/Physics/Entity.spec.js" afterPath="$PROJECT_DIR$/spec/src/common/Physics/Entity.spec.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/spec/public/src/common/Physics/EntityFactory.spec.js" afterPath="$PROJECT_DIR$/spec/src/common/Physics/EntityFactory.spec.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/spec/public/src/common/Physics/EntityManager.spec.js" afterPath="$PROJECT_DIR$/spec/src/common/Physics/EntityManager.spec.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/spec/public/src/common/Physics/Materials.spec.js" afterPath="$PROJECT_DIR$/spec/src/common/Physics/Materials.spec.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/client/Editor/Components/Box/Box.js" afterPath="$PROJECT_DIR$/src/client/Components/Box/Box.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/client/Editor/Components/Box/BoxSprite.js" afterPath="$PROJECT_DIR$/src/client/Components/Box/BoxSprite.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/client/Editor/Components/Factory.js" afterPath="$PROJECT_DIR$/src/client/Components/Factory.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/views/partials/editor/Robots.js" afterPath="$PROJECT_DIR$/src/client/Editor/Robots.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/Physics/Base.js" afterPath="$PROJECT_DIR$/src/client/Physics/Base.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/Battle/BattleDirector.js" afterPath="$PROJECT_DIR$/src/client/Battle/BattleDirector.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/common/Components/Box.js" afterPath="$PROJECT_DIR$/src/common/Components/Box.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/Camera.js" afterPath="$PROJECT_DIR$/src/client/Camera.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/ConnectionManager.js" afterPath="$PROJECT_DIR$/src/client/ConnectionManager.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/Editor/ControlLayer.js" afterPath="$PROJECT_DIR$/src/client/Editor/ControlLayer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/Physics/DamageSprite.js" afterPath="$PROJECT_DIR$/src/client/Physics/DamageSprite.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/Director.js" afterPath="$PROJECT_DIR$/src/client/Director.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/Editor/EditorDirector.js" afterPath="$PROJECT_DIR$/src/client/Editor/EditorDirector.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/Editor/EditorScene.js" afterPath="$PROJECT_DIR$/src/client/Editor/EditorScene.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/Editor/EditorState.js" afterPath="$PROJECT_DIR$/src/client/Editor/EditorState.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/partials/editor/ElementInfo/ElementInfoRows.js" afterPath="$PROJECT_DIR$/views/partials/editor/ElementInfo/ElementInfoRows.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/common/Physics/Entity.js" afterPath="$PROJECT_DIR$/src/common/Physics/Entity.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/common/Physics/EntityFactory.js" afterPath="$PROJECT_DIR$/src/common/Physics/EntityFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/common/Physics/EntityManager.js" afterPath="$PROJECT_DIR$/src/common/Physics/EntityManager.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/GameDirector.js" afterPath="$PROJECT_DIR$/src/client/GameDirector.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/GameServer.js" afterPath="$PROJECT_DIR$/src/server/GameServer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/common/Physics/Materials.js" afterPath="$PROJECT_DIR$/src/common/Physics/Materials.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/Editor/Controls/Move.js" afterPath="$PROJECT_DIR$/src/client/Editor/Controls/Move.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/Editor/NewObjectLayer.js" afterPath="$PROJECT_DIR$/src/client/Editor/NewObjectLayer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/Physics/Object.js" afterPath="$PROJECT_DIR$/src/client/Physics/Object.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/common/Components/Propulsor.js" afterPath="$PROJECT_DIR$/src/common/Components/Propulsor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/Editor/Controls/Rotate.js" afterPath="$PROJECT_DIR$/src/client/Editor/Controls/Rotate.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/Editor/Controls/Scale.js" afterPath="$PROJECT_DIR$/src/client/Editor/Controls/Scale.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/partials/editor/Sidebar/Sidebar.js" afterPath="$PROJECT_DIR$/views/partials/editor/Sidebar/Sidebar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/common/World.js" afterPath="$PROJECT_DIR$/src/common/World.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/Editor/WorldLayer.js" afterPath="$PROJECT_DIR$/src/client/Editor/WorldLayer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/constants.js" afterPath="$PROJECT_DIR$/src/constants.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/pages/editor.map.js" afterPath="$PROJECT_DIR$/public/pages/editor.map.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/pages/editor.min.js" afterPath="$PROJECT_DIR$/public/pages/editor.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/partials/game/gameLayer.js" afterPath="$PROJECT_DIR$/views/partials/game/gameLayer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/imports.js" afterPath="$PROJECT_DIR$/src/server/imports.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/index.js" afterPath="$PROJECT_DIR$/src/server/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/partials/editor/index.js" afterPath="$PROJECT_DIR$/views/partials/editor/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.js" afterPath="$PROJECT_DIR$/src/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resource.js" afterPath="$PROJECT_DIR$/src/resource.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/helpers/testhelpers.js" afterPath="$PROJECT_DIR$/spec/helpers/testhelpers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/webpack.config.js" afterPath="$PROJECT_DIR$/tools/webpack.config.js" />
+    <list default="true" id="c0cc6a89-09e8-46f6-a174-c280c1719b04" name="Default" comment="Deploying">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/client/config.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="robotwar.iws" />
@@ -104,26 +35,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="BoxSprite.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/Components/Box/BoxSprite.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Globals.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/common/Globals.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="53" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Base.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/client/Physics/Base.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -134,21 +45,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="constants.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/constants.js">
+      <file leaf-file-name="Object.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/Physics/Object.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="53" />
+              <caret line="67" column="18" selection-start-line="67" selection-start-column="18" selection-end-line="67" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Object.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/client/Physics/Object.js">
+      <file leaf-file-name="config.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33333334">
-              <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/client/config.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.2837838">
+              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.5">
+              <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -226,10 +157,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/server/index.js" />
         <option value="$PROJECT_DIR$/src/server/imports.js" />
         <option value="$PROJECT_DIR$/src/server/GameServer.js" />
-        <option value="$PROJECT_DIR$/src/client/config.js" />
         <option value="$PROJECT_DIR$/src/client/ConnectionManager.js" />
         <option value="$PROJECT_DIR$/src/client/Editor/Controls/Rotate.js" />
         <option value="$PROJECT_DIR$/src/client/Editor/Controls/ControlButton.js" />
@@ -277,6 +206,8 @@
         <option value="$PROJECT_DIR$/src/client/Editor/NewObjectLayer.js" />
         <option value="$PROJECT_DIR$/src/client/Physics/Base.js" />
         <option value="$PROJECT_DIR$/src/client/Physics/Object.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/client/config.js" />
       </list>
     </option>
   </component>
@@ -355,6 +286,9 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -383,15 +317,30 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="spec" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="robotwar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="robotwar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -830,6 +779,7 @@
       <workItem from="1489770188259" duration="1086000" />
       <workItem from="1489771810625" duration="2165000" />
       <workItem from="1489775170036" duration="1316000" />
+      <workItem from="1489851572818" duration="469000" />
     </task>
     <task id="LOCAL-00001" summary="Changing gitignore">
       <created>1485952170573</created>
@@ -945,11 +895,17 @@
       <option name="project" value="LOCAL" />
       <updated>1489570913243</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Deploying">
+      <created>1489851616113</created>
+      <option name="number" value="00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1489851616113</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="309271000" />
+    <option name="totallyTimeSpent" value="309740000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1301" height="744" extended-state="6" />
@@ -958,14 +914,15 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32535884" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854864" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5183413" sideWeight="0.5138999" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32591414" sideWeight="0.49483716" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.07863384" sideWeight="0.8013817" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15151516" sideWeight="0.700556" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36682615" sideWeight="0.700556" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41017488" sideWeight="0.31453535" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3036566" sideWeight="0.70611596" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3046252" sideWeight="0.70611596" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26926133" sideWeight="0.8446043" order="0" side_tool="false" content_ui="combo" />
@@ -980,7 +937,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2494043" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Module Dependencies" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962668" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854864" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39872408" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854864" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33894584" sideWeight="0.15539569" order="5" side_tool="true" content_ui="tabs" />
@@ -1042,7 +998,8 @@
     <MESSAGE value="Working on damage" />
     <MESSAGE value="Multiplayer battle" />
     <MESSAGE value="WorldLayer before changing class style" />
-    <option name="LAST_COMMIT_MESSAGE" value="WorldLayer before changing class style" />
+    <MESSAGE value="Deploying" />
+    <option name="LAST_COMMIT_MESSAGE" value="Deploying" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1055,27 +1012,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/client/Editor/Robots.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="19" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/Director.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/GameDirector.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="42" selection-start-line="3" selection-start-column="42" selection-end-line="3" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/Editor/EditorDirector.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1332,7 +1268,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1417,8 +1352,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/client/Physics/Object.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="67" column="18" selection-start-line="67" selection-start-column="18" selection-end-line="67" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.5">
+          <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2837838">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
         </state>
       </provider>
