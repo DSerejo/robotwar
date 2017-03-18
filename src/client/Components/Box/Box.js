@@ -1,22 +1,29 @@
-var BoxDef = PhysicsObject.extend(_p.allMethodsAndProps(BoxPhysics));
-var Box = BoxDef.extend({
-    ctor:function(id,width,height,pos,angle,material,type,world,box2dType){
-        this._super.apply(this,arguments);
+//var mixin = require('mixwith');
+var BoxPhysics = require('../../../../common/Components/Box');
+var PhysicsObject = require('../../../Physics/Object');
+var BoxSprite = require('./BoxSprite');
+var MIXIN = require('../../../../../tools/mixwith/mixwith');
+var cc = require('../../../../constants').cc;
+var mixed = MIXIN.mix(BoxPhysics).with(PhysicsObject);
+class Box extends mixed{
+    constructor(id,width,height,pos,angle,material,type,world,box2dType){
+        super(id,width,height,pos,angle,material,type,world,box2dType);
         this.box2dType = box2dType!==undefined?box2dType:this.box2dType;
+        this.options = {}
         this.addBody();
         this.recreateSprite();
-    },
-    createSpriteObject:function(color,returnSprite){
+    }
+    createSpriteObject(color,returnSprite){
         var sprite =new BoxSprite(cc.convertMetersToPixel(this.w),cc.convertMetersToPixel(this.h),color || this.material.fillColor);
         if(returnSprite){
             return sprite
         }
         this.sprite = sprite;
-    },
-    getId:function(){
+    }
+    getId(){
         return this.id
-    },
-    updateBodyFromSprite:function(){
+    }
+    updateBodyFromSprite(){
         if(!this.sprite)
             return;
         this.removeBody();
@@ -29,15 +36,18 @@ var Box = BoxDef.extend({
         this.h = box.y;
         this.addBody();
         this.checkJointsToAdd();
-    },
+    }
 
-    setPosition: function(p){
+    setPosition(p){
         if(this.sprite)
             this.sprite.setPosition(p)
-    },
-    setRotation: function(a){
+    }
+    setRotation(a){
         if(this.sprite)
             this.sprite.setRotation(a)
     }
 
-});
+}
+if (typeof require !== 'undefined' && typeof module !== 'undefined') {
+    module.exports = Box
+}

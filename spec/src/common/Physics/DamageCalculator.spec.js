@@ -1,9 +1,10 @@
+importBox2d();
 var Entity = require(testDir(__dirname) + '/Entity');
 var Materials = require(testDir(__dirname) + '/Materials');
 var DamageCalculator = require(testDir(__dirname) + '/DamageCalculator');
 describe('Damage calculator',function(){
     var world,entity,damageCalculator;
-    importBox2d();
+
 
     world = new b2World(gravity);
     entity = new Entity(world);
@@ -16,8 +17,8 @@ describe('Damage calculator',function(){
     it('Calculates max force supported',function(){
         var wood = Materials.wood();
         expect(damageCalculator.maxForceSupported()).to.equal(wood.fakeFractionStrain);
-        pending('waiting for contact testings');
     });
+    xit('Calculates damage',function(){})
 
 });
 

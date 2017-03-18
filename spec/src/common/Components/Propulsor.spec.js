@@ -1,10 +1,10 @@
 
-fdescribe('Propulsor',function(){
+describe('Propulsor',function(){
     importBox2d();
     var world,propulsor;
     var keyCode = 87,
         force = 40;
-    var Propulsor = require(testDir(__dirname) + '/Propulsor');
+    var Propulsor = require(testDir(__dirname) + '/Propulsor').PropulsorPhysics;
     var Materials = require(testDir(__dirname) + '/../Physics/Materials');
     world = new b2World(gravity);
     propulsor = new Propulsor(1,{x:1,y:1},0,force,null,world);

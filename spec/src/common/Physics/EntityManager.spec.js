@@ -2,7 +2,7 @@ var EntityFactory = require(testDir(__dirname) + '/EntityFactory');
 var EntityManager = require(testDir(__dirname) + '/EntityManager');
 var World = require(testDir(__dirname) + '/../World');
 var sinon = require('sinon');
-describe('Entity factory',function(){
+describe('Entity manager',function(){
     var world,factory,manager;
     importBox2d();
     function initialize(){
@@ -78,9 +78,7 @@ describe('Entity factory',function(){
         manager.performAllActions(callback);
         expect(callback.calledWith(true)).to.be.true;
     });
-    it('Get player heart',function(){
-        pending("Still need to decide how the heart is going to be");
-    })
+    xit('Get player heart',function(){})
 
 });
 
