@@ -1,10 +1,10 @@
 'use strict';
 if (typeof require !== 'undefined' && typeof module !== 'undefined') {
     var BoxBody = require('../Physics/BoxBody');
-    var Materials = require('../Physics/Materials');
+    var Materials = require('../Physics/Materials').default;
     var Box = require('./Box');
     var _ = require('lodash');
-    var Entity = require('../Physics/Entity');
+    var Entity = require('../Physics/Entity').default;
 }
 var Mixin = (sup) => {
     const fixedW = 0.75;

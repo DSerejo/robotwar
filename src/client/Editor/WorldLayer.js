@@ -9,9 +9,6 @@ class WorldLayer extends cc.Layer{
     constructor(initialObjects){
         super();
         this.setDefaults();
-        var sprite = new cc.Sprite('sky.png');
-        sprite.setPosition(200,200);
-        this.addChild(sprite);
         this.objectsLayer = new cc.Layer();
         this.addChild(this.objectsLayer);
         this.setAnchorPoint(0,0);
@@ -38,7 +35,7 @@ class WorldLayer extends cc.Layer{
         this.addObjects(initialObjects);
     }
     update(){
-
+        this.worldManager.DrawDebugData();
         if(this.stopped) return;
         this.worldManager.world.Step(1/60,10,10);
         this.worldManager.world.ClearForces();

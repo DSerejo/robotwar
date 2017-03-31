@@ -12,4 +12,4 @@ class BoxInfo extends ElementInfo{
         </div>
     }
 }
-export default BoxInfo;
+module.exports = BoxInfo;

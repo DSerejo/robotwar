@@ -1,28 +1,30 @@
 'use strict';
-var BoxPhysics = require('../../../common/Components/Box');
-var PhysicsObject = require('../../Physics/Object');
-var BoxSprite = require('./BoxSprite');
-
-var MIXIN = require('../../../../tools/mixwith/mixwith');
-var cc = require('../../../constants').cc;
-var BoxPhysicsNode = MIXIN.mix(BoxPhysics).with(PhysicsObject);
+import BoxPhysics from '../../../common/Components/Box';
+import PhysicsObject from '../../Physics/Object';
+import BoxSprite from './BoxSprite';
+import {mix} from '../../../../tools/mixwith/mixwith';
+import {cc} from '../../../constants';
+var BoxPhysicsNode = mix(BoxPhysics).with(PhysicsObject);
 class Box extends BoxPhysicsNode{
     constructor(id,width,height,pos,angle,material,type,world,box2dType){
         super(id,width,height,pos,angle,material,type,world,box2dType);
         this.box2dType = box2dType!==undefined?box2dType:this.box2dType;
-        this.options = {}
+        this.options = {};
         this.addBody();
         this.recreateSprite();
     }
     createSpriteObject(color,returnSprite){
-        var sprite =new BoxSprite(cc.convertMetersToPixel(this.w),cc.convertMetersToPixel(this.h),color || this.material.fillColor);
+        var sprite = Box.createSpriteObject(this.w,this.h,color || this.material.fillColor);
         if(returnSprite){
-            return sprite
+            return sprite;
         }
         this.sprite = sprite;
     }
+    static createSpriteObject(w,h,color){
+        return new BoxSprite(cc.convertMetersToPixel(w),cc.convertMetersToPixel(h),color);
+    }
     getId(){
-        return this.id
+        return this.id;
     }
     updateBodyFromSprite(){
         if(!this.sprite)
@@ -37,18 +39,17 @@ class Box extends BoxPhysicsNode{
         this.h = box.y;
         this.addBody();
         this.checkJointsToAdd();
+        this.event.trigger('change');
     }
 
     setPosition(p){
         if(this.sprite)
-            this.sprite.setPosition(p)
+            this.sprite.setPosition(p);
     }
     setRotation(a){
         if(this.sprite)
-            this.sprite.setRotation(a)
+            this.sprite.setRotation(a);
     }
 
 }
-if (typeof require !== 'undefined' && typeof module !== 'undefined') {
-    module.exports = Box
-}
+export default Box;

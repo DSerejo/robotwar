@@ -1,13 +1,12 @@
-
-var mixin = require('mixin');
+'use strict';
 var PropulsorPhysicsMixin = require('../../../common/Components/Propulsor').Mixin;
-var Entity = require('../../../common/Physics/Entity');
-var Materials = require('../../../common/Physics/Materials');
-var Box = require('../Box/Box');
-var BoxSprite = require('../Box/BoxSprite');
-var MIXIN = require('../../../../tools/mixwith/mixwith');
+import Entity from '../../../common/Physics/Entity';
+import Materials from '../../../common/Physics/Materials';
+import Box from '../Box/Box';
+import BoxSprite from '../Box/BoxSprite';
+import {mix} from 'mixwith';
 var cc = require('../../../constants').cc;
-var mixed = MIXIN.mix(Box).with(PropulsorPhysicsMixin);
+var mixed = mix(Box).with(PropulsorPhysicsMixin);
 
 class Propulsor extends mixed{
     constructor(id,pos,angle,force,actionKeys,world){
@@ -17,6 +16,10 @@ class Propulsor extends mixed{
         this.countImpulse = 0;
         this.defaultForce = 30;
         this.isOn = false;
+        this.editorProps.removeProperties(['material.name','h','w'])
+        this.editorProps.addProperties({
+            force:{number:true}
+        })
     }
     createSpriteObject(){
         this.sprite = new BoxSprite(cc.convertMetersToPixel(this.w),cc.convertMetersToPixel(this.h),'#eaae4d');
@@ -27,7 +30,8 @@ class Propulsor extends mixed{
             this.applyForce()
         }
     }
+    addW(dW){}
+    
+    addH(dh){}
 }
-if (typeof require !== 'undefined' && typeof module !== 'undefined') {
-    module.exports = Propulsor;
-}
+export default Propulsor;

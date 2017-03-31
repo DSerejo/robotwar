@@ -1,17 +1,18 @@
 'use strict';
-importBox2d();
-mockCC();
-var Pin = require(testDir(__dirname) + '/Pin');
-var Box = require(testDir(__dirname) + '/../../../common/Components/Box');
-var Materials = require(testDir(__dirname) + '/../../../common/Physics/Materials');
+import {expect,_p} from '../../../../helpers/testhelpers.js';
 describe('Pin',function(){
-    var world,bodyA,bodyB;
+    var world,bodyA,bodyB,Pin,Box,Materials;
+    before(function(){
+        Pin = require ('../../../../../src/client/Components/Pin/Pin.js').default;
+        Box = require('../../../../../src/common/Components/Box');
+        Materials = require('../../../../../src/common/Physics/Materials').default;
+        world = new _p.b2World(_p.gravity);
+    });
 
-    world = new b2World(gravity);
     function createPinWithBodies(bodyPos,pinPos){
-        var bodyPos = bodyPos || {x:1,y:1}
-        var pinPos = pinPos || {x:1,y:1}
-        world = new b2World(gravity);
+        var bodyPos = bodyPos || {x:1,y:1};
+        var pinPos = pinPos || {x:1,y:1};
+        world = new _p.b2World(_p.gravity);
         bodyA = new Box(1,1,1,bodyPos,0,Materials.wood(),null,world);
         bodyB = new Box(2,1,1,bodyPos,0,Materials.wood(),null,world);
         bodyA.addBody();bodyB.addBody();    
@@ -28,14 +29,14 @@ describe('Pin',function(){
         bodyA.body.SetPosition({x:NEWXY,y:NEWXY});
         pin.update();
         expect(pin.sprite.getPosition()).to.shallowDeepEqual({x:PMR*NEWXY,y:PMR*NEWXY})
-    })
+    });
     it('Updates joint position from sprite',function(){
         const NEWXY = 400;
         var pin = createPinWithBodies();
         pin.sprite.setPosition({x:NEWXY,y:NEWXY});
         pin.updateBodyFromSprite();
         expect(pin.toObject()).to.shallowDeepEqual({position:{x:NEWXY/PMR,y:NEWXY/PMR}});
-    })
+    });
     it('Attach bodies if dropped over them',function(){
         const NEWXY = 400;
         bodyA = new Box(1,1,1,{x:10,y:10},0,Materials.wood(),null,world);

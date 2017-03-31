@@ -1,8 +1,7 @@
-if (typeof require !== 'undefined' && typeof module !== 'undefined') {
-    var BoxBody = require('./BoxBody');
-    var DamageCalculator = require('./DamageCalculator');
-    var _ = require('lodash');
-}
+'use strict';
+import BoxBody from './BoxBody';
+import DamageCalculator from './DamageCalculator';
+import _ from 'lodash';
 
 var Entity = function(world){
     this.world = world;
@@ -73,6 +72,13 @@ Entity.prototype.getActionKey = function(action){
     if(this.actionKeys && this.actionKeys[action])
         return this.actionKeys[action];
 };
+Entity.prototype.updateBody = function(){
+    this.removeFromWorld();
+    this.addBody();
+    if(this.sprite){
+        this.recreateSprite();
+    }
+}
 Entity.prototype.toObject = function(){
     var obj = {};
     if(!this.body) return obj;
@@ -118,6 +124,4 @@ EnergyCalc.rotationalKineticEnergy = function(b){
     return 0.5 * b.GetInertia() * Math.pow(b.GetAngularVelocity(),2);
 };
 
-if (typeof require !== 'undefined' && typeof module !== 'undefined') {
-    module.exports = Entity;
-}
+export default Entity;

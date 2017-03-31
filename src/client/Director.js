@@ -6,4 +6,4 @@ class Director{
         //cc.debugger_ = new DebugCanvas(cc._canvas,this.currentScene);
     }
 }
-module.exports = Director;
+export default Director;

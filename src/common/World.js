@@ -6,6 +6,7 @@ if (typeof require !== 'undefined' && typeof module !== 'undefined') {
     var ContactListener =  require('./Physics/ContactListener');
     var _ =  require('lodash');
 }
+
 var World = function(entityFactory,listenContacts){
     this.entityFactory = entityFactory;
     this.entityManager = this.entityFactory.entityManager;
@@ -17,10 +18,26 @@ var World = function(entityFactory,listenContacts){
         this.startListenningContacts();
 
 };
+World.prototype.DrawDebugData = function(){
+    this.world.DrawDebugData();
+    var c;
+    for (c = this.world.m_contactList;
+         c; c = c.m_next) {
+        if(c.m_manifold.m_pointCount==0)
+            continue;
+        var wm = new b2WorldManifold();
+        c.GetWorldManifold(wm);
+        this.world.m_debugDraw.DrawCircle(wm.m_points[0],0.05,'#2ef7bb');
+        if(c.m_manifold.m_pointCount==2){
+            this.world.m_debugDraw.DrawCircle(wm.m_points[1],0.05,'#2ef7bb');
+        }
+    }
+}
 World.prototype.setupWorld = function(initialObjects,withSprite){
     this.createGround(withSprite);
     initialObjects && this.setInitialObjects(initialObjects);
 };
+
 World.prototype.clearAllDynamic = function(){
     _.each(this.entityManager.entities,function(o){
         o.remove();
@@ -47,6 +64,7 @@ World.prototype.createEntityFromOptions = function(o){
 };
 World.prototype.setInitialObjects = function(initialObjects,callback){
     var self = this;
+    console.log(JSON.stringify(this.getCurrentState()));
     _.each(initialObjects.bodies,function(o){
         if(!o || (o.id && self.entityManager.hasEntityId(o.id))) return;
         var entity = self.createEntityFromOptions(o);
@@ -100,9 +118,9 @@ World.prototype.debugDraw = function(camera){
     this.world.SetDebugDraw(debugDraw);
 };
 World.prototype.clearDraw = function(){
-    if(this.world && this.world.m_debugDraw){
-        this.world.m_debugDraw.m_ctx.clearRect(0,0,800,800);
-    }
+    //if(this.world && this.world.m_debugDraw){
+    //    this.world.m_debugDraw.m_ctx.clearRect(0,0,800,800);
+    //}
 }
 World.prototype.getBodies = function(){
     var world = this.world;

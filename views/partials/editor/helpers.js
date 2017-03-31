@@ -16,17 +16,30 @@ class RegisterCallbacks{
     constructor(){
         this.lastId = 0;
         this.callbacks = {};
+        this.callbackPriorities = {};
     }
-    registerCallback(event,callback){
+    registerCallback(event,callback,priority){
+        priority = priority || 0;
         this.callbacks[event] = this.callbacks[event] || {};
+        this.callbackPriorities[event] = this.callbackPriorities[event] || [];
         const id = this.lastId++;
         this.callbacks[event][id] = callback;
-        return ()=>delete this.callbacks[event][id];
+        this.callbackPriorities[event].push({id:id,priority:priority});
+        return ()=>{
+            this.callbackPriorities[event].splice(_.findIndex(this.callbackPriorities,{id:id}),1);
+            delete this.callbacks[event][id]
+        };
     }
     triggerEvent(event,a){
-        _.each(this.callbacks[event],function(fn){
-            if(fn && fn.apply)
-                fn.apply(null,a);
+        const ordered = _.orderBy(this.callbackPriorities[event],['priority'],['desc'])
+        var stop = false;
+        let args = [].concat(a);
+        args.push(()=>{stop = true;})
+        _.each(ordered,(c)=>{
+            const fn = this.callbacks[event][c.id];
+            if(fn && !stop && fn.apply)
+                fn.apply(null,args);
+            return !stop;
         })
     }
 }
@@ -37,15 +50,19 @@ var registerKeyCallBacks = {
 };
 class KeyCallbackComponent extends React.Component{
     registerKeyCallbacks(){
-        this.unregisterKeypressed = registerKeyCallBacks.pressed(this.keyPressed.bind(this));
-        this.unregisterKeyreleased = registerKeyCallBacks.released(this.keyReleased.bind(this));
+        if(this.registered) return;
+        this.unregisterKeypressed = registerKeyCallBacks.pressed(this.keyPressed.bind(this),this.priority);
+        this.unregisterKeyreleased = registerKeyCallBacks.released(this.keyReleased.bind(this),this.priority);
+        this.registered = true;
     }
     componentWillMount(){
-        this.registerKeyCallbacks();
+        if(!this.delayCallbackRegistration)
+            this.registerKeyCallbacks();
     }
     componentWillUnmount(){
         this.unregisterKeypressed && this.unregisterKeypressed();
         this.unregisterKeyreleased && this.unregisterKeyreleased();
+        this.registered = false;;
     }
     keyReleased(key){}
     keyPressed(key){}

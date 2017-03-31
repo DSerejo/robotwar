@@ -33,7 +33,10 @@ var Room = function(id,io,clientManager){
     this.gameOver = function(loserId){
         var self = this;
         _.each(this.players,function(s,id){
-            self.notifyPlayers(id==loserId?Room.closeReasons.lose:Room.closeReasons.win,id);
+            if(loserId=='draw')
+                self.notifyPlayers(Room.closeReasons.draw);
+            else
+                self.notifyPlayers(id==loserId?Room.closeReasons.lose:Room.closeReasons.win,id);
         });
         this.stop();
     };
@@ -41,6 +44,7 @@ var Room = function(id,io,clientManager){
         var bodies = [],
             joints = [],
             offset = 0;
+
         _.each(this.clientManager.robots,function(r,id){
             var robot = JSON.parse(r),
                 adjuster = new RobotPositionAdjuster(robot,id,offset);
@@ -97,7 +101,8 @@ Room.closeReasons = {
     'gameEnd':'gameEnd',
     'opponentLeft':'opponentLeft',
     'win':'win',
-    'lose':'lose'
+    'lose':'lose',
+    'draw':'draw'
 }
 Room.lastId=0;
 module.exports = Room;

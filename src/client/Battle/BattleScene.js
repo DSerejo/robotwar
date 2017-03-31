@@ -1,8 +1,9 @@
 'use strict';
 import {cc} from '../../constants.js';
 import BattleEntitiesLayer from './BattleEntitiesLayer';
-
-class BattleScene extends cc.Scene{
+import {mix} from "../../../tools/mixwith/mixwith.js";
+import {MessageListenerMixin} from "../../common/helpers/MessageListener.js";
+class BattleScene extends mix(cc.Scene).with(MessageListenerMixin){
     constructor(director,room){
         super();
         this.restartEntitiesLayer();
@@ -11,7 +12,7 @@ class BattleScene extends cc.Scene{
         this.room = room;
         this.stopped = false
         this.actionKeys = {}
-        this.battleEntitiesLayer = null;
+        this.restartEntitiesLayer();
 
     }
     restartEntitiesLayer(){
@@ -27,19 +28,15 @@ class BattleScene extends cc.Scene{
     }
     onEnter () {
         this.listenEvents();
-        this.restartEntitiesLayer();
     }
     setConnectionManager(connection){
         this.connection = connection;
-    }
-    onMessage(packet){
-        if (packet && packet.m && BattleScene.acceptableMessages[packet.m])
-            this[BattleScene.acceptableMessages[packet.m]](packet);
     }
     onWorldUpdate(packet){
          this.battleEntitiesLayer.updateWorld(packet.d, packet.t);
     }
     onWorldStart(packet){
+        console.log(packet);
         this.battleEntitiesLayer.startObjects(packet.d, packet.t);
     }
     onGameClosed(packet){
@@ -75,7 +72,7 @@ class BattleScene extends cc.Scene{
     }
 
 };
-BattleScene.acceptableMessages = {
+BattleScene.prototype.acceptableMessages = {
     'world-update':'onWorldUpdate',
     'world-start':'onWorldStart',
     'gameClosed':'onGameClosed'

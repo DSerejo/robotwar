@@ -1,7 +1,8 @@
 'use strict';
 import {cc} from '../../constants.js';
-
-class ConnectScene  extends cc.Scene{
+import {mix} from "../../../tools/mixwith/mixwith.js";
+import {MessageListenerMixin} from "../../common/helpers/MessageListener.js";
+class ConnectScene  extends mix(cc.Scene).with(MessageListenerMixin){
     constructor(robot,director){
         super();
         this.myRobot =robot;
@@ -36,25 +37,17 @@ class ConnectScene  extends cc.Scene{
         this.addChild(this.messageLabel);
     }
     onConnect(){
+        this.messageLabel.setString("Conntected!");
+    }
+    startSearchingOpponent(){
         this.connection.sendMessage('robot',this.myRobot);
         this.messageLabel.setString("Searching for opponent");
     }
-    onMessage(packet){
-        if (packet && packet.m) {
-            switch(packet.m) {
-                case 'room':
-                    return this.joinedRoom(packet.d);
-                case 'opponentNotFound':
-                    return this.opponentNotFound(packet.d);
-            }
-
-        }
-    }
-    joinedRoom(room){
-        this.director.startGame(room);
+    joinedRoom(packet){
+        this.director.startGame(packet.d);
     }
     opponentNotFound(){
-        this.messageLabel.setString("Could not find an opponent");
+        this.messageLabel.setString("Could not find an opponent.");
     }
     setMessageLabel(message){
         this.messageLabel.setString(message);
@@ -62,4 +55,8 @@ class ConnectScene  extends cc.Scene{
 
 
 };
+ConnectScene.prototype.acceptableMessages = {
+    'room':'joinedRoom',
+    'opponentNotFound':'opponentNotFound'
+}
 module.exports = ConnectScene;

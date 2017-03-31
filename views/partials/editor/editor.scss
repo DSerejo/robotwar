@@ -1,3 +1,6 @@
+@import '../battle/battle.scss';
+@import './Sidebar/Sidebar.scss';
+
 .editor-box{
   position: absolute;
   top:0;
@@ -29,9 +32,26 @@ $helper_padding: 5;
   border: #{$helper_border_width}px solid #ccc;
   font-size: 12px;
 }
+
 .helper-text{
   text-align: center;
 }
-.sidebar{
-  background: white;
+
+
+
+
+@import '../../../node_modules/toastr/toastr.scss';
+@import './Sidebar/GUI/Select.scss';
+.controller_select {
+  .value{
+    width: 100px;
+    float: right;
+  }
+  .Select-value{
+    line-height: 24px !important;
+  }
+  .Select-clear-zone{
+    display: none !important;
+  }
+  
 }

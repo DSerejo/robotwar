@@ -1,4 +1,5 @@
 var cc = require('../../constants').cc;
+
 class NewObjectLayer extends cc.Layer{
     
     constructor(world,options,factory){
@@ -27,17 +28,18 @@ class NewObjectLayer extends cc.Layer{
         cc.eventManager.setPriority(listener,1);
     }
     onMouseDown(event){
-        this._mousePressed = true;
-        this.startedPoint = cc.convertPointToMeters(cc.pointFromEvent(event));
-        this.updateObject(event);
+        // this._mousePressed = true;
+        // this.startedPoint = cc.convertPointToMeters(cc.pointFromEvent(event));
+        // this.updateObject(event);
     }
     onMouseMove(event){
-        if(this._mousePressed)
-            this.updateObject(event);
+        this.updateObject(event);
+            
     }
     onMouseUp(event){
         this._mousePressed = false;
-        this.callBack && this.callBack()
+        const isInsideCanvas = cc.rectContainsPoint(cc.rect(0,0,cc.winSize.width,cc.winSize.height),cc.pointFromEvent(event))
+        this.callBack && isInsideCanvas && this.callBack()
     }
     startCreating(type,callBack){
         this.callBack = callBack;
@@ -46,16 +48,12 @@ class NewObjectLayer extends cc.Layer{
     updateObject(event){
         if(!this.objectToBeAdded){
             this.createObject(event);
-            if(this.isFixedSize())
-                return this.callBack()
         }else{
             this.objectToBeAdded && this.updateSpriteOptions(event);
             this.objectToBeAdded && this.objectToBeAdded.recreateSprite()
         }
-
-
-
     }
+
     isFixedSize(){
         return  this.type=='pin' || this.type=='propulsor';
     }
@@ -65,16 +63,20 @@ class NewObjectLayer extends cc.Layer{
         this.addChild(this.objectToBeAdded.sprite)
     }
     updateSpriteOptions(event){
-        this.objectToBeAdded.pos = this.preparePosition(event);
-        var size = this.prepareSize(event);
-        this.objectToBeAdded.h = size.height;
-        this.objectToBeAdded.w = size.width;
+        if(this.objectToBeAdded.body)
+            this.objectToBeAdded.body.SetPosition(this.preparePosition(event));
+        else
+            this.objectToBeAdded.pos = this.preparePosition(event);
+        // var size = this.prepareSize(event);
+        // this.objectToBeAdded.h = size.height;
+        // this.objectToBeAdded.w = size.width;
     }
     prepareObjectOptionsFromEvent(event){
         return _.extend({},
             this.options,
-            this.prepareSize(event),
             {
+                width:this.options.w,
+                height:this.options.h,
                 position:this.preparePosition(event),
                 type:b2_dynamicBody,
                 delayedBodyCreation:true,
@@ -83,6 +85,7 @@ class NewObjectLayer extends cc.Layer{
             })
     };
     preparePosition(event){
+        return cc.convertPointToMeters(cc.pointFromEvent(event));
         var currentPos = cc.convertPointToMeters(cc.pointFromEvent(event));
         return cc.pMult(cc.p(
             Math.min(this.startedPoint.x,currentPos.x),

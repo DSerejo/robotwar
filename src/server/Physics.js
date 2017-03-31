@@ -4,8 +4,9 @@ var EntityFactory = require('../common/Physics/EntityFactory'),
     World = require('../common/World');
 var _ = require('lodash');
 
-var Physics = function(EntityManager){
+var Physics = function(EntityManager,gameOverCallback){
     this.entityManager = EntityManager
+    this.gameOverCallback = gameOverCallback;
 };
 Physics.prototype.startWorld = function(entities,callback){
     this.entityFactory = new EntityFactory(this.entityManager);
@@ -27,6 +28,8 @@ Physics.prototype.update = function(){
     this.entityManager.updateDeadBodies(this.updateWorld.bind(this));
     this.entityManager.removeDeadBodies();
 };
+
+
 Physics.prototype.getDeltaTime = function(){
     var now = new Date().getTime(),
         dt = Physics.lastUpdate?(now - this.lastUpdate)/1000:1/60;

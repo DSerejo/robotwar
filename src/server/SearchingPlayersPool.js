@@ -25,8 +25,12 @@ SearchingPlayersPool.prototype.removePlayer = function(id){
     delete this.playerIndex[id];
     delete this.playersTimouts[id];
     this.indexPlayers();
+    this.opponentNotFound(player);
     return player;
 };
+SearchingPlayersPool.prototype.opponentNotFound = function(player){
+    player && player.send(JSON.stringify({m:'opponentNotFound'}));
+}   
 SearchingPlayersPool.prototype.indexPlayers = function(){
     var self = this;
     _.each(this.players,function(p,i){
@@ -44,7 +48,7 @@ SearchingPlayersPool.prototype.startMatch = function(player1,player2){
 SearchingPlayersPool.prototype.addPlayer = function(player){
     if(this.playerIndex[player.id]) return;
     this.players.push(player);
-    this.playersTimouts[player.id] = setTimeout(this.removePlayer.bind(this,player.id),30000);
+    this.playersTimouts[player.id] = setTimeout(this.removePlayer.bind(this,player.id),3000);
     this.indexPlayers();
 };
 

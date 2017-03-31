@@ -9,6 +9,7 @@ var GameServer = function(entityManager,physics,playerSockets,gameOverCallback){
     this.playerSockets = playerSockets;
     this.physics.updateWorldCallback = this.sendToClients.bind(this);
     this.gameOverCallback = gameOverCallback;
+    MODE = 'server'
 };
 GameServer.prototype.playerHeart = {};
 GameServer.prototype.mapHearts = function(){
@@ -22,7 +23,7 @@ GameServer.prototype.sendInitialObjects = function(client){
         m:'world-start',
         d:this.physics.worldManager.getCurrentState()
     };
-    this.mapHearts()
+    this.mapHearts();
     client.send(JSON.stringify(packet));
 };
 GameServer.prototype.sendAllInitialObjects = function(except){
@@ -100,6 +101,9 @@ GameServer.prototype.onKeyAction = function(packet,client,action){
 GameServer.prototype.onPing = function(packet,client){}
 GameServer.prototype.checkStatus = function(){
     var self = this;
+    if(this.entityManager.deadPlayers.length){
+        return this.gameOverCallback(this.entityManager.deadPlayers.length>1?'draw':this.entityManager.deadPlayers[0]);
+    }
     _.each(this.playerHeart,function(heart,id){
 
         if(heart && heart.body.GetPosition().y<-15){

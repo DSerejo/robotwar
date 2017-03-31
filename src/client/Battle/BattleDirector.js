@@ -29,7 +29,8 @@ BattleDirector.endGameMessages = {
     'opponentLeft':'Your opponent has left the game',
     'lostConnection':'Conennection Lost',
     'win':'You win!!',
-    'lose':'You lose :('
+    'lose':'You lose :(',
+    'draw':'It was a tie'
 };
 
 module.exports = BattleDirector;

@@ -1,0 +1,89 @@
+.sidebar{
+  background: rgb(84, 84, 84);
+  color: white;
+  padding: 0; 
+  ul{
+    padding:0;
+  }
+  li {
+    transition: height 0.1s ease-out;
+    list-style: none;
+    padding: 5px 10px;
+  }
+  li.title{
+    .glyphicon {
+      font-size: 9px;
+      padding-right: 5px;
+      top: -1px;
+
+    }
+    background: #545454;  
+    border-bottom: 1px solid grey;
+    cursor:pointer;
+  }
+  li:not(.title){
+    background: #626263;
+    &:not(.controller_folder):not(.controller_entity){
+      border-left: 3px solid;
+    }
+  }
+
+  li.controller_folder, li.controller_entity{
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .controller_folder .folder {
+      margin-right: -10px;
+      margin-bottom: 0;
+  }
+  ul.folder.closed > li:not(.title) {
+    height: 0;
+    overflow: hidden;
+    border: 0;
+    padding:0;  
+  }
+  .controller_button:hover{
+    border-bottom: 1px solid yellow;
+    cursor: pointer;
+    background: #5f5f5f !important;
+    
+  }
+  .controller_button{
+    background: #484848 !important;
+    border-color: yellow !important;
+  }
+
+}
+.sidebar .folder  > li {
+  margin-left: -10px;
+  padding-left: 10px
+}
+.sidebar .folder .folder > li {
+  margin-left: -10px;
+  padding-left: 20px;
+}
+.sidebar .folder .folder .folder > li {
+  margin-left: -20px;
+  padding-left: 30px;
+}
+.sidebar .folder .folder .folder .folder > li {
+  margin-left: -30px;
+  padding-left: 40px;
+}
+.sidebar .controller_number .value,.sidebar .controller_static .value,.sidebar .controller_key .value{
+  float: right;
+  width: 50px;
+  text-align: center;
+    
+}
+.sidebar .controller_number .value,.sidebar .controller_key .value{
+  background: grey;
+  border-right-color: gray;
+  border-bottom-color: gray;
+  border-left-color: #aba9a9;
+  border-top-color: #aba9a9;
+}
+.sidebar .controller_key .value{
+  width: initial;
+  min-width: 50px
+} 

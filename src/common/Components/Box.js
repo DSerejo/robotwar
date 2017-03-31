@@ -1,6 +1,6 @@
 'use strict';
 if (typeof require !== 'undefined' && typeof module !== 'undefined') {
-    var Entity = require('../Physics/Entity');
+    var Entity = require('../Physics/Entity').default;
 
 }
 class BoxPhysics extends Entity{

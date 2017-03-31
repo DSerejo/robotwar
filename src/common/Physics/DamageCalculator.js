@@ -1,3 +1,4 @@
+"use strict";
 if(MODE!='server'){
     var DamageSprite = require('../../client/Physics/DamageSprite');
 }
@@ -103,6 +104,4 @@ DamageCalculator.prototype._applyDamage = function(damage){
         //this.isAlive = false;
     }
 };
-if (typeof require !== 'undefined' && typeof module !== 'undefined') {
-    module.exports = DamageCalculator;
-}
+export default DamageCalculator;

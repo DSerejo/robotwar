@@ -2,6 +2,9 @@ var cc = require('../../constants').cc;
 var EditorState = require('./EditorState');
 var WorldLayer = require('./WorldLayer');
 var NewObjectLayer = require('./NewObjectLayer');
+var EventClass = require('event-class');
+var _ = require('lodash');
+var toastr = require('toastr');
 
 class EditorScene extends cc.Scene{
     constructor(){
@@ -11,7 +14,7 @@ class EditorScene extends cc.Scene{
         this.mousePressed =  false;
         this.selectedNode = null;
         this.newObjectLayer = null;
-        this.editorHtmlLayer = null;
+        this.event = new EventClass();
     }
     onEnter () {
         super.onEnter();
@@ -21,8 +24,9 @@ class EditorScene extends cc.Scene{
         EditorState.loadFromDB();
         this.worldLayer = new WorldLayer(this.robot);
         this.addChild(this.worldLayer);
-        this.worldLayer.setAnchorPoint(0.5,0.5);
+        //this.worldLayer.setAnchorPoint(0.5,0.5);
         window.editor = this
+        this.event.trigger('start');
     }
     restartWith(robot){
         EditorState.restart();
@@ -53,6 +57,9 @@ class EditorScene extends cc.Scene{
                 _.each(self.worldLayer.objects,function(o){
                     o.onKeyPressed && o.onKeyPressed(key,event)
                 })
+                if(key==27){
+                    self.newObjectLayer && self.removeNewObjectLayer();
+                }
             },
             onKeyReleased(key,event){
                 self.editorHtmlLayer && self.editorHtmlLayer.keyReleased(key,event);
@@ -117,13 +124,46 @@ class EditorScene extends cc.Scene{
         this.selectedObject && this.selectedObject.unSelect();
         this.selectedObject = object;
         this.selectedObject.select();
-        this.editorHtmlLayer && this.editorHtmlLayer.setSelectedObject(this.selectedObject);
+        this.event.trigger('change:selectedObject');
+        //this.editorHtmlLayer && this.editorHtmlLayer.setSelectedObject(this.selectedObject);
+    }
+    selectedPrevObject(){
+        const objects = this.worldLayer.objects;
+        if(!objects.length) return;
+        if(!this.selectedObject){
+             this.setSelectedObject(this.getObjectIdWithIndex(objects.length-1));
+        }
+        const self = this;
+        var index = _.findIndex(objects,function(o){return o== self.selectedObject});
+        if( index == 0){
+            this.setSelectedObject(this.getObjectIdWithIndex(objects.length-1));
+        }else{
+            this.setSelectedObject(this.getObjectIdWithIndex(index-1));
+        }
+    }
+    selectedNextObject(){
+        const objects = this.worldLayer.objects;
+        if(!objects.length) return;
+        if(!this.selectedObject){
+             this.setSelectedObject(this.getObjectIdWithIndex(0));
+        }
+        const self = this;
+        var index = _.findIndex(objects,function(o){return o== self.selectedObject});
+        if( index == objects.length-1){
+            this.setSelectedObject(this.getObjectIdWithIndex(0));
+        }else{
+            this.setSelectedObject(this.getObjectIdWithIndex(index+1));
+        }
+    }
+    getObjectIdWithIndex(index){
+        return this.worldLayer.objects[index].id
     }
     updateSelectedObject(objects){
         this.selectedObject && this.selectedObject.unSelect();
         this.selectedObject = this.findSelectedObject(objects);
         this.selectedObject.select();
-        this.editorHtmlLayer && this.editorHtmlLayer.setSelectedObject(this.selectedObject);
+        this.event.trigger('change:selectedObject');
+        //this.editorHtmlLayer && this.editorHtmlLayer.setSelectedObject(this.selectedObject);
 
     }
 
@@ -141,7 +181,8 @@ class EditorScene extends cc.Scene{
     setAllObjectsToInactive(){
         this.selectedObject && this.selectedObject.unSelect();
         this.selectedObject = null;
-        this.editorHtmlLayer && this.editorHtmlLayer.setSelectedObject(this.selectedObject);
+        this.event.trigger('change:selectedObject');
+        //this.editorHtmlLayer && this.editorHtmlLayer.setSelectedObject(this.selectedObject);
 
     }
     removeSelectedObject(){
@@ -154,6 +195,12 @@ class EditorScene extends cc.Scene{
             this.worldLayer.objects.splice(this.worldLayer.objects.indexOf(this.selectedObject),1);
             this.setAllObjectsToInactive();
         }
+    }
+    getSelectedObject(){
+        if(this.newObjectLayer && this.newObjectLayer.objectToBeAdded){
+            return this.newObjectLayer.objectToBeAdded;
+        }
+        return this.selectedObject;
     }
     addNewObject(type,options){
         this.removeNewObjectLayer();
@@ -169,6 +216,7 @@ class EditorScene extends cc.Scene{
             self.newObjectLayer.objectToBeAdded.remove();
             self.newObjectLayer.removeFromParent();
             self.newObjectLayer = null
+            toastr.success("Done!",null,{timeOut:2000,positionClass:'toast-top-center'});
         })
     }
     removeNewObjectLayer(){
@@ -181,6 +229,9 @@ class EditorScene extends cc.Scene{
         _.each(this.worldLayer.objects,function(o){
             o.body && console.log(o.options.id, o.life)
         })
+    }
+    getEntityManager(){
+        return this.worldLayer?this.worldLayer.worldManager.entityManager:null 
     }
 
 }

@@ -5,20 +5,27 @@ import EditorDirector from './Editor/EditorDirector.js';
 class GameDirector extends Director{
     constructor(mode,connectionManager,extraOptions){
         super();
-        this.mode = mode;
         this.connectionManager = connectionManager;
-        this.start(extraOptions)
+        this.start(mode,extraOptions)
     }
-    start(extraOptions){
-        if(MODE != 'server'){
+    start(mode,extraOptions){
+        this.mode = mode;
+        MODE = mode;
+        if(mode != 'server'){
             this.director = new EditorDirector(extraOptions);
         }else{
             this.director = new BattleDirector(this.connectionManager,extraOptions);
         }
 
     }
+    /**
+     * @return {cc.Scene}
+     */
     getCurrentScene(){
         return this.director.currentScene;
+    }
+    getDirectorName(){
+        return this.director.constructor.name;
     }
 }
 module.exports = GameDirector;

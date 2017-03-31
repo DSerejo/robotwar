@@ -6,33 +6,44 @@ const Newer = require('gulp-newer');
 const Concat = require('gulp-concat');
 const Webpack = require('webpack');
 const Scss = require("gulp-scss");
+const watch = require("gulp-watch");
 
 let executionCount = 0;
 
-Gulp.task('default',['webpack','scss']);
+Gulp.task('default',['scss','webpack']);
 
+Gulp.task('watch', function() {
+  watch('views/partials/editor/editor.scss', ['scss']);
+});
 Gulp.task("scss", function () {
     const bundleConfigs = [{
         entries: 'views/partials/editor/**/*.scss',
         dest: 'public/css'
     }];
+    console.log(1);
+    watch('views/partials/editor/editor.scss',function(){
+        console.log(2);
+        Gulp.src('views/partials/editor/editor.scss')
+        .pipe(Scss())
+        .pipe(Gulp.dest('public/css'))
+    });
     //Gulp.src(
     //
     //).pipe(Scss()).pipe(Gulp.dest("public/css"));
-    bundleConfigs.forEach((bundleConfig) => {
-        Gulp.src(bundleConfig.entries)
-            .pipe(Scss())
-            .pipe(Gulp.dest(bundleConfig.dest));
-    });
+    // bundleConfigs.forEach((bundleConfig) => {
+    //     watch(bundleConfig.entries)
+    //         .pipe(Scss())
+    //         .pipe(Gulp.dest(bundleConfig.dest));
+    // });
 });
 Gulp.task('webpack', (callback) => {
 
     const plugins = [
-        new Webpack.optimize.CommonsChunkPlugin({
-            name: 'core',
-            filename: '../core.min.js',
-            minSize: 2
-        }),
+        //new Webpack.optimize.CommonsChunkPlugin({
+        //    name: 'core',
+        //    filename: 'core.min.js',
+        //    minSize: 2
+        //}),
         new Webpack.DefinePlugin({
             'process.env': {
                 'NODE_ENV': `"${process.env.NODE_ENV}"`
@@ -53,9 +64,10 @@ Gulp.task('webpack', (callback) => {
     }
 
     const config = {
-        watch: false,
+        watch: true,
         entry: {
             editor: './views/partials/editor',
+            game:'./src/main.js'
         },
         output: {
             path: './public/pages',
@@ -71,9 +83,12 @@ Gulp.task('webpack', (callback) => {
                 exclude: /node_modules/,
                 loader: 'babel-loader',
                 query: {
-                    presets: ['es2015','react' ]
+                    presets: ['es2015','react' ],
+                    "plugins": ["transform-object-rest-spread","transform-es2015-parameters"]
                 }
-            }]
+            },
+                { test: /\.css$/, loader: "style-loader!css-loader" }
+            ]
         },
         devtool,
         plugins

@@ -1,14 +1,16 @@
-var mix= require('mixwith').mix;
-var PinPhysics = require('../../../common/Components/Pin');
-var BaseObject = require('../../Physics/Base');
-var PinSprite = require('./PinSprite');
-var cc = require('../../../constants').cc;
+import {mix} from '../../../../tools/mixwith/mixwith.js';
+import {cc} from '../../../constants';
+import PinPhysics from '../../../common/Components/Pin';
+import BaseObject from '../../Physics/Base';
+import PinSprite from './PinSprite';
+
 var mixed = mix(PinPhysics).with(BaseObject);
 class Pin extends mixed{
     constructor(id,pos,fixtures,world){
         super(id,pos,fixtures,world);
         this.setDefaults();
         this.recreateSprite();
+        this.editorProps.removeProperties(['material.name','h','w','angle'])
     }
     setDefaults(){
         this.radius = 4;
@@ -40,6 +42,4 @@ class Pin extends mixed{
         this.sprite = null;
     }
 }
-if (typeof require !== 'undefined' && typeof module !== 'undefined') {
-    module.exports = Pin;
-}
+export default Pin;

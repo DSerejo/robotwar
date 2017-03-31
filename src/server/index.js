@@ -8,7 +8,8 @@ var GameServer = require('./GameServer');
 
 function NewGame(players,entities,gameOverCallback){
     var entityManager = new EntityManager();
-    var physics = new Physics(entityManager)
+    console.log(entityManager.joints);
+    var physics = new Physics(entityManager,gameOverCallback)
     this.gameServer = new GameServer(entityManager,physics,players,gameOverCallback);
     physics.startWorld(entities, this.gameServer.sendAllInitialObjects.bind(this.gameServer));
     var self = this;

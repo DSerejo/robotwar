@@ -11,7 +11,7 @@ class GameLayer extends React.Component{
     }
     //init(){}
     init(){
-        GameLoader(this);
+        window.game = new window.Game(this);
         this.started = true
     }
     componentWillReceiveProps(nextProps){

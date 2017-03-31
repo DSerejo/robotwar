@@ -13,7 +13,10 @@ app.get('/', function(request, response) {
   var wsHOST = process.env.NODE_ENV=='production'?'https://robotwarserver.herokuapp.com':'http://localhost:5001';
   response.render('pages/index',{wsHOST:wsHOST});
 });
-
+app.get('/edit', function(request, response) {
+  var wsHOST = process.env.NODE_ENV=='production'?'https://robotwarserver.herokuapp.com':'http://localhost:5001';
+  response.render('pages/edit',{wsHOST:wsHOST});
+});
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });

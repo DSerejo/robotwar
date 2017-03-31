@@ -56,7 +56,7 @@ Rubber.prototype.imaginaryEnergyAbsorptionRate = 1;
 class Metal extends Material{}
 Metal.prototype.name = 'metal';
 Metal.prototype.density = 7;
-Metal.prototype.friction = 0.3;
+Metal.prototype.friction = 1;
 Metal.prototype.restitution = 0.3;
 Metal.prototype.fillColor = '#EFEFEF';
 Metal.prototype.fakeYoungModulus = 0.7;
@@ -93,6 +93,4 @@ var Materials = {
     default:'wood'
 };
 
-if (typeof require !== 'undefined' && typeof module !== 'undefined') {
-    module.exports = Materials;
-}
+export default Materials;

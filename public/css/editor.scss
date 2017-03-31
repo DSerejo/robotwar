@@ -1,0 +1,110 @@
+@import '../battle/battle.scss';
+@import './Sidebar/Sidebar.scss';
+
+.editor-box{
+  position: absolute;
+  top:0;
+  pointer-events: none;
+}
+.editor-box input,.editor-box button{
+  pointer-events: initial;
+}
+.editor-box input.invisible{
+  visibility: hidden;
+  width: 0;
+}
+.hide{
+  display: none !important;
+}
+$helper_width: '30%';
+$helper_left: '100% - #{$helper_width}';
+$helper_border_width: 1;
+$helper_padding: 5;
+.helper{
+  background: rgba(226, 226, 226, 0.2);
+  display: inline-block;
+  max-height: 90%;
+  overflow: auto;
+  left: calc( #{$helper_left} - #{$helper_border_width * 2}px);
+  position: relative;
+  width: calc( #{$helper_width} - #{$helper_padding * 2}px);
+  padding: #{$helper_padding}px;
+  border: #{$helper_border_width}px solid #ccc;
+  font-size: 12px;
+}
+
+.helper-text{
+  text-align: center;
+}
+.sidebar {
+  background: #545454;
+  color: white;
+  padding: 0; 
+}
+.sidebar ul {
+  padding: 0; 
+}
+.sidebar li {
+  transition: height 0.1s ease-out;
+  list-style: none;
+  padding: 5px 10px; 
+}
+.sidebar li.title {
+  background: #545454;
+  border-bottom: 1px solid grey;
+  cursor: pointer; 
+}
+.sidebar li.title .glyphicon {
+  font-size: 9px;
+  padding-right: 5px;
+  top: -1px; 
+}
+.sidebar li:not(.title) {
+  background: #626263;
+}
+.sidebar li:not(.title):not(.controller_folder):not(.controller_entity) {
+  border-left: 3px solid;
+}
+.sidebar li.controller_folder,.sidebar li.controller_entity {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.sidebar .controller_folder .folder {
+  margin-right: -10px;
+  margin-bottom: 0; 
+}
+.sidebar ul.folder.closed > li:not(.title) {
+  height: 0;
+  overflow: hidden;
+  border: 0;
+  padding: 0; 
+}
+.sidebar .controller_button:hover {
+  border-bottom: 1px solid yellow;
+  cursor: pointer;
+  background: #5f5f5f !important; 
+}
+.sidebar .controller_button {
+  background: #484848 !important;
+  border-color: yellow !important; 
+}
+
+.sidebar .folder > li {
+  margin-left: -10px;
+  padding-left: 10px; 
+}
+
+.sidebar .folder .folder > li {
+  margin-left: -10px;
+  padding-left: 20px; 
+}
+
+.sidebar .folder .folder .folder > li {
+  margin-left: -20px;
+  padding-left: 30px;
+}
+
+.sidebar .folder .folder .folder .folder > li {
+  margin-left: -30px;
+  padding-left: 40px;
+}

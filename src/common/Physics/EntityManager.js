@@ -1,15 +1,29 @@
+'use strict';
 if (typeof require !== 'undefined' && typeof module !== 'undefined') {
     var _ = require('lodash');
     var Entity = require('./Entity');
 }
 
 var EntityManager = function(){
+    this.joints = {};
+    this.entities = {};
+    this.lastID = 0;
+    this.entities = {};
+    this.joints = {};
+    this.graveyard = {};
+    this.actionKeys = {};
+    this.partialDeadPlayers = [];
+    this.deadPlayers = [];
+    this.notifyDeadPlayerTimeout = null;
 };
 EntityManager.prototype.lastID = 0;
 EntityManager.prototype.entities = {};
 EntityManager.prototype.joints = {};
 EntityManager.prototype.graveyard = {};
 EntityManager.prototype.actionKeys = {};
+EntityManager.prototype.partialDeadPlayers = [];
+EntityManager.prototype.deadPlayers = [];
+EntityManager.prototype.notifyDeadPlayerTimeout = null;
 
 EntityManager.prototype.addNewEntity  = function(entity){
     if(!entity instanceof  Entity)
@@ -68,16 +82,38 @@ EntityManager.prototype.removeJoint  = function(joint){
     delete this.joints[joint.id];
 };
 EntityManager.prototype.updateDeadBodies  = function(callBack){
-    var self = this;
+    callBack = callBack || function(){}
+    var self = this,
+        checkPlayers = [];
     var updateIsNeeded = false;
     _.each(this.entities,function(e,id){
         if(e.life<=0){
             updateIsNeeded = true;
             self.graveyard[id]=e;
+            checkPlayers.push((id+"").split('_')[0])
         }
     })
+    updateIsNeeded && this.checkPlayersHearts(checkPlayers);
     updateIsNeeded && callBack();
-}   
+}
+EntityManager.prototype.checkPlayersHearts = function(players){
+    const self = this;
+    _.each(players,function(id){
+        const heart = self.getPlayerHeart(id);
+        if(!heart.body.GetJointList() && self.partialDeadPlayers.indexOf(id)<0){
+            self.partialDeadPlayers.push(id);
+        }
+    })
+    
+    !this.notifyDeadPlayerTimeout && this.partialDeadPlayers.length && this.notifyDeadPlayers()
+}
+EntityManager.prototype.notifyDeadPlayers = function(){
+    
+    this.notifyDeadPlayerTimeout = setTimeout(()=>{
+        this.deadPlayers = this.partialDeadPlayers
+        
+    },1000);
+}
 EntityManager.prototype.removeDeadBodies  = function(){
     var self = this;
     _.each(this.graveyard,function(e,id,g){

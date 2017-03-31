@@ -1,6 +1,6 @@
 'use strict';
 import {cc} from '../constants.js'
-var Config = require('./config');
+import Config from './config';
 class ConnectionManager {
     constructor(){
         this.scene = null;
@@ -30,10 +30,8 @@ class ConnectionManager {
     }
 }
 
-if (typeof require !== 'undefined' && typeof module !== 'undefined') {
-    module.exports = ConnectionManager;
-}
 
+export default ConnectionManager;
 //setInterval(function(){
 //    socket.emit('message',{m:'ping',d:new Date().getTime()});
 //},1000)

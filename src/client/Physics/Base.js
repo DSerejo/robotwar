@@ -2,10 +2,40 @@
 var cc = require('../../constants').cc;
 var BoxSprite = require('../Components/Box/BoxSprite');
 var Mixin = require('../../../tools/mixwith/mixwith').Mixin;
+var EventClass = require('event-class');
+var _ = require('lodash');
+class EditorProperties{
+    constructor(props){
+        this.props = props
+    }
+    addProperties(props){
+        this.props = _.extend(this.props,props);
+    }
+    removeProperty(prop){
+        delete this.props[prop];
+    }
+    removeProperties(props){
+        props.forEach((p)=>this.removeProperty(p));
+    }
+}
 
 
 module.exports = Mixin((sup) => {
         class Base extends sup{
+            constructor(...args){
+                super(...args);
+                this.editorProps = new EditorProperties({
+                    'type':{static:true},
+                    'id':{static:true},
+                    'material.name':{'label':'material','static':true},
+                    'w':{number:true,onChange:(w)=>{this.w = w; this.recreateSprite();this.event.trigger('change:prop:w')}},
+                    'h':{number:true},
+                    'pos.x':{'label':'x',number:true},
+                    'pos.y':{'label':'y',number:true},
+                    'angle':{number:true}
+                })
+                this.event = new EventClass();
+            }
             isTouched(p){
                 var rect = new cc.Rect(0,0,this.sprite._contentSize.width, this.sprite._contentSize.height),
                     localPoint = this.sprite.convertToNodeSpace(p),
@@ -66,12 +96,24 @@ module.exports = Mixin((sup) => {
                 this.sprite.setPosition(cc.convertMetersToPoint(cc.p(this.pos.x,this.pos.y+dY)));
                 this.updateBodyFromSprite();
             }
+            addW(dW){
+                this.w = this.w+dW;
+                this.recreateSprite();
+                this.updateBodyFromSprite();
+            }
+            
+            addH(dh){
+                this.h = this.h+dh;
+                this.recreateSprite();
+                this.updateBodyFromSprite();
+            }
             addAngle(dA){
                 this.sprite.setRotation(-this.angle + dA);
                 this.updateBodyFromSprite();
             }
         }
         Base.prototype.options = {};
+        
         return Base;
 }
 );

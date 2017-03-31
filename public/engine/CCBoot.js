@@ -596,7 +596,8 @@ cc.loader = /** @lends cc.loader# */{
             args = self._getArgs4Js(arguments);
         this.loadJs(args[0], args[1], function (err) {
             if (err) throw err;
-            jsLoadingImg.parentNode.removeChild(jsLoadingImg);//remove loading gif
+            if(jsLoadingImg)
+                jsLoadingImg.parentNode.removeChild(jsLoadingImg);//remove loading gif
             if (args[2]) args[2]();
         });
     },
@@ -643,6 +644,7 @@ cc.loader = /** @lends cc.loader# */{
                 jsLoadingImg.src = cc._loadingImage;
 
             var canvasNode = d.getElementById(cc.game.config["id"]);
+            if(!canvasNode) return;
             canvasNode.style.backgroundColor = "black";
             canvasNode.parentNode.appendChild(jsLoadingImg);
 

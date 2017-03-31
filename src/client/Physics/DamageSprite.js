@@ -1,3 +1,4 @@
+"use strict";
 var cc = require('../../constants').cc;
 class DamageSprite{
     

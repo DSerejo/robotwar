@@ -1,5 +1,4 @@
-
-
+'use strict';
 var BoxBody = function(width,height,bodyType,density,restitution,friction,pos,angle,userData,world){
     world = userData.world || world;
     var bodyDef = new b2BodyDef();
@@ -19,7 +18,4 @@ var BoxBody = function(width,height,bodyType,density,restitution,friction,pos,an
     fixDef.restitution = restitution;
     this.body.CreateFixture(fixDef);
 };
-if (typeof require !== 'undefined' && typeof module !== 'undefined') {
-
-    module.exports = BoxBody;
-}
+export default BoxBody;

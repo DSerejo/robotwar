@@ -1,21 +1,19 @@
-var chai = require("chai");
-var jsxChai = require("jsx-chai");
-//chai.use(jsxChai);
+var chai = require('chai');
+//var jsxChai = require("jsx-chai");
+////chai.use(jsxChai);
 chai.use(require('chai-shallow-deep-equal'));
-
-if(typeof window !== 'undefined'){
-    window.expect = chai.expect;
-}
-global.expect = chai.expect;
-global.testDir = function(dir){
+//
+export const _p = typeof window === 'undefined'?global:window;
+export let expect = chai.expect;
+export let testDir = function(dir){
     return dir.replace('/spec','');
 };
-global.importBox2d = function(){
-    global.Box2D = require('../../public/engine/external/box2d/box2d');
-    var fs = require('fs');
-    eval(fs.readFileSync(__dirname + '/../../src/server/imports.js') + '');
+export let importBox2d = function(){
+    //global.Box2D = require('../../public/engine/external/box2d/box2d');
+    //var fs = require('fs');
+    //eval(fs.readFileSync(__dirname + '/../../src/server/imports.js') + '');
 };
-global.mockCC = function(){
+export let mockCC = function(){
 	var _p = typeof window !== 'undefined'?window:global;
 	_p.cc.Node = class{
 		addChild(){}
@@ -45,10 +43,11 @@ global.mockCC = function(){
 		drawDot(){}
 		drawRect(){}
 	};
-	_p.cc.hexToColor = ()=>{return {}}
-	_p.cc.color = ()=>{return {}}
+	_p.cc.hexToColor = ()=>{return {}};
+	_p.cc.color = ()=>{return {}};
 	_p.cc.pFromSize = function (s) {
 		return cc.p(s.width, s.height);
-	};	
-}
+	};
+};
+
 

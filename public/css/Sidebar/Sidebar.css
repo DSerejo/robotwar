@@ -1,0 +1,7 @@
+.sidebar .li {
+  transition: height 0.1s ease-out; }
+
+.sidebar > ul.closed li:not(.title) {
+  height: 0;
+  overflow: hidden;
+  border: 0; }

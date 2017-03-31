@@ -1,6 +1,6 @@
 module.exports ={
-    xport: '',
-    xhost: 'https://robotwarserver.herokuapp.com'
+    xport: ':5001',
+    xhost: 'localhost'
 } ;
 
 

@@ -1,21 +1,24 @@
-var Box = require('./Box/Box');
-var Pin = require('./Pin/Pin');
-var Propulsor = require('./Propulsor/Propulsor');
-var Materials = require('../../common/Physics/Materials');
-var Entity = require('../../common/Physics/Entity');
+'use strict';
+import Box from './Box/Box';
+import Pin from './Pin/Pin';
+import Propulsor from './Propulsor/Propulsor';
+import Materials from '../../common/Physics/Materials';
+import Entity from '../../common/Physics/Entity';
+
 var Factory = function(entityManager) {
     this.entityManager = entityManager;
 };
 Factory.prototype.setWorld = function(world){
     this.world = world;
 }
-Factory.prototype.box = function(options){
+Factory.prototype.box = function(options,onlySprite){
     var id = options.id ||this.entityManager.newID(),
         material = Materials[options.material||Materials.default]();
     var box = new Box(id,options.width,options.height,options.position,options.angle,material,Entity.types.box,this.world);
     box.setEntityManager(this.entityManager);
     return box
 };
+
 Factory.prototype.pin = function(options){
     var bodyA,
         bodyB,
@@ -35,4 +38,4 @@ Factory.prototype.propulsor = function(options){
     return propulsor;
 }
 
-module.exports = Factory;
+export default Factory;

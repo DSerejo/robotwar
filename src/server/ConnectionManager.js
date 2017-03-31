@@ -24,7 +24,6 @@ function ConnectionManager(io){
 
         var fn = ConnectionManager.availableMessages[message.m];
         if(fn) return this[fn](client,message);
-
         if(ClientManager.canSendMessageToRoom(client,room)){
             var gameServer = ClientManager.rooms[room].newGame.gameServer;
             gameServer.onMessage.call(gameServer,client,message);

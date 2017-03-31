@@ -23,11 +23,11 @@ class MenuLayer extends KeyCallbackComponent{
         this.setState({showElementList:!this.state.showElementList});
     }
     toggleRunningState(){
-        if(this.state.running)
-            this.props.editorScene.worldLayer.restart();
-        else
-            this.props.editorScene.worldLayer.run();
-        this.setState({running:!this.state.running});
+        // if(this.state.running)
+        //     this.props.editorScene.worldLayer.restart();
+        // else
+        //     this.props.editorScene.worldLayer.run();
+        // this.setState({running:!this.state.running});
     }
     save(){
         this.props.editorScene.worldLayer.save();

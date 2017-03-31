@@ -1,4 +1,4 @@
-
+'use strict';
 if (typeof require !== 'undefined' && typeof module !== 'undefined') {
     var Entity = require('./Entity');
     var Materials = require('./Materials');
